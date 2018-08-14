@@ -1,16 +1,15 @@
-GitHub
-
+Sourced from: https://help.github.com/articles/syncing-a-fork/
 
 Configure to allow merging between someone else's branch and yours 
 
-One time configuration
+**One time configuration**
 	See configured remotes:
 		git remote -v
 		
-	Add remote:
+	**Add remote**:
 		git remote add upstream https://github.com/SpilledMilkCOM/MooveePicker.git
 	
-Merge source repo into my fork
+**Merge source repo into my fork**
 
 	Create a branch for the merge.
 
