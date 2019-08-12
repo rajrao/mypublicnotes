@@ -9,10 +9,15 @@
 | Azure Functions UX   | [Azure/azure-functions-ux/](https://github.com/azure/azure-functions-ux/) | Code that runs the functions website on Azure    |    |
 | Azure Durable Functions | [Azure/azure-functions-durable-extension/](https://github.com/Azure/azure-functions-durable-extension/)  	|   	| Durable Task Framework extension for Azure Functions  	| |
 |   	|   	|   	|   	|
+|Package Index for Azure Sdks for .Net|[Azure/azure-sdk-for-net](https://github.com/Azure/azure-sdk-for-net/blob/master/packages.md)|||
+|Microsoft.Azure.ServiceBus (SDK) | [sdk/servicebus](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus)  	|   	|   	|
+|   	|   	|   	|   	|
 |   	|   	|   	|   	|
 |   	|   	|   	|   	|
 |   	|   	|   	|   	|
 |Kudu|https://github.com/projectkudu/kudu|||
 |   	|   	|   	|   	|
 |   	|   	|   	|   	|
- 
+
+
+
