@@ -7,7 +7,7 @@
 |  Azure Functions - ServiceBus Extensions 	| [Azure/azure-functions-servicebus-extension](https://github.com/Azure/azure-functions-servicebus-extension)  	| functionality for receiving Service Bus messges in Azure Functions  	| [Nuget](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus/)|
 | Azure Functions Host  	|  [Azure/azure-functions-host](https://github.com/Azure/azure-functions-host) 	|  The host/runtime that powers Azure Functions 	|
 | Azure Functions UX   | [Azure/azure-functions-ux/](https://github.com/azure/azure-functions-ux/) | Code that runs the functions website on Azure    |    |
-| Azure Durable Functions | [Azure/azure-functions-durable-extension/](https://github.com/Azure/azure-functions-durable-extension/)  	|   	| Durable Task Framework extension for Azure Functions  	| |
+| Azure Durable Functions | [Azure/azure-functions-durable-extension/](https://github.com/Azure/azure-functions-durable-extension/)|Durable Task Framework extension for Azure Functions |   	| |
 |   	|   	|   	|   	|
 |Package Index for Azure Sdks for .Net|[Azure/azure-sdk-for-net](https://github.com/Azure/azure-sdk-for-net/blob/master/packages.md)|||
 |Microsoft.Azure.ServiceBus (SDK) | [sdk/servicebus](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus)  	|   	|   	|
