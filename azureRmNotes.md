@@ -10,7 +10,7 @@ Azure Notes
 7. Get-AzureRmResource -ResourceType Microsoft.ServiceBus/namespaces
 8. Get-AzureRmADApplication -DisplayNameStartWith MyDemoWebApp
 9. Set-AzureRmAppServicePlan -ResourceGroupName [rg name] -Name [name] -Tier Free
-10. 
+10.Get-AzDataFactoryV2IntegrationRuntimeKey -ResourceGroupName DATALAKE_POC -DataFactoryName ADF-POC -Name selfHostedIr
 
 
 
