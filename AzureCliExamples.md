@@ -22,3 +22,10 @@
 ||List Admins|az sql server ad-admin list --server-name [servername] --resource-group [RGNAME] -o table||
 |||||
 
+
+
+
+
+
+https://docs.microsoft.com/en-us/cli/azure/query-azure-cli?view=azure-cli-latest
+http://jmespath.org/
