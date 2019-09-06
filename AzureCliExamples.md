@@ -1,7 +1,7 @@
-||Description|Command|Notes   |
+||**Description**|**Command**|**Notes**|
 |---|---|---|---|
 |||||
-|**Login**|az login||not needed in cloud shell, only when running from local machine|
+|**Login**||az login|not needed in cloud shell, only when running from local machine|
 |Select subscription||az account set --subscription "[subscription name]"|az account set --subscription "Development Subscription"|
 |**KeyValult**||||
 ||List Secrets| az keyvault secret list --vault-name [Name] --output table||
