@@ -24,8 +24,12 @@
 ||create topic|az servicebus topic create --resource-group [rg name] --namespace-name [namespace name] --name [topic name]||
 |**Sql Server**||||
 ||List Admins|az sql server ad-admin list --server-name [servername] --resource-group [RGNAME] -o table||
+|**Cloud Drive**||||
+||df|list cloud drive mount info||
+||clouddrive|commands to manage cloudDrive||
 |||||
-
+|||||
+|||||
 
 
 Notes:
