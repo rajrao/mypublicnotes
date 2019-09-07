@@ -1,7 +1,7 @@
 **Recreating ServiceBus**
 
-1. Export entities using ServiceBusExplorer.
-2. Create a new ServiceBus (or delete the old one). Note if you need Zone Redunancy with Premium sku, you currently need to do it via the Portal or a different mechanism as AZ CLI doesnt support it yet.
+1. Export entities using ServiceBusExplorer from the existing ASB namespace.
+2. Create a new ServiceBus (or delete the old one). *Note: if you need Zone Redunancy with Premium sku, you currently need to do it via the Portal or a different mechanism as AZ CLI doesnt support it yet.*
 az servicebus namespace create --resource-group testinstancefordev --name testfordelete1 --capacity 1 --location "West US" --sku Premium
 3. Update primary key 
 az servicebus namespace authorization-rule keys  renew --resource-group testinstancefordev --namespace-name testfordelete1 --name RootManageSharedAccessKey --key primaryKey --key-value "vn041Y5PYexZRUoqXjI4GmXMsPFGcG5nBPP80uEEtEo="
