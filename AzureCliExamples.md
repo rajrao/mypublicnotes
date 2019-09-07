@@ -1,3 +1,5 @@
+[Azure Command-Line Interface (CLI)](https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest)
+
 ||**Description**|**Command**|**Notes**|
 |---|---|---|---|
 |||||
