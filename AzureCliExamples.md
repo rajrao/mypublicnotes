@@ -1,5 +1,5 @@
-[Azure Command-Line Interface (CLI)](https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest)
-[Query Azure CLI command output](https://docs.microsoft.com/en-us/cli/azure/query-azure-cli?view=azure-cli-latest)
+[Azure Command-Line Interface (CLI)](https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest)</br>
+[Query Azure CLI command output](https://docs.microsoft.com/en-us/cli/azure/query-azure-cli?view=azure-cli-latest)</br>
 [Output Formats](https://docs.microsoft.com/en-us/cli/azure/format-output-azure-cli?view=azure-cli-latest)
 
 ||**Description**|**Command**|**Notes**|
@@ -28,8 +28,16 @@
 
 
 
-
-
-
-https://docs.microsoft.com/en-us/cli/azure/query-azure-cli?view=azure-cli-latest
+Notes:
 http://jmespath.org/
+
+|Command|Notes||
+|---|---|---|
+|[]|flatten operator||
+|[].displayName|flatten operator & return a single property||
+|[].[xxx,yyy]|flatten and extract props||
+|[].{x:xxxx,y:yyyy}|flatten, extract and rename||
+|[n].{x:xxxx}|extract the nth record||
+|[n:m].{x:xxxx}|extract records n to m||
+|[?contains(displayName, 'searchText')]|return records where display name contains searchText||
+|$ kvIds=$(az keyvault secret list --vault-name [Name] --query "[].{objectId:id}" --out tsv)|Extract keyvault ids and place in variable||
