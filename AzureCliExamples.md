@@ -1,6 +1,7 @@
 [Azure Command-Line Interface (CLI)](https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest)</br>
 [Query Azure CLI command output](https://docs.microsoft.com/en-us/cli/azure/query-azure-cli?view=azure-cli-latest)</br>
 [Output Formats](https://docs.microsoft.com/en-us/cli/azure/format-output-azure-cli?view=azure-cli-latest)
+[Github Repo](https://github.com/Azure/azure-cli)
 
 ||**Description**|**Command**|**Notes**|
 |---|---|---|---|
