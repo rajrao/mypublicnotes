@@ -1,7 +1,10 @@
+# Useful Links #
 [Azure Command-Line Interface (CLI)](https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest)</br>
 [Query Azure CLI command output](https://docs.microsoft.com/en-us/cli/azure/query-azure-cli?view=azure-cli-latest)</br>
 [Output Formats](https://docs.microsoft.com/en-us/cli/azure/format-output-azure-cli?view=azure-cli-latest)</br>
 [Github Repo](https://github.com/Azure/azure-cli)</br>
+
+# Commands #
 
 ||**Description**|**Command**|**Notes**|
 |---|---|---|---|
@@ -13,12 +16,15 @@
 ||List Secrets|  az keyvault secret list --vault-name [Name] --query "[].{objectId:id}" --out table|spits out only the id|
 ||List Secrets|  az keyvault secret list --vault-name [Name] --query "sort_by([].{objectId:id}, &objectId)" --out table|sorts by name and spits out the id|
 |**Active Directory**||||
+|*Service Prinicples*||||
 ||List service principles 1|az ad sp list --all --output table --query "[?contains(objectId, 'xxxxxxxx-xxxx-')]"| find sp with a certain Id|
 ||List service principles 2|az ad sp list --all --query "[?contains(displayName, 'spNameToSearch')][].{o:objectId name:displayName}" -o json|find sp with a certain name and display the name|
-||List group memebers|az ad group member list --group [groupName] --query "[].{displayName:displayName}" --out table||
+|*Groups*||||
 ||Find Group|az ad group list --query "[?contains(displayName,'[GroupName]')].{DisplayName:displayName, Id:objectId}" --output ||
+||List group memebers|az ad group member list --group [groupName] --query "[].{displayName:displayName}" --out table||
 ||Add owner to group|az ad group owner add --group groupId --owner-object-id ownerId||
 ||Add member to group|az ad group member add --group xxxxxx-yyyyy-guid --member-id xxxxx-yyyy-guid||
+|*Users*||||
 ||Find user|az ad user list --upn "x@y.com" --query [].objectId||
 |**Service Bus**||||
 ||List Topics|az servicebus topic list --namespace-name [namespace name] --resource-group [rg name]||
@@ -33,7 +39,8 @@
 |||||
 
 
-#Query#
+# Query Syntax for AZ Commands #
+
 The query syntax that AZ commands take as input is based on [jmespath specifciation](http://jmespath.org/).
 Below are some basics:
 
