@@ -33,8 +33,9 @@
 |||||
 
 
-Notes:
-http://jmespath.org/
+#Query#
+The query syntax that AZ commands take as input is based on [jmespath specifciation](http://jmespath.org/).
+Below are some basics:
 
 |Command|Notes||
 |---|---|---|
