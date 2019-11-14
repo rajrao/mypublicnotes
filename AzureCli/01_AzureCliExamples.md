@@ -31,6 +31,7 @@
 ||create topic|az servicebus topic create --resource-group [rg name] --namespace-name [namespace name] --name [topic name] --enable-ordering true --default-message-time-to-live P30D||
 ||List topics with name|az servicebus topic list --namespace-name [namespace name] --resource-group [rg name] --query "[?name=='xxxxx'].[name]" --output table|list topic with name xxxxx|
 ||List topics containing name|az servicebus topic list --namespace-name [namespace name] --resource-group [rg name] --query "[?contains(name,'yyy-')].[name]" --output table|find topics where name contains yyy-|
+||List topics begining with name|az servicebus topic list --namespace-name [namespace name] --resource-group [rg name] --query "[?starts_with(name,'qa-')].[name]" --output table|starts with qa-|
 |**Sql Server**||||
 ||List Admins|az sql server ad-admin list --server-name [servername] --resource-group [RGNAME] -o table||
 |**Cloud Drive**||||
@@ -44,6 +45,8 @@
 # Query Syntax for AZ Commands #
 
 The query syntax that AZ commands take as input is based on [jmespath specifciation](http://jmespath.org/).
+
+[Jmespath functions](http://jmespath.org/specification.html#built-in-functions)
 Below are some basics:
 
 |Command|Notes||
@@ -55,4 +58,6 @@ Below are some basics:
 |[n].{x:xxxx}|extract the nth record||
 |[n:m].{x:xxxx}|extract records n to m||
 |[?contains(displayName, 'searchText')]|return records where display name contains searchText||
+|[?starts_with(fieldname,'text')]|returns records where fieldname begins with text||
 |$ kvIds=$(az keyvault secret list --vault-name [Name] --query "[].{objectId:id}" --out tsv)|Extract keyvault ids and place in variable||
+||||
