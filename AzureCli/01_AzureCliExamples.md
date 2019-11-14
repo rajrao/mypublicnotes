@@ -29,6 +29,8 @@
 |**Service Bus**||||
 ||List Topics|az servicebus topic list --namespace-name [namespace name] --resource-group [rg name]||
 ||create topic|az servicebus topic create --resource-group [rg name] --namespace-name [namespace name] --name [topic name] --enable-ordering true --default-message-time-to-live P30D||
+||List topics with name|az servicebus topic list --namespace-name [namespace name] --resource-group [rg name] --query "[?name=='xxxxx'].[name]" --output table|list topic with name xxxxx|
+||List topics containing name|az servicebus topic list --namespace-name [namespace name] --resource-group [rg name] --query "[?contains(name,'yyy-')].[name]" --output table|find topics where name contains yyy-|
 |**Sql Server**||||
 ||List Admins|az sql server ad-admin list --server-name [servername] --resource-group [RGNAME] -o table||
 |**Cloud Drive**||||
