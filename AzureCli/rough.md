@@ -1,0 +1,41 @@
+az configure --defaults group=learn-06cc137b-5b8c-411f-a3fa-fc8e7de65752 sql-server
+
+az is also known as the Azure CLI. It's the command-line interface for working with Azure resources. You'll use this to get information about your database, including the connection string.
+jq is a command-line JSON parser. You'll pipe output from az commands to this tool to extract important fields from JSON output.
+sqlcmd enables you to execute statements on SQL Server. You'll use sqlcmd to create an interactive session with your Azure SQL database.
+
+
+|sm|description|command|notes|
+|---|---|---|---|
+|1|set defaults|az configure --defaults group=learn-06cc137b-5b8c-411f-a3fa-fc8e7de65752 sql-server=[server-name]||
+|1|list databases|az sql db list||
+|2|use jq|az sql db list \| jq '[.[] \| {name: .name}]'|See below|
+|3|use quer|az sql db list --query '[].name'||
+|4|show info|az sql db show --name Logistics||
+|5|show info using jq|az sql db show --name Logistics \| jq '{name: .name, maxSizeBytes: .maxSizeBytes, status: .status}'||
+|6|show conn string|az sql db show-connection-string --client sqlcmd --name Logistics|outputs connstring that can be used to connect to db|
+|7|||||
+|8|||||
+|||||
+
+
+Outputs:
+
+**2**
+az sql db list | jq '[.[] | {name: .name}]'
+
+    [
+      {
+        "name": "Logistics"
+      },
+      {
+        "name": "master"
+      }
+    ]
+    
+**3**
+use quer|az sql db list --query '[].name'
+    [
+      "Logistics",
+      "master"
+    ]
