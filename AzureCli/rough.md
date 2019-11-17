@@ -19,7 +19,40 @@ sqlcmd enables you to execute statements on SQL Server. You'll use sqlcmd to cre
 |||||
 
 
-Outputs:
+**Create a postgre sql server**
+
+az postgres server create \
+   --name wingtiptoys \
+   --resource-group learn-f7a5053f-ed3a-4bfb-ada8-2c80957e6d26 \
+   --location centralus \
+   --sku-name B_Gen5_1 \
+   --storage-size 20480 \
+   --backup-retention 15 \
+   --version 10 \
+   --admin-user "azureuser" \
+   --admin-password "P@ssw0rd"
+ 
+**Firewall rule for postgre server**
+
+az postgres server firewall-rule create \
+  --resource-group learn-f7a5053f-ed3a-4bfb-ada8-2c80957e6d26 \
+  --server <server-name> \
+  --name AllowAll \
+  --start-ip-address 0.0.0.0 \
+  --end-ip-address 255.255.255.255
+    
+**Remove firewall rule**
+
+az postgres server firewall-rule delete \
+  --name AllowAll \
+  --resource-group learn-f7a5053f-ed3a-4bfb-ada8-2c80957e6d26 \
+  --server-name <server-name>
+    
+
+    
+
+
+**Outputs:**
 
 **2**
 az sql db list | jq '[.[] | {name: .name}]'
