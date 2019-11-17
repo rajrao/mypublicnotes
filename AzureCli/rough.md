@@ -48,6 +48,28 @@ az postgres server firewall-rule delete \
   --resource-group learn-f7a5053f-ed3a-4bfb-ada8-2c80957e6d26 \
   --server-name <server-name>
     
+**create sql server**
+
+ADMIN_LOGIN="ServerAdmin"
+RESOURCE_GROUP=learn-602f85a5-8191-47f6-b10b-222ee078d8a0
+SERVERNAME=FitnessSQLServer-$RANDOM
+LOCATION=<location>
+PASSWORD=<password>
+
+az sql server create \
+--name $SERVERNAME \
+--resource-group $RESOURCE_GROUP \
+--location $LOCATION \
+--admin-user $ADMIN_LOGIN \
+--admin-password $PASSWORD
+
+**create sql db**
+
+az sql db create \
+--resource-group $RESOURCE_GROUP \
+--server $SERVERNAME \
+--name FitnessVancouverDB
+
 
     
 
