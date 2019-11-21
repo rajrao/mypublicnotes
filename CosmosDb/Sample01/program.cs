@@ -1,4 +1,5 @@
 //based on the code from: https://docs.microsoft.com/en-us/learn/modules/build-cosmos-db-app-with-vscode/1-introduction
+//also see: https://github.com/MicrosoftDocs/mslearn-monitor-azure-cosmos-db/tree/master/ExerciseCosmosDB
 
 using System;
 using System.Configuration;
