@@ -1,5 +1,6 @@
-List of Notebooks used in docs.microsoft.com/learn
-https://docs.microsoft.com/en-us/learn/paths/data-science/
+List of Notebooks used as part of [Data Science Learning Path](https://docs.microsoft.com/en-us/learn/paths/data-science/)
+
+[Quick access to Repos in Github for sample notebooks for ADB (query)](https://github.com/MicrosoftDocs?utf8=✓&q=databricks)
 
 
 |Name|GitHub|
