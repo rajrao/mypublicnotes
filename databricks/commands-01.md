@@ -1,3 +1,5 @@
+Based on **Basic EDA with Azure Databricks** from https://docs.microsoft.com/en-us/learn/modules/perform-exploratory-data-analysis-with-azure-databricks/3-complete-labs-in-databricks
+
 Run a cell: SHIFT + ENTER
 
 1. Create dataFrame (Spark DF)
