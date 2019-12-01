@@ -12,3 +12,16 @@ List of Notebooks used as part of [Data Science Learning Path](https://docs.micr
 |5|[Connect SQL DW to Databrics](https://docs.microsoft.com/en-us/learn/modules/understand-the-sql-dw-connector-with-azure-databricks/8-integrate-with-azure-databricks)|[Github](https://github.com/MicrosoftDocs/mslearn-understanding-the-sql-dw-connector-with-azure-databricks/blob/master/DBC/02-Azure-SQL-DW.dbc?raw=true)|
 |||||
 |||||
+
+
+**Using the links**
+
+The github links can be used to import a databrick notebook. Follow the steps shown below:
+
+
+1. From the Azure portal, go to your Databricks workspace and select Launch workspace.
+2. In the left pane, select Workspace, select Users, and then select your username (the entry with the house icon).
+3. In the pane that appears, select the downward-pointing chevron next to your name, and then select Import.
+4. In the Import Notebooks pane, select URL, and paste in the github URL from the table above.
+5. Select Import.
+6. A folder named after the archive should appear. Select that folder. The folder contains one or more notebooks that you can follow to learn.
