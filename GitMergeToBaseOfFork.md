@@ -20,7 +20,7 @@ Configure to allow merging between someone else's branch and yours
 	Change to master (or the branch into which you are doing the merge)
 		git checkout master
 	
-	Merge upstream to master
+	Merge **upstream/master** to **master**
 	
 		git merge upstream/master
 		
