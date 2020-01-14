@@ -1,4 +1,3 @@
-#from https://gist.github.com/9to5IT/9620683
 #requires -version 2
 [CmdletBinding()]
 <#
