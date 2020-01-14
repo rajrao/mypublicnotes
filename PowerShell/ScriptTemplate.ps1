@@ -1,5 +1,6 @@
 #from https://gist.github.com/9to5IT/9620683
 #requires -version 2
+[CmdletBinding()]
 <#
 .SYNOPSIS
   <Overview of script>
@@ -26,13 +27,17 @@
   <Example goes here. Repeat this attribute for more than one example>
 #>
 
+PARAM ( 
+    [string]$aReqParam = $(throw "-aReqParam is required."),
+    [switch]$YesNoSwitch = $false
+)
 #---------------------------------------------------------[Initialisations]--------------------------------------------------------
 
 #Set Error Action to Silently Continue
-$ErrorActionPreference = "SilentlyContinue"
+#$ErrorActionPreference = "SilentlyContinue"
 
 #Dot Source required Function Libraries
-. "C:\Scripts\Functions\Logging_Functions.ps1"
+#. "C:\Scripts\Functions\Logging_Functions.ps1"
 
 #----------------------------------------------------------[Declarations]----------------------------------------------------------
 
@@ -40,44 +45,70 @@ $ErrorActionPreference = "SilentlyContinue"
 $sScriptVersion = "1.0"
 
 #Log File Info
-$sLogPath = "C:\Windows\Temp"
-$sLogName = "<script_name>.log"
+$sLogPath = "$HOME\clouddrive"
+$sLogName = "x.log"
 $sLogFile = Join-Path -Path $sLogPath -ChildPath $sLogName
+
+function Write-Log-Start {
+    param (
+        [Parameter(Mandatory=$False, Position=0)]
+        [String]$Entry
+    )
+   Write-Log $Entry $false
+}
+
+function Write-Log {
+    param (
+        [Parameter(Mandatory=$False, Position=0)]
+        [String]$Entry,
+        [Parameter(Mandatory=$False, Position=1)]
+        [switch]$Append = $true
+    )
+    $message = "$(Get-Date -Format 'yyyy-MM-dd HH:mm:ss.fff') $Entry";
+    Write-Host $message
+    if ($Append)
+    {
+        $message | Out-File -FilePath $sLogFile -Append
+    }
+    else
+    {
+        $message | Out-File -FilePath $sLogFile
+    }
+}
 
 #-----------------------------------------------------------[Functions]------------------------------------------------------------
 
-<#
 
-Function <FunctionName>{
-  Param()
+Function Function1{
+  Param([String]$param1 = "no value provided")
   
   Begin{
-    Log-Write -LogPath $sLogFile -LineValue "<description of what is going on>..."
+    Write-Log "$param1"
+    Write-Log "<description of what is going on>..."
   }
   
   Process{
     Try{
-      <code goes here>
+      #<code goes here>
     }
     
     Catch{
-      Log-Error -LogPath $sLogFile -ErrorDesc $_.Exception -ExitGracefully $True
+      Write-Log $_.Exception
       Break
     }
   }
   
   End{
     If($?){
-      Log-Write -LogPath $sLogFile -LineValue "Completed Successfully."
-      Log-Write -LogPath $sLogFile -LineValue " "
+      Write-Log "Completed Successfully."
+      Write-Log " "
     }
   }
 }
 
-#>
 
 #-----------------------------------------------------------[Execution]------------------------------------------------------------
-
-#Log-Start -LogPath $sLogPath -LogName $sLogName -ScriptVersion $sScriptVersion
-#Script Execution goes here
-#Log-Finish -LogPath $sLogFile
+cls;
+Write-Log-Start "Start"
+Write-Log "Hello $aReqParam $YesNoSwitch"
+Function1
