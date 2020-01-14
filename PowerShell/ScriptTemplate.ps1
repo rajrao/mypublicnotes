@@ -1,4 +1,5 @@
-#requires -version 2
+#requires -version 4
+#https://9to5it.com/powershell-script-template-version-2/
 [CmdletBinding()]
 <#
 .SYNOPSIS
@@ -26,6 +27,7 @@
   <Example goes here. Repeat this attribute for more than one example>
 #>
 
+#---------------------------------------------------------[Script Parameters]------------------------------------------------------
 PARAM ( 
     [string]$aReqParam = $(throw "-aReqParam is required."),
     [switch]$YesNoSwitch = $false
@@ -39,6 +41,7 @@ PARAM (
 #. "C:\Scripts\Functions\Logging_Functions.ps1"
 
 #----------------------------------------------------------[Declarations]----------------------------------------------------------
+#Any Global Declarations go here
 
 #Script Version
 $sScriptVersion = "1.0"
@@ -48,12 +51,23 @@ $sLogPath = "$HOME\clouddrive"
 $sLogName = "x.log"
 $sLogFile = Join-Path -Path $sLogPath -ChildPath $sLogName
 
+#-----------------------------------------------------------[Core Functions (Logging, Etc)]------------------------------------------------------------
 function Write-Log-Start {
     param (
         [Parameter(Mandatory=$False, Position=0)]
         [String]$Entry
     )
    Write-Log $Entry $false
+}
+
+function Write-Error {
+    param (
+        [Parameter(Mandatory=$False, Position=0)]
+        [String]$error
+    )
+    $message = "Error: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss.fff') $error";
+    Write-Host -BackgroundColor Red $message
+    $message | Out-File -FilePath $sLogFile -Append
 }
 
 function Write-Log {
@@ -77,7 +91,6 @@ function Write-Log {
 
 #-----------------------------------------------------------[Functions]------------------------------------------------------------
 
-
 Function Function1{
   Param([String]$param1 = "no value provided")
   
@@ -92,7 +105,7 @@ Function Function1{
     }
     
     Catch{
-      Write-Log $_.Exception
+      Write-Log "Error: $($_.Exception)"
       Break
     }
   }
