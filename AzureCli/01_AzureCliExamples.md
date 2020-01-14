@@ -39,8 +39,10 @@
 ||df|list cloud drive mount info||
 ||clouddrive|commands to manage cloudDrive||
 |||||
+|**KeyVault**||||
+||List Keyvaults and a property|az keyvault list --query "[].name" -o tsv \| foreach {az keyvault show --name $_ --query "{name:name,enableSoftDelete:properties.enableSoftDelete}"}||
 |||||
-|||||
+
 
 
 # Query Syntax for AZ Commands #
