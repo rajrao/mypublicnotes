@@ -19,6 +19,7 @@
 |*Service Prinicples*||||
 ||List service principles 1|az ad sp list --all --output table --query "[?contains(objectId, 'xxxxxxxx-xxxx-')]"| find sp with a certain Id|
 ||List service principles 2|az ad sp list --all --query "[?contains(displayName, 'spNameToSearch')][].{o:objectId name:displayName}" -o json|find sp with a certain name and display the name|
+||List service principles with return urls|az ad sp list --query "[].{dn:appDisplayName,appId:appId,o:objectId,r:replyUrls}"||
 |*Groups*||||
 ||Find Group|az ad group list --query "[?contains(displayName,'[GroupName]')].{DisplayName:displayName, Id:objectId}" --output table ||
 ||List group memebers|az ad group member list --group [groupName] --query "[].{displayName:displayName}" --out table||
