@@ -3,4 +3,4 @@
 
 To find the rows that have above max value:
 
-    IsLatest = Table[FilteredMaxValue]= Confirmed[DataColumn]
+    IsLatest = Table[FilteredMaxValue]= Table[DataColumn]
