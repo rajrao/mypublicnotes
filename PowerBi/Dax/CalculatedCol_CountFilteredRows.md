@@ -1,4 +1,4 @@
-Returns count of rows that match a certain filtered criterion.
+Calculated Column: Returns count of rows that match a certain filtered criterion.
 
 
     count = 
