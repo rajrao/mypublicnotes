@@ -31,3 +31,5 @@ Azure Service Bus - Portal based behavior Queue status:
 
 Note: 
 	The client behavior is based on Microsoft.Azure.ServiceBus, .net standard library. If you use a different library or change the default options, the client behavior may in-fact cause it to fail catastrophically.
+
+More reading: https://docs.microsoft.com/en-us/azure/service-bus-messaging/entity-suspend
