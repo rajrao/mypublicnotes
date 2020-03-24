@@ -18,6 +18,9 @@
 |**Active Directory**||||
 |*Service Prinicples*||||
 ||List service principles 1|az ad sp list --all --output table --query "[?contains(objectId, 'xxxxxxxx-xxxx-')]"| find sp with a certain Id|
+||Get Service Principal using objectId|$sp = Get-AzureADServicePrincipal -ObjectId "xxxxx-xxxx-xxxxx"||
+||Get Assignments|$assignments = Get-AzureADServiceAppRoleAssignment -ObjectId $sp.ObjectId -All $true <br> $assignments \| ForEach-Object { ....}||
+|||||
 ||List service principles 2|az ad sp list --all --query "[?contains(displayName, 'spNameToSearch')][].{o:objectId name:displayName}" -o json|find sp with a certain name and display the name|
 ||List service principles with return urls|az ad sp list --query "[].{dn:appDisplayName,appId:appId,o:objectId,r:replyUrls}"||
 |*Groups*||||
@@ -43,7 +46,6 @@
 |**KeyVault**||||
 ||List Keyvaults and a property|az keyvault list --query "[].name" -o tsv \| foreach {az keyvault show --name $_ --query "{name:name,enableSoftDelete:properties.enableSoftDelete}"}||
 |||||
-
 
 
 # Query Syntax for AZ Commands #
