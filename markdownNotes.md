@@ -7,6 +7,6 @@
 
 **Other Notes**
 
-1. New line inside a table: <br>
+1. New line inside a table: \<br>
 1. Escape character for | in a table: \
 1. 
