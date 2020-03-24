@@ -1,4 +1,4 @@
-|**Active Directory**||||
+**Active Directory**
 
 ||**Description**|**Command**|**Notes**|
 |---|---|---|---|
