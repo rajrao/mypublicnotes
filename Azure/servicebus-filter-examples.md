@@ -13,4 +13,3 @@
 1. MessageProperty - MessageProperty2 = 80
 1. Exists(MessageProperty)
 1. Exists(\"Message Property\")
-1. 
