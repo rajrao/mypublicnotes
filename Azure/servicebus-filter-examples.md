@@ -9,6 +9,8 @@
 1. "property X" = 'A'
 1. MessageProperty > 1
 1. MessageProperty = 1 and MessageProperty2 = 3
+1. MessageProperty = 1 or MessageProperty2 = 3
+1. MessageProperty - MessageProperty2 = 80
 1. Exists(MessageProperty)
 1. Exists(\"Message Property\")
 1. 
