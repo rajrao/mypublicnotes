@@ -1,3 +1,5 @@
+https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-messaging-sql-filter
+
 **System properties**
 1. sys.SessionId like '%xxxx-yyyy%' 
 1. sys.SessionId = 'xxxxx' 
