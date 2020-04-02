@@ -54,35 +54,37 @@ Note: you still need to use `d.keys()` if you want to mutate the dictionary. 
 
 **To reverse-sort a list, use:**
 
-list.sort()
-list.reverse()
+    list.sort()
+    list.reverse()
 
 It's much easier to read and, incidentally, faster than the tricky 1-line alternatives. Remember that in-place methods like `sort()` and `reverse()` do not return a value. This can be surprising, because if you do something like `sorted_list = orig_list.sort()` then `sorted_list` is `None` and `orig_list` is now in sorted order. Note that if you just want to iterate over the reversed list, you can (in Python 2.5, at least) use `for i in reversed(sorted(orig_list))`.
 
 **Use 'while 1:' for infinite loops, or to always execute the loop body at least once.** This is just a Python idiom, but it's what other people will expect to see once they're used to the language. For example:
 
-while 1:
-    curr_line = reader.next()
-    if not curr_line:
-        break
-    curr_line.process()
+    while 1:
+        curr_line = reader.next()
+        if not curr_line:
+            break
+        curr_line.process()
 
 **Catch errors rather than avoiding them to avoid cluttering your code with special cases.** This idiom is called EAFP ('easier to ask forgiveness than permission'), as opposed to LBYL ('look before you leap'). This often makes the code more readable. For example:
 
 **Worse:**
-#check whether int conversion will raise an error
-if not isinstance(s, str) or not s.isdigit:
-    return None
-elif len(s) > 10:    #too many digits for int conversion
-    return None
-else:
-    return int(str)
+
+    #check whether int conversion will raise an error
+    if not isinstance(s, str) or not s.isdigit:
+        return None
+    elif len(s) > 10:    #too many digits for int conversion
+        return None
+    else:
+        return int(str)
 
 **Better:**
-try:
-    return int(str)
-except (TypeError, ValueError, OverflowError): #int conversion failed
-    return None
+
+    try:
+        return int(str)
+    except (TypeError, ValueError, OverflowError): #int conversion failed
+        return None
 
 (Note that in this case, the second version is much better, since it correctly handles leading + and -, and also values between 2 and 10 billion (for 32-bit machines). Don't clutter your code by anticipating all the possible failures: just try it and use appropriate exception handling.)
 
@@ -92,23 +94,23 @@ except (TypeError, ValueError, OverflowError): #int conversion failed
 
 **Use zip to get a list's (or any sequence's) items with their indices:**
 
-                    indices = xrange(maxint)    #only need this once; mine is in Utils.py
-                        for d, index in zip(data, indices):
-                        #do something with d and index here
+        indices = xrange(maxint)    #only need this once; mine is in Utils.py
+            for d, index in zip(data, indices):
+            #do something with d and index here
 
 (Note that Python 2.3 provides enumerate(data), which provides lazy evaluation of the sequence and makes this idiom largely unnecessary. It can still be useful when you want to include an index along with several other lists, however, e.g. zip(list_1, list_2, indices). May fail on some 64-bit systems.)
 
 If you do not need the indices, just do:
 
-for i in items:
-    something(i)
+    for i in items:
+        something(i)
 
 ...rather than:
 
-for index in range(len(items)):
-    something(items[index])
+    for index in range(len(items)):
+        something(items[index])
 
-(which is more typing, uglier, and slower.)
+    (which is more typing, uglier, and slower.)
 
 What techniques should I use to make my code run faster?
 --------------------------------------------------------
@@ -122,9 +124,12 @@ What techniques should I use to make my code run faster?
 **Build strings as a list and use `''.join` at the end.** Yes, you already saw this one above under "Python Idioms", but it's such an important one that I thought I'd mention it again. `join` is a string method called on the separator, not the list. Calling it from the empty string concatenates the pieces with no separator, which is a Python quirk and rather surprising at first. **This is important: string building with + is quadratic time instead of linear!**
 
 **Wrong:**
-for s in strings: result += s
+
+    for s in strings: result += s
+
 **Right:**
-result = ''.join(strings)
+    
+    result = ''.join(strings)
 
 **Use tests for object identity when appropriate:** `if x is not None` rather than `if x != None`. It is much more efficient to test objects for identity than equality, because identity only checks their address in memory (two objects are identical if they are the same object in the same physical location) and not their actual data.
 
@@ -134,71 +139,76 @@ result = ''.join(strings)
 
 This idiom is called DSU for 'decorate-sort-undecorate.' In the 'decorate' step, make a list of tuples containing `(transformed_value, second_key, ... , original value)`. In the 'sort' step, use the built-in `sort` on the tuples. In the 'undecorate' step, retrieve the original list in the sorted order by extracting the last item from each tuple. For example:
 
-aux_list = [i.Count, i.Name, ... i) for i in items]
-aux_list.sort()    #sorts by Count, then Name, ... , then by item itself
-sorted_list = [i[-1] for i in items] #extracts last item
+    aux_list = [i.Count, i.Name, ... i) for i in items]
+    aux_list.sort()    #sorts by Count, then Name, ... , then by item itself
+    sorted_list = [i[-1] for i in items] #extracts last item
 
 For more recent versions of Python, DSU is often unnecessary. [This page](http://wiki.python.org/moin/HowTo/Sorting) has a good discussion of different sorting techniques in Python.
 
 **Use `map` and/or `filter` to apply functions to lists.** `map` applies a function to each item in a list (technically, sequence) and returns a list of the results. `filter` applies a function to each item in a sequence, and returns a list containing only those items for which the function evaluated `True` (using the `__nonzero__` built-in method). These functions can make code much shorter. They also make it much faster, since the loop takes place entirely in the C API and never has to bind loop variables to Python objects.
 
 **Worse:**
-strings = []
-for d in data:
-    strings.append(str(d))
+
+    strings = []
+    for d in data:
+        strings.append(str(d))
 
 **Better:**
-strings = map(str, data)
+
+    strings = map(str, data)
 
 **Use list comprehensions where there are conditions attached, or where the functions are methods or take more than one parameter.** These are cases where `map` and `filter` do badly, since you have to make up a new one-argument function that does the operation you want. This makes them much slower, since more work is done in the Python layer. List comprehensions are often surprisingly readable.
 
 **Worse:**
-result = []
-for d in data:
-    if d.Count > 4:
-        result.append[3*d.Count]
+
+    result = []
+    for d in data:
+        if d.Count > 4:
+            result.append[3*d.Count]
 
 **Better:**
-result = [3*d.Count for d in data if d.Count > 4]
+
+    result = [3*d.Count for d in data if d.Count > 4]
 
 If you find yourself making the same list comprehension repeatedly, make utility functions and use `map` and/or `filter`:
 
-def triple(x):
-    """Returns 3 * x.Count: raises AttributeError if .Count missing."""
-    return 3 * x.Count
+    def triple(x):
+        """Returns 3 * x.Count: raises AttributeError if .Count missing."""
+        return 3 * x.Count
 
-def check_count(x):
-    """Returns 1 if x.Count exists and is greater than 3, 0 otherwise."""
-    try:
-        return x.Count > 3
-    except:
-        return 0
+    def check_count(x):
+        """Returns 1 if x.Count exists and is greater than 3, 0 otherwise."""
+        try:
+            return x.Count > 3
+        except:
+            return 0
 
-result = map(triple, filter(check_count, data))
+    result = map(triple, filter(check_count, data))
 
 **Use function factories to create utility functions.** Often, especially if you're using `map` and `filter` a lot, you need utility functions that convert other functions or methods to taking a single parameter. In particular, you often want to bind some data to the function once, and then apply it repeatedly to different objects. In the above example, we needed a function that multiplied a particular field of an object by 3, but what we really want is a factory that's able to return for any field name and amount a multiplier function in that family:
 
-def multiply_by_field(fieldname, multiplier):
-    """Returns function that multiplies field "fieldname" by multiplier."""
-    def multiplier(x):
-        return getattr(x, fieldname) * multiplier
-    return multiplier
+    def multiply_by_field(fieldname, multiplier):
+        """Returns function that multiplies field "fieldname" by multiplier."""
+        def multiplier(x):
+            return getattr(x, fieldname) * multiplier
+        return multiplier
 
-triple = multiply_by_field('Count', 3)
-quadruple = multiply_by_field('Count', 4)
-halve_sum = multiply_by_field('Sum', 0.5)
+    triple = multiply_by_field('Count', 3)
+    quadruple = multiply_by_field('Count', 4)
+    halve_sum = multiply_by_field('Sum', 0.5)
 
 This is a very powerful and general technique for producing functions that might do something like search a specified field for a list of words, or perform several actions on different fields of a particular object, etc. It's a pain to write a lot of little functions that do very similar things, but if they're produced by a function factory it's easy.
 
 **Use the operator module and `reduce` to get sums, products, etc.** `reduce` takes a function and a sequence. First it applies the function to the first two items, then it takes the result and applies the function to the result and the next item, takes that result and applies the function to it and the next item, and so on until the end of the list. This makes it very easy to accumulate items along a list (or, in fact, any sequence). Note that Python 2.3 has a built-in sum() function (for numbers only), making this less necessary than it used to be.
 
 **Worse:**
-sum = 0
-for d in data:
-    sum += d
-product = 1
-for d in data:
-    product *= d
+    
+    sum = 0
+    for d in data:
+        sum += d
+    product = 1
+    for d in data:
+        product *= d
 
 **Better:**
 from operator import add, mul
@@ -208,24 +218,27 @@ product = reduce(mul, data)
 **Use `zip` and `dict` to map fields to names.** `zip` turns a pair of sequences into a list of tuples containing the first, second, etc. values from each sequence. For example, `zip('abc', [1,2,3]) == [('a',1),('b',2),('c',3)]`. You can use this to save a lot of typing when you have fields in a known order that you want to map to names:
 
 **Bad:**
-fields = '|'.split(line)
-gi = fields[0]
-accession = fields[1]
-description = fields[2]
-#etc.
-lookup = {}
-lookup['GI'] = gi
-lookup['Accession'] = accession
-lookup['Description'] = description
-#etc.
+
+    fields = '|'.split(line)
+    gi = fields[0]
+    accession = fields[1]
+    description = fields[2]
+    #etc.
+    lookup = {}
+    lookup['GI'] = gi
+    lookup['Accession'] = accession
+    lookup['Description'] = description
+    #etc.
 
 **Good:**
-fieldnames = ['GI', 'Accession', 'Description'] #etc.
-fields = '|'.split(line)
-lookup = dict(zip(fieldnames, fields))
+
+    fieldnames = ['GI', 'Accession', 'Description'] #etc.
+    fields = '|'.split(line)
+    lookup = dict(zip(fieldnames, fields))
 
 **Ideal:**
-def FieldWrapper(fieldnames, delimiter, constructor=dict):
+
+    def FieldWrapper(fieldnames, delimiter, constructor=dict):
     """Returns function that splits a line and wraps it into an object.
 
     Field names are passed in as keyword args, so constructor must be
@@ -236,7 +249,7 @@ def FieldWrapper(fieldnames, delimiter, constructor=dict):
         result = constructor(**dict(zip(fieldnames, fields)))
     return FieldsToObject
 
-FastaFactory = FieldWrapper(['GI','Accession','Description'], '|', Fasta)
-TaxonFactory = FieldWrapper(['TaxonID', 'ParentID', ...], '|', Taxon)
-CodonFreqFactory = FieldWrapper(['UUU', 'UUC', 'UUA',...], ' ', CodonFreq)
-#etc for similar data, including any database tables you care to wrap
+    FastaFactory = FieldWrapper(['GI','Accession','Description'], '|', Fasta)
+    TaxonFactory = FieldWrapper(['TaxonID', 'ParentID', ...], '|', Taxon)
+    CodonFreqFactory = FieldWrapper(['UUU', 'UUC', 'UUA',...], ' ', CodonFreq)
+    #etc for similar data, including any database tables you care to wrap
