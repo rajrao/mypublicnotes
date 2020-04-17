@@ -30,6 +30,7 @@
 |||||
 |**KeyVault**||||
 ||List Keyvaults and a property|az keyvault list --query "[].name" -o tsv \| foreach {az keyvault show --name $_ --query "{name:name,enableSoftDelete:properties.enableSoftDelete}"}||
+||List keyvault secrets that start with</br> qa or uat and output updated property| az keyvault secret list --vault-name kyName --query "sort_by([?contains(id,'qa-') \|\| contains(id,'uat-') ].{id:id,updated:attributes.updated},&id)" -o tsv||
 |||||
 
 
