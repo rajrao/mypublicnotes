@@ -4,6 +4,7 @@ Below are some basics:
 |Command|Notes||
 |---|---|---|
 |[]|flatten operator||
+|[\*].id|display id||
 |[].displayName|flatten operator & return a single property||
 |[].[xxx,yyy]|flatten and extract props||
 |[].{x:xxxx,y:yyyy}|flatten, extract and rename||
