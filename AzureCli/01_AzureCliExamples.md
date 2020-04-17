@@ -38,3 +38,7 @@
 
 The query syntax that AZ commands take as input is based on [jmespath specifciation](http://jmespath.org/).
 
+# Other useful info #
+
+Pipe command output to file: | out-file xxxxx.txt
+
