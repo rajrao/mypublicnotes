@@ -94,3 +94,11 @@ use quer|az sql db list --query '[].name'
       "Logistics",
       "master"
     ]
+    
+
+**Active Directory**
+
+      New-AzRoleAssignment -ObjectId (Get-AzADGroup -SearchString 'Contoso Security Team')[0].Id -RoleDefinitionName "key vault Contributor" -ResourceGroupName ContosoAppRG
+      New-AzRoleAssignment -ObjectId (Get-AzADGroup -SearchString 'Contoso Security Team')[0].Id -RoleDefinitionName "User Access Administrator" -ResourceGroupName ContosoAppRG
+      
+(Secure KeyVault)[https://docs.microsoft.com/en-us/azure/key-vault/general/secure-your-key-vault]
