@@ -39,4 +39,8 @@ or
     
 6. **List modified dates on secrets **
 
-        az keyvault secret list --vault uxkeyvaultdev --query "sort_by([?contains(id,'qa-') || contains(id,'uat-') ].{id:id,updated:attributes.updated},&id)" -o tsv
+        az keyvault secret list --vault keyVaultName --query "sort_by([?contains(id,'qa-') || contains(id,'uat-') ].{id:id,updated:attributes.updated},&id)" -o tsv
+        
+7. **List modified dates on secrets reverse order**
+            
+        az keyvault secret list --vault keyVaultName --query "reverse(sort_by([?contains(id,'perf-')].{secretId:id,updated:attributes.updated,created:attributes.created},&updated))" -o table
