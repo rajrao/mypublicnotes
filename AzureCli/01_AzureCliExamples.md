@@ -11,10 +11,6 @@
 |||||
 |**Login**||az login|not needed in cloud shell, only when running from local machine|
 |Select subscription||az account set --subscription "[subscription name]"|az account set --subscription "Development Subscription"|
-|**KeyValult**||||
-||List Secrets| az keyvault secret list --vault-name [Name] --output table||
-||List Secrets|  az keyvault secret list --vault-name [Name] --query "[].{objectId:id}" --out table|spits out only the id|
-||List Secrets|  az keyvault secret list --vault-name [Name] --query "sort_by([].{objectId:id}, &objectId)" --out table|sorts by name and spits out the id|
 |**Service Bus**||||
 ||List Topics|az servicebus topic list --namespace-name [namespace name] --resource-group [rg name]||
 ||create topic|az servicebus topic create --resource-group [rg name] --namespace-name [namespace name] --name [topic name] --enable-ordering true --default-message-time-to-live P30D||
@@ -27,10 +23,6 @@
 |**Cloud Drive**||||
 ||df|list cloud drive mount info||
 ||clouddrive|commands to manage cloudDrive||
-|||||
-|**KeyVault**||||
-||List Keyvaults and a property|az keyvault list --query "[].name" -o tsv \| foreach {az keyvault show --name $_ --query "{name:name,enableSoftDelete:properties.enableSoftDelete}"}||
-||List keyvault secrets that start with</br> qa or uat and output updated property| az keyvault secret list --vault-name kyName --query "sort_by([?contains(id,'qa-') \|\| contains(id,'uat-') ].{id:id,updated:attributes.updated},&id)" -o tsv||
 |||||
 
 
