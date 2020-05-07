@@ -20,6 +20,7 @@
 |*Groups*||||
 ||Find Group|az ad group list --query "[?contains(displayName,'[GroupName]')].{DisplayName:displayName, Id:objectId}" --output table ||
 ||List group memebers|az ad group member list --group [groupName] --query "[].{displayName:displayName}" --out table||
+||Search for a member in a group|az ad group member list --group GROUP_NAME --query "[].{dn:displayName} | [?starts_with(dn,'Joe')]"||
 ||Add owner to group|az ad group owner add --group groupId --owner-object-id ownerId||
 ||Add member to group|az ad group member add --group xxxxxx-yyyyy-guid --member-id xxxxx-yyyy-guid||
 |||||
