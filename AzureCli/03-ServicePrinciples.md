@@ -8,7 +8,7 @@
 ||Find service principles query by appId|az ad sp list --all --output table --query "[?contains(appId, 'xxxxxxxx-xxxx-')]"||
 ||List service principles 2|az ad sp list --all --query "[?contains(displayName, 'spNameToSearch')][].{o:objectId name:displayName}" -o json|find sp with a certain name and display the name|
 ||List service principles with return urls|az ad sp list --query "[].{dn:appDisplayName,appId:appId,o:objectId,r:replyUrls}"||
-||Output to text file all SPNs|az ad sp list --all --query "[].{dn:appDisplayName,appId:appId,o:objectId,r:replyUrls}" | out-file splist.txt||
+||Output to text file all SPNs|az ad sp list --all --query "[].{dn:appDisplayName,appId:appId,o:objectId,r:replyUrls}" \| out-file splist.txt||
 ||Get Service Principal using objectId|$sp = Get-AzureADServicePrincipal -ObjectId "xxxxx-xxxx-xxxxx"||
 ||Get Assignments|$assignments = Get-AzureADServiceAppRoleAssignment -ObjectId $sp.ObjectId -All $true <br> $assignments \| ForEach-Object { ....}||
 |||||
