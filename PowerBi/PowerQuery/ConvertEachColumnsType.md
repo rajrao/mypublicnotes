@@ -1,9 +1,9 @@
 
       = Table.TransformColumnTypes(
-            Source,
+            #"SourceTable",
             List.Transform(
                 List.RemoveFirstN(
-                    Table.ColumnNames(Source),
+                    Table.ColumnNames(#"SourceTable"),
                     2
                 ),
             each {_, type number}
