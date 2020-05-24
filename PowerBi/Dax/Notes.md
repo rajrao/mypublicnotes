@@ -19,3 +19,11 @@
       Var current = col1
       Var prev = calculate(col1, sameperiodlastyear('DimDate'[date]))
        Return (current-prev)/current
+
+**Time intelligence functions**
+
+
+
+
+Aka.ms/dax
+Dax.guide
