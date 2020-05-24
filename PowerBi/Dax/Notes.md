@@ -13,4 +13,9 @@
                    {"A",1},{"B",3}
               }
 
+**Calc**
 
+    _c =
+      Var current = col1
+      Var prev = calculate(col1, sameperiodlastyear('DimDate'[date]))
+       Return (current-prev)/current
