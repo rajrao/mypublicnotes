@@ -6,4 +6,11 @@
 
     _x = {blank()}
 
+**Create table**
+
+    _t = Datatable( "city", string, "pop", integer,
+              {
+                   {"A",1},{"B",3}
+              }
+
 
