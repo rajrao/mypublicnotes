@@ -9,12 +9,22 @@ Advanced syntax: https://www.boost.org/doc/libs/1_55_0/libs/regex/doc/html/boost
     
     Search:
     
-        (.\*)(\r\n)
+        (.*)(\r\n)
   
     Replace:
     
         $1,
         
+1. Find and remove new lines and quote and comma separate them:
+     
+     Search:
+        
+        (.*)(\r\n)
+      
+     Replace:
+     
+         "$1", 
+
 1. Find and remove new lines and comma separate using named groups instead of 
 
    Search:
