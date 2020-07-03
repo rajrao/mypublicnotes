@@ -109,6 +109,57 @@ class Program
             services.AddMemoryCache();
         }
     }
+}
+
+public interface IApp
+        {
+            Task Run(CancellationToken cancellationToken);
+        }
+    
+        internal class SampleApp : IApp
+        {
+            private readonly IAppSettings _appSettings;
+            private readonly ILogger<SampleApp> _logger;
+            
+            readonly ProgressBarOptions _mainProgressBarOptions = new ProgressBarOptions
+            {
+                ForegroundColor = ConsoleColor.Yellow,
+                BackgroundColor = ConsoleColor.DarkYellow,
+                ProgressCharacter = '\u2593',
+                ProgressBarOnBottom = true
+            };
+            
+            public SampleApp(IAppSettings appSettings, ILogger<SampleApp> logger, AppOptions appOptions)
+            {
+                _appSettings = appSettings;
+                _logger = logger;
+                _appOptions = appOptions;
+            }
+            
+            public async Task Run(CancellationToken cancellationToken)
+            {
+                _logger.LogInformation($@"Start");
+                using (var progressBarOverall = new ProgressBar(100, "processing...", new ProgressBarOptions
+                            {
+                                ForegroundColor = ConsoleColor.Yellow,
+                                BackgroundColor = ConsoleColor.DarkYellow,
+                                ProgressCharacter = '\u2593',
+                                ProgressBarOnBottom = true
+                            }))
+                {
+                    progressBarOverall.Tick(1, "Message");
+                }
+            }
+            
+        }
+}
+
+ public class AppOptions
+    {
+        [Option('m', "myOption", Required = true,
+            Default = 1, HelpText = "Help")]
+        public int ASampleOption { get; set; }
+    }
     
     
 /*
