@@ -63,6 +63,7 @@ class Program
                     {
                         h.AdditionalNewLineAfterOption = false;
                         h.AddNewLineBetweenHelpSections = true;
+                        h.AddEnumValuesToHelpText = true;
 
                         /*h.AddPreOptionsLines(new List<string>
                         {
