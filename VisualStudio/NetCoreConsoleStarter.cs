@@ -29,6 +29,11 @@ class Program
 
         }
 
+        /// <summary>
+        /// Return false if errors were encountered
+        /// </summary>
+        /// <param name="args"></param>
+        /// <returns></returns>
         private static bool ProcessCommandLineArgs(string[] args, ServiceCollection services)
         {
             bool argumentsHasErrors = false;
@@ -67,7 +72,7 @@ class Program
                     }, e => e);
                     Console.WriteLine(helpText);
                 });
-            return argumentsHasErrors;
+            return argumentsHasErrors!;
         }
 
         private static void ConfigureServices(ServiceCollection services)
