@@ -27,3 +27,5 @@
 (DAX Reference)[https://aka.ms/dax]
 
 (Dax.guide)[https://dax.guide/] 
+
+(Sql.Bi)[http://sqlbi.com/] - Marco Russo's site.
