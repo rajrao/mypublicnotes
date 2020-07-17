@@ -21,9 +21,9 @@
        Return (current-prev)/current
 
 **Time intelligence functions**
+   
+   https://docs.microsoft.com/en-us/dax/time-intelligence-functions-dax
 
+(DAX Reference)[https://aka.ms/dax]
 
-
-
-Aka.ms/dax
-Dax.guide
+(Dax.guide)[https://dax.guide/] 
