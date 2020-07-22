@@ -2,8 +2,8 @@ Based on: (Create a Date Dimension in Power BI in 4 Steps – Step 1: Calendar C
 
 
     let
-        StartDate = #date(2020,1,1),
-        EndDate = #date(2021,5,31),
+        StartDate = #date(2019,1,1),
+        EndDate = #date(2020,12,31),
         NumberOfDays = Duration.Days( EndDate - StartDate ),
         Dates = List.Dates(StartDate, NumberOfDays+1, #duration(1,0,0,0)),
         #"Converted to Table" = Table.FromList(Dates, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
@@ -19,6 +19,7 @@ Based on: (Create a Date Dimension in Power BI in 4 Steps – Step 1: Calendar C
         #"Inserted Day of Week" = Table.AddColumn(#"Inserted Day", "Day of Week", each Date.DayOfWeek([FullDateAlternateKey]), type number),
         #"Inserted Day of Year" = Table.AddColumn(#"Inserted Day of Week", "Day of Year", each Date.DayOfYear([FullDateAlternateKey]), type number),
         #"Inserted Day Name" = Table.AddColumn(#"Inserted Day of Year", "Day Name", each Date.DayOfWeekName([FullDateAlternateKey]), type text),
-        #"Changed Type1" = Table.TransformColumnTypes(#"Inserted Day Name",{{"Year", Int64.Type}, {"Month", Int64.Type}, {"Quarter", Int64.Type}, {"Week of Year", Int64.Type}, {"Week of Month", Int64.Type}, {"Day", Int64.Type}, {"Day of Week", Int64.Type}, {"Day of Year", Int64.Type}})
+        #"Inserted YearWeek" = Table.AddColumn(#"Inserted Day Name", "YearWeek", each [Year]*100+[Week of Year]),
+        #"Changed Types" = Table.TransformColumnTypes(#"Inserted YearWeek",{{"Year", Int64.Type}, {"Month", Int64.Type}, {"Quarter", Int64.Type}, {"Week of Year", Int64.Type}, {"Week of Month", Int64.Type}, {"Day", Int64.Type}, {"Day of Week", Int64.Type}, {"Day of Year", Int64.Type},{"YearWeek", Int64.Type}})
     in
-        #"Changed Type1"
+        #"Changed Types"
