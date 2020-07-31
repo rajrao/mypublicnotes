@@ -7,4 +7,7 @@ In place update of a column using logic based on other columns in the table
                               Replacer.ReplaceValue,
                               {"ColumnToEvaluate"})
     
+Example 2
+    
+    = Table.ReplaceValue(#"Input Table",each [ColumnToEvaluate], each Date.AddYears([ColumnToEvaluate],-1), Replacer.ReplaceValue,{"ColumnToEvaluate"})
     
