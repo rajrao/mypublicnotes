@@ -18,6 +18,8 @@ https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-messagi
 1. Exists(MessageProperty23)
 1. Exists(\"Message Property AA\")
 1. MessageProperty1 like 'SuperMan%'
+1. MessageProperty1 IS NULL
+1. MessageProperty1 IS NOT NULL
 
 When message property name has special characters (example from Dyanmics CRM, where "http://schemas.microsoft.com/xrm/2011/Claims/EntityLogicalName" is the name of the message property)
 "http://schemas.microsoft.com/xrm/2011/Claims/EntityLogicalName" = 'account'
