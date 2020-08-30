@@ -1,8 +1,5 @@
-This technique is useful for removing duplicates, especially with tables you will end up using as dimensions.
+This technique is useful for removing duplicates or for adding a grouped index (a row number based on some sort of grouping). Because this allows you to get rid of duplicate rows based on a specific sort order, its especially useful for tables you will end up using as dimensions (1 side of a 1:n).
 
-1. Adding a grouped index:
-
-  To add an index by some sort of grouping:
     1. Sort the table by the columns you want grouped. Use: 
     
             Table.Sort(InputTable,{{"Column1", Order.Ascending},{"Column2", Order.Descending}})
