@@ -8,7 +8,7 @@ This technique is useful for removing duplicates or for adding a grouped index (
     
     2. Use Transform >> Group By and group the sorted data.
             
-            For grouping, you will use the 2 columns from (1)
+            For grouping, you will use the first column from (1)
             
             New Column Name: Rows
             
