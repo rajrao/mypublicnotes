@@ -35,4 +35,10 @@ Advanced syntax: https://www.boost.org/doc/libs/1_55_0/libs/regex/doc/html/boost
    
         '$+{data}',
         
-1.  
+1.  Greedy Capture
+
+   Search for all character before a "," and dont capture the comma:
+   Greedy capture (regex?)
+   Non capture group (?:regex)
+   
+         (.*?)(?:,)
