@@ -27,18 +27,25 @@ Advanced syntax: https://www.boost.org/doc/libs/1_55_0/libs/regex/doc/html/boost
 
 1. Find and remove new lines and comma separate using named groups instead of 
 
-   Search:
+     Search:
    
         (?<data>(.*))(?<nl>(\r\n))
    
-   Replace:
+     Replace:
    
-        '$+{data}',
+         '$+{data}',
         
 1.  Greedy Capture
 
-   Search for all character before a "," and dont capture the comma:
-   Greedy capture (regex?)
-   Non capture group (?:regex)
+     Search for all character before a "," and dont capture the comma:
+  
+     Greedy capture (regex?)
+     Non capture group (?:regex)
    
          (.*?)(?:,)
+
+1.  XXXXXX
+
+     YYYYY
+   
+         REGEX
