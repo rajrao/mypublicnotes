@@ -7,7 +7,8 @@
 
         CAST(UNIX_TIMESTAMP(cast(dateAsStringColumn) , 'yyyyMMdd') AS TIMESTAMP)
   
- 
+ Formats:
+ fmt should be one of [“YEAR”, “YYYY”, “YY”, “MON”, “MONTH”, “MM”, “DAY”, “DD”, “HOUR”, “MINUTE”, “SECOND”, “WEEK”, “QUARTER”]
 
 
 References:
