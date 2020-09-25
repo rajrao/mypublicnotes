@@ -3,7 +3,7 @@
 
         cast(DATE_FORMAT(cast(dateColumn as Date),'YYYYMMdd') as int)
         
-        Format uses Java spec: https://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html
+       
         Y/YYYY - 2020
         yy/YY - 20
         MM - month 09
@@ -19,7 +19,8 @@
         W - Week number (4 for 9/24/2019)
         w - week number (39 for 9/24/2019)
         K/KK - same as hh? (11)
-        
+
+      Format uses Java spec: https://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html
 
 2. Cast string to datetime (where string in this case is formatted as yyyyMMdd
 
