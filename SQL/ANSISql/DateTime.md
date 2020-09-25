@@ -21,13 +21,12 @@
         K/KK - same as hh? (11)
 
       Format uses Java spec: https://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html
+      Formats: should be one of [“YEAR”, “YYYY”, “YY”, “MON”, “MONTH”, “MM”, “DAY”, “DD”, “HOUR”, “MINUTE”, “SECOND”, “WEEK”, “QUARTER”]
 
 2. Cast string to datetime (where string in this case is formatted as yyyyMMdd
 
         CAST(UNIX_TIMESTAMP(cast(dateAsStringColumn) , 'yyyyMMdd') AS TIMESTAMP)
-  
- Formats: should be one of [“YEAR”, “YYYY”, “YY”, “MON”, “MONTH”, “MM”, “DAY”, “DD”, “HOUR”, “MINUTE”, “SECOND”, “WEEK”, “QUARTER”]
-
+ 
 
 References:
 1. https://docs.databricks.com/spark/latest/spark-sql/language-manual/functions.html#date
