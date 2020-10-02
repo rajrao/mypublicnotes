@@ -14,3 +14,13 @@ Example 2
                              Replacer.ReplaceValue,
                              {"ColumnToEvaluate"})
     
+Example 3
+
+- Input table: #Changed Type 1"
+- Column: "Date - Copy"
+- Function: remove text
+    
+      = Table.ReplaceValue(#"Changed Type1",each [#"Date - Copy"], 
+                            each Text.RemoveRange([#"Date - Copy"],10,14), 
+                            Replacer.ReplaceValue, 
+                            {"Date - Copy"} )
