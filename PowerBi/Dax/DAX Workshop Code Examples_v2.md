@@ -1,3 +1,5 @@
+[Beginning DAX Concepts with Power BI](https://www.youtube.com/watch?v=QJw4HkagVWc)
+
 **Full Name Column (Column on Customer Table)**
         
     Full Name = 'Customer'[First Name] & " " & 'Customer'[Last Name]
