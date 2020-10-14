@@ -1,5 +1,35 @@
 
 
+**Working 1 (seems just a bit more performant than 2)**
+
+	RollingSum = 
+	var maxReportWeekKey = MAX('Revenue'[Report Week Key])
+	var reportWeeksToSum = 
+	    Filter(
+		ALLSELECTED(
+		    'Report Week Calendar'
+		),
+		'Report Week Calendar'[Report Week Key] <= maxReportWeekKey
+	    )
+	var result =
+	    CALCULATE(
+		[Revenue], //dax measure: sum('Revenue'[Revenue Change])
+		reportWeeksToSum
+	    )
+	return result
+
+
+	////
+	RollingSum = 
+	CALCULATE(
+		[Revenue Change],
+		FILTER (
+			ALL('Report Week Calendar'),
+			'Report Week Calendar'[Report Week Key] <= MAX('Revenue'[Report Week Key])
+		)
+	)
+	
+
 **Method 1** 
 
 This method seems to work the fastest:
@@ -11,6 +41,7 @@ This method seems to work the fastest:
 	     'TableA'[ColumnForUseInComputingRollingSum] <= currentMax,
 	     ALL('TableA'[ColumnForUseInComputingRollingSum])
 	)
+	
 
 ***The following 2 methods likely dont work right*** (timeouts, etc)
 
