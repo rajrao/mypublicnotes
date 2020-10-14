@@ -5,8 +5,8 @@
 This method works in more scenarios
 
 	RollingSum = 
-	var groupingColumn = SELECTEDVALUE('TableA'[ColumnOverWhichRollingSumShouldBeComputed])
-	var currentMax =  MAX('TableA'[ColumnForUseInComputingRollingSum])
+	var groupingColumn = SELECTEDVALUE('TableA'[ColumnOverWhichRollingSumShouldBeComputed]) //eg orderid
+	var currentMax =  MAX('TableA'[ColumnForUseInComputingRollingSum]) //eg date key
 	return CALCULATE(
 		Sum('TableA'[ColumnForUseInComputingRollingSum])
 		FILTER(
@@ -23,7 +23,7 @@ This method works only when 'TableA'\[ColumnForUseInComputingRollingSum] is on t
 	CALCULATE(
 		Sum('TableA'[Column To Be Summed])
 		FILTER(
-			ALLSELECTED('TableA'[ColumnForUseInComputingRollingSum]),
+			ALLSELECTED('TableA'[ColumnForUseInComputingRollingSum]), //eg: datekey
 			'TableA'[ColumnForUseInComputingRollingSum] <= MAX('TableA'[ColumnForUseInComputingRollingSum])
 		)
 	)
