@@ -1,8 +1,8 @@
--- Full Name Column (Column on Customer Table)
+**Full Name Column (Column on Customer Table)
         
     Full Name = 'Customer'[First Name] & " " & 'Customer'[Last Name]
 
--- Age Breakdown Calculation (Column on Customer Table)
+**Age Breakdown Calculation (Column on Customer Table)
 
     Age Breakdown = 
     IF('Customer'[Age] >= 55, "55+",
@@ -10,20 +10,20 @@
     IF('Customer'[Age] >= 35, "35-44",
     "18-34" ) ) )
 
--- Month Year
+**Month Year
     
     Month Year = FORMAT('Date'[Date], "mm-yyyy")
 
--- Temperature Key (Column on Internet Sales Table)
+**Temperature Key (Column on Internet Sales Table)
 
     Temperature Key = 
     RELATED('Sales Territory'[Sales Territory Region]) & RELATED('Date'[Month Number Of Year])
 
--- Total Transactions (Column on Sales Territory table)
+**Total Transactions (Column on Sales Territory table)
 
     Total Transactions = COUNTROWS(RELATEDTABLE('Internet Sales'))
 
--- Region Volume
+**Region Volume
 
   Region Volume = 
     SWITCH(TRUE(),
@@ -34,51 +34,51 @@
 
 ***Optional
 
--- Last Order Date (Column on Customer Table)
+**Last Order Date (Column on Customer Table)
   
     Last Order Date = MAXX(RELATEDTABLE('Internet Sales'), 'Internet Sales'[Order Date])
 
 *** Calculated Measures ***
 
--- Total Transactions (Measure on Internet Sales)
+**Total Transactions (Measure on Internet Sales)
 
     Total Transactions = COUNTROWS('Internet Sales')
 
--- Total Sales
+**Total Sales
 
     Total Sales = SUM('Internet Sales'[Sales Amount]) 
 
--- Total Cost
+**Total Cost
 
     Total Cost = SUM('Internet Sales'[Total Product Cost])
 
--- Profit
+**Profit
 
     Profit = [Total Sales] - [Total Cost]
 
--- Profit Margin
+**Profit Margin
 
     Profit Margin = DIVIDE([Profit], [Total Sales])
 
 *** Working with CALCULATE ***
 
--- Total Sales (All Countries)
+**Total Sales (All Countries)
 
   Total Sales (All Countries) = 
   CALCULATE(
       [Total Sales],
       ALL('Sales Territory'[Sales Territory Country] ) ) 
 
--- Total Sales (All Countries) 
+**Total Sales (All Countries) 
 
     Total Sales (All Countries) = 
     CALCULATE(
         [Total Sales],
         REMOVEFILTERS('Sales Territory'[Sales Territory Country] ) ) 
 
--- Remove blanks
+**Remove blanks
 
--- Total Sales (All Countries)
+**Total Sales (All Countries)
 
     Total Sales (All Countries) = 
     IF(
@@ -95,7 +95,7 @@
         [Total Sales],
         [Total Sales (All Countries)] )
 
--- Total Sales (United States)
+**Total Sales (United States)
 
   Total Sales (United States) = 
     CALCULATE(
@@ -104,7 +104,7 @@
 
 **Remove blanks
 
--- Total Sales (United States)
+**Total Sales (United States)
 
     Total Sales (United States) = 
     IF(
@@ -114,7 +114,7 @@
             [Total Sales],
             'Sales Territory'[Sales Territory Country] = "United States"))
 
--- Total Sales (US and Canada) 
+**Total Sales (US and Canada) 
 
     Total Sales (US and Canada) = 
     CALCULATE(
@@ -123,7 +123,7 @@
 
 **Optional Method** Sames results as above.
 
--- Total Sales (US and Canada) 
+**Total Sales (US and Canada) 
 
   Total Sales (US and Canada) = 
     CALCULATE(
@@ -131,14 +131,14 @@
         'Sales Territory'[Sales Territory Country] = "United States" || // The double pipe delimiter is an OR condition.
         'Sales Territory'[Sales Territory Country] = "Canada" )
 
--- Total Sales (2007)
+**Total Sales (2007)
 
     Total Sales (2007) = 
     CALCULATE(
         [Total Sales],
         'Date'[Year] = 2007)
 
--- Total Sales (2008)
+**Total Sales (2008)
 
     Total Sales (2008) = 
     CALCULATE(
@@ -147,14 +147,14 @@
 
 **Time Intelligence Calculations**
 
--- Year to Date Sales
+**Year to Date Sales
 
     YTD Sales = 
     TOTALYTD(
         [Total Sales],
         'Date'[Date] )
 
--- Fiscal Year to Date Sales
+**Fiscal Year to Date Sales
 
     Fiscal YTD Sales = 
     TOTALYTD(
@@ -162,7 +162,7 @@
         'Date'[Date],
         "06/30" )
 
--- Prior Year Sales
+**Prior Year Sales
 
     Prior Year Sales = 
     CALCULATE(
@@ -170,7 +170,7 @@
         SAMEPERIODLASTYEAR(
             'Date'[Date]  ) )
 
--- Prior Month Sales
+**Prior Month Sales
 
     Prior Month Sales = 
     CALCULATE(
@@ -191,7 +191,7 @@
         LASTDATE( 
             'Date'[Date] ) ) 
 
--- Closing Balance (Non Blank)
+**Closing Balance (Non Blank)
 
     Closing Balance (Non Blank) = 
     CALCULATE(
@@ -200,7 +200,7 @@
             'Date'[Date],
             [Inventory Balance] ) ) 
 
--- Opening Balance Month
+**Opening Balance Month
 
     Opening Balance Month = 
     CALCULATE(
@@ -214,7 +214,7 @@
 
 *** Context Transition ***
 
--- Last Order Date (Column on Customer Table)
+**Last Order Date (Column on Customer Table)
     Last Order Date (CT) = 
     CALCULATE(
         MAX('Internet Sales'[Order Date]) 
