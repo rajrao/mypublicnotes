@@ -5,6 +5,8 @@ https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-messagi
 1. sys.SessionId = 'xxxxx' 
 1. sys.messageid = 'xxxx'
 1. sys.correlationid like 'abc-%'
+1. sys.label is not null
+
 
 **Message properties**
 1. propertyX = 'A'
@@ -26,7 +28,12 @@ When message property name has special characters (example from Dyanmics CRM, wh
 
 **Parameter based filters** (where DateTimeMp is a message property of type DateTime and @dtParam is a param passed to the filter as a DateTime object)
 
+    var filter = new SqlFilter("datetime >= @dtParam");
+    filter.Parameters.Add("@dtParam", DateTime.Parse("2020-10-23"));
+
 1. DateTimeMp < @dtParam
 1. DateTimeMp > @dtParam
 1. (DateTimeMp2-DateTimeMp1) <= @timespan //@timespan is a parameter of type TimeSpan
 1. DateTimeMp2-DateTimeMp1 <= @timespan
+
+
