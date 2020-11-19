@@ -1,5 +1,7 @@
 Example
+
 from: https://www.bluegranite.com/blog/monitoring-azure-data-factory-v2-using-power-bi
+
 If you get a Web.Content doesnt support authentication, then you will have to go into datasource settings and mark the urls as using anonymous auth.
 
 
