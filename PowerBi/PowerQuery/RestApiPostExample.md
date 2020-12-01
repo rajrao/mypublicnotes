@@ -12,7 +12,7 @@ If you get a Web.Content doesnt support authentication, then you will have to go
       resourceGroupName = "<rgName>",
       factoryName = "<factoryName>",
       apiVersion = "2018-06-01",
-      appId = "<clientId>",
+      appId = "<clientId>", //this service principal will need "Data Factory Contributor" role (not sure if there is a more limited role than that available for this
       clientSecrets = "<clientSecret>",
       uri = "https://login.microsoftonline.com/" & tenantID & "/oauth2/token",
       res = "https://management.azure.com/",
