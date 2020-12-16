@@ -11,6 +11,25 @@
 	return 
 	    CALCULATE(Sum('Revenue'[Revenue]), All('Calendar'), 'Revenue'[Date Key] <= dateKey)    
 
+**Sample 2**
+
+	Cum Revenue = 
+	VAR  maxDateKey =
+	    IF (
+		HASONEVALUE ( 'Calendar'[Date Key] ),
+		SELECTEDVALUE ( 'Calendar'[Date Key] ),
+		CALCULATE (
+		    MAX ( 'Revenue'[Date Key] ),
+		    ALL ( 'Revenue'[Date Key])
+		)
+	    )
+	RETURN
+	    CALCULATE (
+		SUM ( 'Revenue'[Revenue] ),
+		ALL ( 'Calendar' ),
+		'Revenue'[Date Key] <= maxDateKey
+	    )	
+
 **Working 1 (seems just a bit more performant than 2)**
 
 	RollingSum = 
