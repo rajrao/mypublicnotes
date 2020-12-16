@@ -1,6 +1,6 @@
 **Another sample**
 
-	Delivered Revenue = 
+	Cum Revenue = 
 
 	VAR dateKey =
 	    IF (
