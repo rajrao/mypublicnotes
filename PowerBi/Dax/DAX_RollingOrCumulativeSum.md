@@ -1,4 +1,4 @@
-**Another sample **
+**Another sample**
 
 	Delivered Revenue = 
 
