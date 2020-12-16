@@ -1,4 +1,15 @@
+**Another sample **
 
+	Delivered Revenue = 
+
+	VAR dateKey =
+	    IF (
+		HASONEVALUE ( 'Calendar'[Date Key] ),
+		SELECTEDVALUE ( 'Calendar'[Date Key] ),
+		CALCULATE(MAX('Calendar'[Date Key]),ALL('Revenue'))
+	    )
+	return 
+	    CALCULATE(Sum('Revenue'[Revenue]), All('Calendar'), 'Revenue'[Date Key] <= dateKey)    
 
 **Working 1 (seems just a bit more performant than 2)**
 
