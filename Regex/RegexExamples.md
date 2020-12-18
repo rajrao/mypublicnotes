@@ -44,8 +44,14 @@ Advanced syntax: https://www.boost.org/doc/libs/1_55_0/libs/regex/doc/html/boost
    
          (.*?)(?:,)
 
-1.  XXXXXX
+1.  Find all lines that dont start with set of works
 
-     YYYYY
+     Find lines not starting with WatermarkId or Executing
    
-         REGEX
+         ^(?!WatermarkID|Executing).*
+         
+1.  Find all lines that dont contain set of words
+
+     Find lines not starting with WatermarkId or Executing
+   
+         ^((?!WatermarkID|Executing).)*         
