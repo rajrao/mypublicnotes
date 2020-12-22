@@ -14,7 +14,7 @@ Notes:
             DataLakeSource = DataLakePath  & FileFolder,
             Source = AzureStorage.DataLake(DataLakePath),
             #"GetFileContent" = Source{[#"Folder Path"=DataLakeSource,Name=FileName]}[Content],
-            #"Imported CSV" = Csv.Document(GetFileContent,[Delimiter=",", Columns=44, Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+            #"Imported CSV" = Csv.Document(GetFileContent,[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
             #"Promoted Headers" = Table.PromoteHeaders(#"Imported CSV", [PromoteAllScalars=true])
           in
             #"Promoted Headers"
