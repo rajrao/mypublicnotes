@@ -14,7 +14,7 @@ If you get a Web.Content doesnt support authentication, then you will have to go
       apiVersion = "2018-06-01",
       appId = "<clientId>", //this service principal will need "Data Factory Contributor" role (not sure if there is a more limited role than that available for this
       clientSecrets = "<clientSecret>",
-      uri = "https://login.microsoftonline.com/" & tenantID & "/oauth2/token",
+      uri = "tenantID & "/oauth2/token",
       res = "https://management.azure.com/",
       today = DateTime.LocalNow() as datetime,
       prev = Date.AddMonths(today, - 1),
@@ -40,12 +40,12 @@ If you get a Web.Content doesnt support authentication, then you will have to go
       authQueryString = Uri.BuildQueryString(authBody),
       authHeaders = [#"Accept" = "application/json"],
       auth = Json.Document(
-        Web.Contents(uri, [Headers = authHeaders, Content = Text.ToBinary(authQueryString)])
+        Web.Contents("https://login.microsoftonline.com/", [RelativePath = uri, Headers = authHeaders, Content = Text.ToBinary(authQueryString)])
       ),
       token = auth[access_token],
       //Build request URL & Body using variables
       url
-        = "https://management.azure.com/subscriptions/" & subscriptionId & "/resourceGroups/"
+        = subscriptionId & "/resourceGroups/"
           & resourceGroupName
           & "/providers/Microsoft.DataFactory/factories/"
           & factoryName
@@ -56,7 +56,7 @@ If you get a Web.Content doesnt support authentication, then you will have to go
       //Make API Call to query Data Factory
       reqHeaders = [#"Content-Type" = "application/json", #"Authorization" = "Bearer " & token],
       result = Json.Document(
-        Web.Contents(url, [Headers = reqHeaders, Content = Text.ToBinary(reqBody)])
+        Web.Contents("https://management.azure.com/subscriptions/", [RelativePath = url, Headers = reqHeaders, Content = Text.ToBinary(reqBody)])
       ),
         value = result[value],
         #"Converted to Table" = Table.FromList(value, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
