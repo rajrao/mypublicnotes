@@ -1,8 +1,6 @@
-Example
+The following demonstrated how to perform Post to a url with custom headers, etc. This example is based on fetching data from Azure's manamagement rest api, but could easily be modified to perform a post against any URL.
 
-from: https://www.bluegranite.com/blog/monitoring-azure-data-factory-v2-using-power-bi
-
-If you get a Web.Content doesnt support authentication, then you will have to go into datasource settings and mark the urls as using anonymous auth.
+Note: *If you get a **Web.Content doesnt support authentication**, then you will have to go into **datasource settings** and mark the urls as using anonymous auth.*
 
 
     let
@@ -64,3 +62,6 @@ If you get a Web.Content doesnt support authentication, then you will have to go
         #"Expanded annotations" = Table.ExpandListColumn(#"Expanded Column1", "annotations")
     in
       #"Expanded annotations"
+
+
+based on example from: https://www.bluegranite.com/blog/monitoring-azure-data-factory-v2-using-power-bi
