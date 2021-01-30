@@ -56,6 +56,10 @@ Advanced syntax: https://www.boost.org/doc/libs/1_55_0/libs/regex/doc/html/boost
    
          ^((?!WatermarkID|Executing).)*       
          
-1. Find all lines that dont contain the word dataflow anywhere in the line
+1. Find all lines that dont contain the word DataflowName anywhere in the line
          
          ^(?!.*DataflowName).*
+         
+1. Find all lines that contain the word dataflowname in the line
+
+         (DataflowName.*=.*"(?<wfn>(.*))")
