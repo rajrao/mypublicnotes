@@ -54,4 +54,8 @@ Advanced syntax: https://www.boost.org/doc/libs/1_55_0/libs/regex/doc/html/boost
 
      Find lines not starting with WatermarkId or Executing
    
-         ^((?!WatermarkID|Executing).)*         
+         ^((?!WatermarkID|Executing).)*       
+         
+1. Find all lines that dont contain the word dataflow anywhere in the line
+         
+         ^(?!.*DataflowName).*
