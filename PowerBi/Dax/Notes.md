@@ -21,3 +21,8 @@
        Return (current-prev)/current
 
 
+**Selected Filters as String**
+
+An interesting property of selected values is that it returns all values when none are selected. This makes it awesome when you are checking if any are selected and if you want to show all if none are selected.
+
+    var selectedvalues = CONCATENATEX(ALLSELECTED('Table'[Column]),'Table'[Column],","))
