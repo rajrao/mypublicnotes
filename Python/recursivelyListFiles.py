@@ -1,19 +1,18 @@
 
-def _getFiles(lsPath, files):
+def _getFilesRecursive(lsPath, files):
   dirPaths = dbutils.fs.ls(lsPath)
-  subFolders = []
   for dirPath in dirPaths:
     if (dirPath.isDir() and dirPath != lsPath):
-      subFolders.append(dirPath.path)
+      _getFilesRecursive(dirPath.path, files)
     else:
       splitPath = dirPath.path.split("/")
-      files.append({"path": dirPath.path, "name": dirPath.name})
-  for subFolder in subFolders:
-    _getFiles(subFolder, files)
+      files.append({"path": dirPath.path, "name": dirPath.name, "yyyy": splitPath[6], "mm": splitPath[7], "dd": splitPath[8]})
+    
 
-def getFiles(lsPath):    
+def getFilesRecursive(environment, system, entityname):    
+  filepath = "abfss://raw@" + BIStorageAccountName + ".dfs.core.windows.net/" + environment + "/" + system + "/" + entityname + "/"
   files = []
-  _getFiles(filepath, files)
+  _getFilesRecursive(filepath, files)
   return files
   
 filepath = "abfss://raw@[REDACTED].dfs.core.windows.net/aaa/bbb/"
