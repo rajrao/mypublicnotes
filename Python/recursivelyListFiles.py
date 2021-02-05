@@ -7,7 +7,7 @@ def _getFiles(lsPath, files):
       subFolders.append(dirPath.path)
     else:
       splitPath = dirPath.path.split("/")
-      files.append({"path": dirPath.path, "name": dirPath.name, "yyyy": splitPath[6], "mm": splitPath[7], "dd": splitPath[8]})
+      files.append({"path": dirPath.path, "name": dirPath.name})
   for subFolder in subFolders:
     _getFiles(subFolder, files)
 
