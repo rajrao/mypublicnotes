@@ -11,3 +11,7 @@ Example VS Release Tasks: https://github.com/maikvandergaag/msft-extensions/tree
 |387,136|MultipleCalendarWViz.pbix
 |387,395|MultipleCalendarsAsReferencesWViz.pbix
 
+
+**Visualize PBI Refresh**
+
+https://dax.tips/2021/02/15/visualise-your-power-bi-refresh/
