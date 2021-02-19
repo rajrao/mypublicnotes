@@ -15,3 +15,6 @@ Example VS Release Tasks: https://github.com/maikvandergaag/msft-extensions/tree
 **Visualize PBI Refresh**
 
 https://dax.tips/2021/02/15/visualise-your-power-bi-refresh/
+
+**Best Practices**
+https://github.com/TabularEditor/BestPracticeRules
