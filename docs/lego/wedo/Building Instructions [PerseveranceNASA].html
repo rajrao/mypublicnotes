@@ -1,0 +1,2260 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<title>Lego Digital Designer</title>
+		
+		<style type="text/css">
+			
+			div
+			{
+			    font-family:arial,sans-serif; 
+			    font-size: 11px;
+			    color:#000000;
+			}
+			
+			.header 
+			{
+			    width:1024px;
+			    background-image:url('Building Instructions [PerseveranceNASA]-images/Images/Header.png');
+			    background-repeat:repeat-x;
+			    background-color: #000000;
+			    height:40px;
+			    padding-left:10px;
+			}
+            
+            .headerPrint
+			{
+			    display:none;
+			}
+			
+			.footer
+			{
+			    font-size:10px;
+			    text-align:center;
+			    width:1024px;
+			}
+			
+			.nav
+			{
+			    text-align:center;
+			    width:1024px;
+			}
+			
+			.step
+			{
+			    display:none;
+			}
+
+			.stepdisplay
+			{
+			    display:block;
+			    width:1024px;
+			    height:620px;
+			}
+			
+			.modelParts 
+			{ 
+			    list-style-type:none; 
+			    padding:4px 0px 0px 0px; 
+			    margin:0px; 
+			}
+			.modelParts ul 
+			{ 
+			    list-style-type:none; 
+			    float:left; 
+			    padding:5px 0px 0px 5px; 
+			    width:140px; 
+			    border:1px dotted gray; 
+			    margin:0px 
+			 }
+			.modelParts ul li 
+			{ 
+			    padding:0px; 
+			    margin:0px 
+			}
+			.modelParts ul li img 
+			{ 
+			    padding:0px; 
+			    height:64px; 
+			    width:64px; 
+			    margin-left:15px 
+			}
+			
+			.stepTextTop p 
+			{ 
+			    margin:0px; 
+			    padding:10px 0px 0px 0px;  
+			 }
+			.stepText p
+			{ 
+			    margin:0px; 
+			    width:30px; 
+			    padding:25px 0px 0px 10px;
+			}
+            
+            .biElement
+            {
+                float:left;
+                margin:20px;
+                width:280px;
+                
+            }
+            
+            .stepelements
+            {
+                width:1024px;
+			    height:620px;
+                overflow:auto;
+            }
+            
+			
+		</style>
+
+        <style type="text/css" media="print">
+            .nav
+			{
+			    display:none;
+			}
+			
+			.stepdisplay
+			{
+			    display:none;
+			}
+            
+            .stepelements
+			{
+			    display:none;
+			}
+            
+            .header
+			{
+			    display:none;
+			}
+            
+            .headerPrint
+			{
+			    display:block;
+			}
+			
+			.step
+			{
+			    display:block;
+			    width:1024px;
+			    height:620px;
+			    page-break-after:always;
+			}
+            
+            .biElement
+            {
+                width:280px;                
+            }
+            
+        </style>
+
+        <script language="javascript" type="text/javascript">
+            
+            var biCurStep=0;
+            
+            function returnTest(e) {
+                var keynum = 0;
+                if (window.event) {
+                    keynum = e.keyCode
+                }
+                else if (e.which) {
+                    keynum = e.which
+                }
+                if (keynum == 13) 
+                {
+                    try {
+                        biStep(parseInt(window.document.getElementById('stepNumber').value,10));
+                    } 
+                    catch(err) {
+                        biStep(0);
+                    }
+                }
+            }
+
+            function biStep(step) {
+
+                if (step>76+1) step=76+1;
+                if (step<0) step=0;
+
+                for (var i=0;i<76+2;i++) {
+                    var id='step_' + i.toString();
+                    var cn='stepdisplay';
+                    if (i==76+1) {
+                        cn='stepelements';
+                        id='step_elements';
+                    }
+                    
+                    if (i==step) {
+                        window.document.getElementById('step_display').innerHTML=window.document.getElementById(id).innerHTML;
+						   window.document.getElementById('step_display').className=cn;
+                    }
+                }
+                window.document.getElementById('stepNumber').value=step.toString();
+                biCurStep=step;
+            }
+        </script>
+	</head>
+	<body onload="biStep(0)">
+        <div class="header"><img src="Building Instructions [PerseveranceNASA]-images/Images/Logo.png" /></div>
+        <div class="headerPrint"><img src="Building Instructions [PerseveranceNASA]-images/Images/Header_print.png" /></div>
+		
+        <div class="stepdisplay" id="step_display"></div>
+
+        <div class="step" id="step_0">
+            <div style="float:left;width:150px"><p>Model Name:<br /><span style="font-weight:bold">PerseveranceNASA</span><br /><br />Number of Bricks: <span style="font-weight:bold">178</span></p></div>
+            <div style="float:left"><img height="600" width="800" src="Building Instructions [PerseveranceNASA]-images/Step76.png" /></div>
+            <div style="clear:both"></div>
+        </div>
+
+			
+        <div class="step" id="step_1">
+            <div style="float:left">
+                <div class="stepTextTop"><p><span style="font-weight:bold">Step 1 of 76</span></p></div>
+				<div class="modelParts">
+					<ul>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick0.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick1.png" /></li>
+
+					</ul>
+				</div>
+            </div>
+            <div style="float:left"><img height="600" width="800" src="Building Instructions [PerseveranceNASA]-images/Step1.png" /></div>
+            <div style="clear:both"></div>
+        </div>			
+        <div class="step" id="step_2">
+            <div style="float:left">
+                <div class="stepTextTop"><p><span style="font-weight:bold">Step 2 of 76</span></p></div>
+				<div class="modelParts">
+					<ul>
+							<li class="stepText"><p>2 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick2.png" /></li>
+
+					</ul>
+				</div>
+            </div>
+            <div style="float:left"><img height="600" width="800" src="Building Instructions [PerseveranceNASA]-images/Step2.png" /></div>
+            <div style="clear:both"></div>
+        </div>			
+        <div class="step" id="step_3">
+            <div style="float:left">
+                <div class="stepTextTop"><p><span style="font-weight:bold">Step 3 of 76</span></p></div>
+				<div class="modelParts">
+					<ul>
+							<li class="stepText"><p>2 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick3.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick4.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick5.png" /></li>
+
+					</ul>
+				</div>
+            </div>
+            <div style="float:left"><img height="600" width="800" src="Building Instructions [PerseveranceNASA]-images/Step3.png" /></div>
+            <div style="clear:both"></div>
+        </div>			
+        <div class="step" id="step_4">
+            <div style="float:left">
+                <div class="stepTextTop"><p><span style="font-weight:bold">Step 4 of 76</span></p></div>
+				<div class="modelParts">
+					<ul>
+
+					</ul>
+				</div>
+            </div>
+            <div style="float:left"><img height="600" width="800" src="Building Instructions [PerseveranceNASA]-images/Step4.png" /></div>
+            <div style="clear:both"></div>
+        </div>			
+        <div class="step" id="step_5">
+            <div style="float:left">
+                <div class="stepTextTop"><p><span style="font-weight:bold">Step 5 of 76</span></p></div>
+				<div class="modelParts">
+					<ul>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick6.png" /></li>
+
+					</ul>
+				</div>
+            </div>
+            <div style="float:left"><img height="600" width="800" src="Building Instructions [PerseveranceNASA]-images/Step5.png" /></div>
+            <div style="clear:both"></div>
+        </div>			
+        <div class="step" id="step_6">
+            <div style="float:left">
+                <div class="stepTextTop"><p><span style="font-weight:bold">Step 6 of 76</span></p></div>
+				<div class="modelParts">
+					<ul>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick7.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick8.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick9.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick10.png" /></li>
+
+					</ul>
+				</div>
+            </div>
+            <div style="float:left"><img height="600" width="800" src="Building Instructions [PerseveranceNASA]-images/Step6.png" /></div>
+            <div style="clear:both"></div>
+        </div>			
+        <div class="step" id="step_7">
+            <div style="float:left">
+                <div class="stepTextTop"><p><span style="font-weight:bold">Step 7 of 76</span></p></div>
+				<div class="modelParts">
+					<ul>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick11.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick12.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick10.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick6.png" /></li>
+
+					</ul>
+				</div>
+            </div>
+            <div style="float:left"><img height="600" width="800" src="Building Instructions [PerseveranceNASA]-images/Step7.png" /></div>
+            <div style="clear:both"></div>
+        </div>			
+        <div class="step" id="step_8">
+            <div style="float:left">
+                <div class="stepTextTop"><p><span style="font-weight:bold">Step 8 of 76</span></p></div>
+				<div class="modelParts">
+					<ul>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick9.png" /></li>
+
+					</ul>
+				</div>
+            </div>
+            <div style="float:left"><img height="600" width="800" src="Building Instructions [PerseveranceNASA]-images/Step8.png" /></div>
+            <div style="clear:both"></div>
+        </div>			
+        <div class="step" id="step_9">
+            <div style="float:left">
+                <div class="stepTextTop"><p><span style="font-weight:bold">Step 9 of 76</span></p></div>
+				<div class="modelParts">
+					<ul>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick13.png" /></li>
+
+					</ul>
+				</div>
+            </div>
+            <div style="float:left"><img height="600" width="800" src="Building Instructions [PerseveranceNASA]-images/Step9.png" /></div>
+            <div style="clear:both"></div>
+        </div>			
+        <div class="step" id="step_10">
+            <div style="float:left">
+                <div class="stepTextTop"><p><span style="font-weight:bold">Step 10 of 76</span></p></div>
+				<div class="modelParts">
+					<ul>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick14.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick15.png" /></li>
+
+					</ul>
+				</div>
+            </div>
+            <div style="float:left"><img height="600" width="800" src="Building Instructions [PerseveranceNASA]-images/Step10.png" /></div>
+            <div style="clear:both"></div>
+        </div>			
+        <div class="step" id="step_11">
+            <div style="float:left">
+                <div class="stepTextTop"><p><span style="font-weight:bold">Step 11 of 76</span></p></div>
+				<div class="modelParts">
+					<ul>
+
+					</ul>
+				</div>
+            </div>
+            <div style="float:left"><img height="600" width="800" src="Building Instructions [PerseveranceNASA]-images/Step11.png" /></div>
+            <div style="clear:both"></div>
+        </div>			
+        <div class="step" id="step_12">
+            <div style="float:left">
+                <div class="stepTextTop"><p><span style="font-weight:bold">Step 12 of 76</span></p></div>
+				<div class="modelParts">
+					<ul>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick16.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick17.png" /></li>
+
+					</ul>
+				</div>
+            </div>
+            <div style="float:left"><img height="600" width="800" src="Building Instructions [PerseveranceNASA]-images/Step12.png" /></div>
+            <div style="clear:both"></div>
+        </div>			
+        <div class="step" id="step_13">
+            <div style="float:left">
+                <div class="stepTextTop"><p><span style="font-weight:bold">Step 13 of 76</span></p></div>
+				<div class="modelParts">
+					<ul>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick10.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick18.png" /></li>
+							<li class="stepText"><p>2 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick19.png" /></li>
+
+					</ul>
+				</div>
+            </div>
+            <div style="float:left"><img height="600" width="800" src="Building Instructions [PerseveranceNASA]-images/Step13.png" /></div>
+            <div style="clear:both"></div>
+        </div>			
+        <div class="step" id="step_14">
+            <div style="float:left">
+                <div class="stepTextTop"><p><span style="font-weight:bold">Step 14 of 76</span></p></div>
+				<div class="modelParts">
+					<ul>
+							<li class="stepText"><p>2 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick16.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick20.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick21.png" /></li>
+
+					</ul>
+				</div>
+            </div>
+            <div style="float:left"><img height="600" width="800" src="Building Instructions [PerseveranceNASA]-images/Step14.png" /></div>
+            <div style="clear:both"></div>
+        </div>			
+        <div class="step" id="step_15">
+            <div style="float:left">
+                <div class="stepTextTop"><p><span style="font-weight:bold">Step 15 of 76</span></p></div>
+				<div class="modelParts">
+					<ul>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick16.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick22.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick21.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick23.png" /></li>
+
+					</ul>
+				</div>
+            </div>
+            <div style="float:left"><img height="600" width="800" src="Building Instructions [PerseveranceNASA]-images/Step15.png" /></div>
+            <div style="clear:both"></div>
+        </div>			
+        <div class="step" id="step_16">
+            <div style="float:left">
+                <div class="stepTextTop"><p><span style="font-weight:bold">Step 16 of 76</span></p></div>
+				<div class="modelParts">
+					<ul>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick24.png" /></li>
+							<li class="stepText"><p>2 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick25.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick10.png" /></li>
+
+					</ul>
+				</div>
+            </div>
+            <div style="float:left"><img height="600" width="800" src="Building Instructions [PerseveranceNASA]-images/Step16.png" /></div>
+            <div style="clear:both"></div>
+        </div>			
+        <div class="step" id="step_17">
+            <div style="float:left">
+                <div class="stepTextTop"><p><span style="font-weight:bold">Step 17 of 76</span></p></div>
+				<div class="modelParts">
+					<ul>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick12.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick20.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick26.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick27.png" /></li>
+
+					</ul>
+				</div>
+            </div>
+            <div style="float:left"><img height="600" width="800" src="Building Instructions [PerseveranceNASA]-images/Step17.png" /></div>
+            <div style="clear:both"></div>
+        </div>			
+        <div class="step" id="step_18">
+            <div style="float:left">
+                <div class="stepTextTop"><p><span style="font-weight:bold">Step 18 of 76</span></p></div>
+				<div class="modelParts">
+					<ul>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick28.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick29.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick30.png" /></li>
+
+					</ul>
+				</div>
+            </div>
+            <div style="float:left"><img height="600" width="800" src="Building Instructions [PerseveranceNASA]-images/Step18.png" /></div>
+            <div style="clear:both"></div>
+        </div>			
+        <div class="step" id="step_19">
+            <div style="float:left">
+                <div class="stepTextTop"><p><span style="font-weight:bold">Step 19 of 76</span></p></div>
+				<div class="modelParts">
+					<ul>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick30.png" /></li>
+
+					</ul>
+				</div>
+            </div>
+            <div style="float:left"><img height="600" width="800" src="Building Instructions [PerseveranceNASA]-images/Step19.png" /></div>
+            <div style="clear:both"></div>
+        </div>			
+        <div class="step" id="step_20">
+            <div style="float:left">
+                <div class="stepTextTop"><p><span style="font-weight:bold">Step 20 of 76</span></p></div>
+				<div class="modelParts">
+					<ul>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick13.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick31.png" /></li>
+
+					</ul>
+				</div>
+            </div>
+            <div style="float:left"><img height="600" width="800" src="Building Instructions [PerseveranceNASA]-images/Step20.png" /></div>
+            <div style="clear:both"></div>
+        </div>			
+        <div class="step" id="step_21">
+            <div style="float:left">
+                <div class="stepTextTop"><p><span style="font-weight:bold">Step 21 of 76</span></p></div>
+				<div class="modelParts">
+					<ul>
+
+					</ul>
+				</div>
+            </div>
+            <div style="float:left"><img height="600" width="800" src="Building Instructions [PerseveranceNASA]-images/Step21.png" /></div>
+            <div style="clear:both"></div>
+        </div>			
+        <div class="step" id="step_22">
+            <div style="float:left">
+                <div class="stepTextTop"><p><span style="font-weight:bold">Step 22 of 76</span></p></div>
+				<div class="modelParts">
+					<ul>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick32.png" /></li>
+
+					</ul>
+				</div>
+            </div>
+            <div style="float:left"><img height="600" width="800" src="Building Instructions [PerseveranceNASA]-images/Step22.png" /></div>
+            <div style="clear:both"></div>
+        </div>			
+        <div class="step" id="step_23">
+            <div style="float:left">
+                <div class="stepTextTop"><p><span style="font-weight:bold">Step 23 of 76</span></p></div>
+				<div class="modelParts">
+					<ul>
+							<li class="stepText"><p>2 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick33.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick32.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick34.png" /></li>
+
+					</ul>
+				</div>
+            </div>
+            <div style="float:left"><img height="600" width="800" src="Building Instructions [PerseveranceNASA]-images/Step23.png" /></div>
+            <div style="clear:both"></div>
+        </div>			
+        <div class="step" id="step_24">
+            <div style="float:left">
+                <div class="stepTextTop"><p><span style="font-weight:bold">Step 24 of 76</span></p></div>
+				<div class="modelParts">
+					<ul>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick28.png" /></li>
+
+					</ul>
+				</div>
+            </div>
+            <div style="float:left"><img height="600" width="800" src="Building Instructions [PerseveranceNASA]-images/Step24.png" /></div>
+            <div style="clear:both"></div>
+        </div>			
+        <div class="step" id="step_25">
+            <div style="float:left">
+                <div class="stepTextTop"><p><span style="font-weight:bold">Step 25 of 76</span></p></div>
+				<div class="modelParts">
+					<ul>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick35.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick36.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick26.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick14.png" /></li>
+
+					</ul>
+				</div>
+            </div>
+            <div style="float:left"><img height="600" width="800" src="Building Instructions [PerseveranceNASA]-images/Step25.png" /></div>
+            <div style="clear:both"></div>
+        </div>			
+        <div class="step" id="step_26">
+            <div style="float:left">
+                <div class="stepTextTop"><p><span style="font-weight:bold">Step 26 of 76</span></p></div>
+				<div class="modelParts">
+					<ul>
+
+					</ul>
+				</div>
+            </div>
+            <div style="float:left"><img height="600" width="800" src="Building Instructions [PerseveranceNASA]-images/Step26.png" /></div>
+            <div style="clear:both"></div>
+        </div>			
+        <div class="step" id="step_27">
+            <div style="float:left">
+                <div class="stepTextTop"><p><span style="font-weight:bold">Step 27 of 76</span></p></div>
+				<div class="modelParts">
+					<ul>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick37.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick38.png" /></li>
+
+					</ul>
+				</div>
+            </div>
+            <div style="float:left"><img height="600" width="800" src="Building Instructions [PerseveranceNASA]-images/Step27.png" /></div>
+            <div style="clear:both"></div>
+        </div>			
+        <div class="step" id="step_28">
+            <div style="float:left">
+                <div class="stepTextTop"><p><span style="font-weight:bold">Step 28 of 76</span></p></div>
+				<div class="modelParts">
+					<ul>
+
+					</ul>
+				</div>
+            </div>
+            <div style="float:left"><img height="600" width="800" src="Building Instructions [PerseveranceNASA]-images/Step28.png" /></div>
+            <div style="clear:both"></div>
+        </div>			
+        <div class="step" id="step_29">
+            <div style="float:left">
+                <div class="stepTextTop"><p><span style="font-weight:bold">Step 29 of 76</span></p></div>
+				<div class="modelParts">
+					<ul>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick37.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick38.png" /></li>
+
+					</ul>
+				</div>
+            </div>
+            <div style="float:left"><img height="600" width="800" src="Building Instructions [PerseveranceNASA]-images/Step29.png" /></div>
+            <div style="clear:both"></div>
+        </div>			
+        <div class="step" id="step_30">
+            <div style="float:left">
+                <div class="stepTextTop"><p><span style="font-weight:bold">Step 30 of 76</span></p></div>
+				<div class="modelParts">
+					<ul>
+
+					</ul>
+				</div>
+            </div>
+            <div style="float:left"><img height="600" width="800" src="Building Instructions [PerseveranceNASA]-images/Step30.png" /></div>
+            <div style="clear:both"></div>
+        </div>			
+        <div class="step" id="step_31">
+            <div style="float:left">
+                <div class="stepTextTop"><p><span style="font-weight:bold">Step 31 of 76</span></p></div>
+				<div class="modelParts">
+					<ul>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick14.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick39.png" /></li>
+
+					</ul>
+				</div>
+            </div>
+            <div style="float:left"><img height="600" width="800" src="Building Instructions [PerseveranceNASA]-images/Step31.png" /></div>
+            <div style="clear:both"></div>
+        </div>			
+        <div class="step" id="step_32">
+            <div style="float:left">
+                <div class="stepTextTop"><p><span style="font-weight:bold">Step 32 of 76</span></p></div>
+				<div class="modelParts">
+					<ul>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick40.png" /></li>
+
+					</ul>
+				</div>
+            </div>
+            <div style="float:left"><img height="600" width="800" src="Building Instructions [PerseveranceNASA]-images/Step32.png" /></div>
+            <div style="clear:both"></div>
+        </div>			
+        <div class="step" id="step_33">
+            <div style="float:left">
+                <div class="stepTextTop"><p><span style="font-weight:bold">Step 33 of 76</span></p></div>
+				<div class="modelParts">
+					<ul>
+
+					</ul>
+				</div>
+            </div>
+            <div style="float:left"><img height="600" width="800" src="Building Instructions [PerseveranceNASA]-images/Step33.png" /></div>
+            <div style="clear:both"></div>
+        </div>			
+        <div class="step" id="step_34">
+            <div style="float:left">
+                <div class="stepTextTop"><p><span style="font-weight:bold">Step 34 of 76</span></p></div>
+				<div class="modelParts">
+					<ul>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick14.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick39.png" /></li>
+
+					</ul>
+				</div>
+            </div>
+            <div style="float:left"><img height="600" width="800" src="Building Instructions [PerseveranceNASA]-images/Step34.png" /></div>
+            <div style="clear:both"></div>
+        </div>			
+        <div class="step" id="step_35">
+            <div style="float:left">
+                <div class="stepTextTop"><p><span style="font-weight:bold">Step 35 of 76</span></p></div>
+				<div class="modelParts">
+					<ul>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick40.png" /></li>
+
+					</ul>
+				</div>
+            </div>
+            <div style="float:left"><img height="600" width="800" src="Building Instructions [PerseveranceNASA]-images/Step35.png" /></div>
+            <div style="clear:both"></div>
+        </div>			
+        <div class="step" id="step_36">
+            <div style="float:left">
+                <div class="stepTextTop"><p><span style="font-weight:bold">Step 36 of 76</span></p></div>
+				<div class="modelParts">
+					<ul>
+
+					</ul>
+				</div>
+            </div>
+            <div style="float:left"><img height="600" width="800" src="Building Instructions [PerseveranceNASA]-images/Step36.png" /></div>
+            <div style="clear:both"></div>
+        </div>			
+        <div class="step" id="step_37">
+            <div style="float:left">
+                <div class="stepTextTop"><p><span style="font-weight:bold">Step 37 of 76</span></p></div>
+				<div class="modelParts">
+					<ul>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick41.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick22.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick17.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick27.png" /></li>
+
+					</ul>
+				</div>
+            </div>
+            <div style="float:left"><img height="600" width="800" src="Building Instructions [PerseveranceNASA]-images/Step37.png" /></div>
+            <div style="clear:both"></div>
+        </div>			
+        <div class="step" id="step_38">
+            <div style="float:left">
+                <div class="stepTextTop"><p><span style="font-weight:bold">Step 38 of 76</span></p></div>
+				<div class="modelParts">
+					<ul>
+
+					</ul>
+				</div>
+            </div>
+            <div style="float:left"><img height="600" width="800" src="Building Instructions [PerseveranceNASA]-images/Step38.png" /></div>
+            <div style="clear:both"></div>
+        </div>			
+        <div class="step" id="step_39">
+            <div style="float:left">
+                <div class="stepTextTop"><p><span style="font-weight:bold">Step 39 of 76</span></p></div>
+				<div class="modelParts">
+					<ul>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick42.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick43.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick44.png" /></li>
+
+					</ul>
+				</div>
+            </div>
+            <div style="float:left"><img height="600" width="800" src="Building Instructions [PerseveranceNASA]-images/Step39.png" /></div>
+            <div style="clear:both"></div>
+        </div>			
+        <div class="step" id="step_40">
+            <div style="float:left">
+                <div class="stepTextTop"><p><span style="font-weight:bold">Step 40 of 76</span></p></div>
+				<div class="modelParts">
+					<ul>
+							<li class="stepText"><p>2 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick45.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick46.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick47.png" /></li>
+
+					</ul>
+				</div>
+            </div>
+            <div style="float:left"><img height="600" width="800" src="Building Instructions [PerseveranceNASA]-images/Step40.png" /></div>
+            <div style="clear:both"></div>
+        </div>			
+        <div class="step" id="step_41">
+            <div style="float:left">
+                <div class="stepTextTop"><p><span style="font-weight:bold">Step 41 of 76</span></p></div>
+				<div class="modelParts">
+					<ul>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick48.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick49.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick50.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick51.png" /></li>
+
+					</ul>
+				</div>
+            </div>
+            <div style="float:left"><img height="600" width="800" src="Building Instructions [PerseveranceNASA]-images/Step41.png" /></div>
+            <div style="clear:both"></div>
+        </div>			
+        <div class="step" id="step_42">
+            <div style="float:left">
+                <div class="stepTextTop"><p><span style="font-weight:bold">Step 42 of 76</span></p></div>
+				<div class="modelParts">
+					<ul>
+
+					</ul>
+				</div>
+            </div>
+            <div style="float:left"><img height="600" width="800" src="Building Instructions [PerseveranceNASA]-images/Step42.png" /></div>
+            <div style="clear:both"></div>
+        </div>			
+        <div class="step" id="step_43">
+            <div style="float:left">
+                <div class="stepTextTop"><p><span style="font-weight:bold">Step 43 of 76</span></p></div>
+				<div class="modelParts">
+					<ul>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick42.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick43.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick44.png" /></li>
+
+					</ul>
+				</div>
+            </div>
+            <div style="float:left"><img height="600" width="800" src="Building Instructions [PerseveranceNASA]-images/Step43.png" /></div>
+            <div style="clear:both"></div>
+        </div>			
+        <div class="step" id="step_44">
+            <div style="float:left">
+                <div class="stepTextTop"><p><span style="font-weight:bold">Step 44 of 76</span></p></div>
+				<div class="modelParts">
+					<ul>
+							<li class="stepText"><p>2 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick45.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick46.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick47.png" /></li>
+
+					</ul>
+				</div>
+            </div>
+            <div style="float:left"><img height="600" width="800" src="Building Instructions [PerseveranceNASA]-images/Step44.png" /></div>
+            <div style="clear:both"></div>
+        </div>			
+        <div class="step" id="step_45">
+            <div style="float:left">
+                <div class="stepTextTop"><p><span style="font-weight:bold">Step 45 of 76</span></p></div>
+				<div class="modelParts">
+					<ul>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick48.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick49.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick50.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick51.png" /></li>
+
+					</ul>
+				</div>
+            </div>
+            <div style="float:left"><img height="600" width="800" src="Building Instructions [PerseveranceNASA]-images/Step45.png" /></div>
+            <div style="clear:both"></div>
+        </div>			
+        <div class="step" id="step_46">
+            <div style="float:left">
+                <div class="stepTextTop"><p><span style="font-weight:bold">Step 46 of 76</span></p></div>
+				<div class="modelParts">
+					<ul>
+
+					</ul>
+				</div>
+            </div>
+            <div style="float:left"><img height="600" width="800" src="Building Instructions [PerseveranceNASA]-images/Step46.png" /></div>
+            <div style="clear:both"></div>
+        </div>			
+        <div class="step" id="step_47">
+            <div style="float:left">
+                <div class="stepTextTop"><p><span style="font-weight:bold">Step 47 of 76</span></p></div>
+				<div class="modelParts">
+					<ul>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick35.png" /></li>
+
+					</ul>
+				</div>
+            </div>
+            <div style="float:left"><img height="600" width="800" src="Building Instructions [PerseveranceNASA]-images/Step47.png" /></div>
+            <div style="clear:both"></div>
+        </div>			
+        <div class="step" id="step_48">
+            <div style="float:left">
+                <div class="stepTextTop"><p><span style="font-weight:bold">Step 48 of 76</span></p></div>
+				<div class="modelParts">
+					<ul>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick35.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick52.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick53.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick4.png" /></li>
+
+					</ul>
+				</div>
+            </div>
+            <div style="float:left"><img height="600" width="800" src="Building Instructions [PerseveranceNASA]-images/Step48.png" /></div>
+            <div style="clear:both"></div>
+        </div>			
+        <div class="step" id="step_49">
+            <div style="float:left">
+                <div class="stepTextTop"><p><span style="font-weight:bold">Step 49 of 76</span></p></div>
+				<div class="modelParts">
+					<ul>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick7.png" /></li>
+							<li class="stepText"><p>2 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick47.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick54.png" /></li>
+
+					</ul>
+				</div>
+            </div>
+            <div style="float:left"><img height="600" width="800" src="Building Instructions [PerseveranceNASA]-images/Step49.png" /></div>
+            <div style="clear:both"></div>
+        </div>			
+        <div class="step" id="step_50">
+            <div style="float:left">
+                <div class="stepTextTop"><p><span style="font-weight:bold">Step 50 of 76</span></p></div>
+				<div class="modelParts">
+					<ul>
+							<li class="stepText"><p>2 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick55.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick56.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick54.png" /></li>
+
+					</ul>
+				</div>
+            </div>
+            <div style="float:left"><img height="600" width="800" src="Building Instructions [PerseveranceNASA]-images/Step50.png" /></div>
+            <div style="clear:both"></div>
+        </div>			
+        <div class="step" id="step_51">
+            <div style="float:left">
+                <div class="stepTextTop"><p><span style="font-weight:bold">Step 51 of 76</span></p></div>
+				<div class="modelParts">
+					<ul>
+
+					</ul>
+				</div>
+            </div>
+            <div style="float:left"><img height="600" width="800" src="Building Instructions [PerseveranceNASA]-images/Step51.png" /></div>
+            <div style="clear:both"></div>
+        </div>			
+        <div class="step" id="step_52">
+            <div style="float:left">
+                <div class="stepTextTop"><p><span style="font-weight:bold">Step 52 of 76</span></p></div>
+				<div class="modelParts">
+					<ul>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick57.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick58.png" /></li>
+
+					</ul>
+				</div>
+            </div>
+            <div style="float:left"><img height="600" width="800" src="Building Instructions [PerseveranceNASA]-images/Step52.png" /></div>
+            <div style="clear:both"></div>
+        </div>			
+        <div class="step" id="step_53">
+            <div style="float:left">
+                <div class="stepTextTop"><p><span style="font-weight:bold">Step 53 of 76</span></p></div>
+				<div class="modelParts">
+					<ul>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick59.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick38.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick60.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick61.png" /></li>
+
+					</ul>
+				</div>
+            </div>
+            <div style="float:left"><img height="600" width="800" src="Building Instructions [PerseveranceNASA]-images/Step53.png" /></div>
+            <div style="clear:both"></div>
+        </div>			
+        <div class="step" id="step_54">
+            <div style="float:left">
+                <div class="stepTextTop"><p><span style="font-weight:bold">Step 54 of 76</span></p></div>
+				<div class="modelParts">
+					<ul>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick62.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick38.png" /></li>
+
+					</ul>
+				</div>
+            </div>
+            <div style="float:left"><img height="600" width="800" src="Building Instructions [PerseveranceNASA]-images/Step54.png" /></div>
+            <div style="clear:both"></div>
+        </div>			
+        <div class="step" id="step_55">
+            <div style="float:left">
+                <div class="stepTextTop"><p><span style="font-weight:bold">Step 55 of 76</span></p></div>
+				<div class="modelParts">
+					<ul>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick42.png" /></li>
+							<li class="stepText"><p>2 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick63.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick57.png" /></li>
+
+					</ul>
+				</div>
+            </div>
+            <div style="float:left"><img height="600" width="800" src="Building Instructions [PerseveranceNASA]-images/Step55.png" /></div>
+            <div style="clear:both"></div>
+        </div>			
+        <div class="step" id="step_56">
+            <div style="float:left">
+                <div class="stepTextTop"><p><span style="font-weight:bold">Step 56 of 76</span></p></div>
+				<div class="modelParts">
+					<ul>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick42.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick64.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick65.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick61.png" /></li>
+
+					</ul>
+				</div>
+            </div>
+            <div style="float:left"><img height="600" width="800" src="Building Instructions [PerseveranceNASA]-images/Step56.png" /></div>
+            <div style="clear:both"></div>
+        </div>			
+        <div class="step" id="step_57">
+            <div style="float:left">
+                <div class="stepTextTop"><p><span style="font-weight:bold">Step 57 of 76</span></p></div>
+				<div class="modelParts">
+					<ul>
+
+					</ul>
+				</div>
+            </div>
+            <div style="float:left"><img height="600" width="800" src="Building Instructions [PerseveranceNASA]-images/Step57.png" /></div>
+            <div style="clear:both"></div>
+        </div>			
+        <div class="step" id="step_58">
+            <div style="float:left">
+                <div class="stepTextTop"><p><span style="font-weight:bold">Step 58 of 76</span></p></div>
+				<div class="modelParts">
+					<ul>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick59.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick38.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick65.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick61.png" /></li>
+
+					</ul>
+				</div>
+            </div>
+            <div style="float:left"><img height="600" width="800" src="Building Instructions [PerseveranceNASA]-images/Step58.png" /></div>
+            <div style="clear:both"></div>
+        </div>			
+        <div class="step" id="step_59">
+            <div style="float:left">
+                <div class="stepTextTop"><p><span style="font-weight:bold">Step 59 of 76</span></p></div>
+				<div class="modelParts">
+					<ul>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick62.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick38.png" /></li>
+
+					</ul>
+				</div>
+            </div>
+            <div style="float:left"><img height="600" width="800" src="Building Instructions [PerseveranceNASA]-images/Step59.png" /></div>
+            <div style="clear:both"></div>
+        </div>			
+        <div class="step" id="step_60">
+            <div style="float:left">
+                <div class="stepTextTop"><p><span style="font-weight:bold">Step 60 of 76</span></p></div>
+				<div class="modelParts">
+					<ul>
+							<li class="stepText"><p>2 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick42.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick63.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick57.png" /></li>
+
+					</ul>
+				</div>
+            </div>
+            <div style="float:left"><img height="600" width="800" src="Building Instructions [PerseveranceNASA]-images/Step60.png" /></div>
+            <div style="clear:both"></div>
+        </div>			
+        <div class="step" id="step_61">
+            <div style="float:left">
+                <div class="stepTextTop"><p><span style="font-weight:bold">Step 61 of 76</span></p></div>
+				<div class="modelParts">
+					<ul>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick63.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick57.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick60.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick58.png" /></li>
+
+					</ul>
+				</div>
+            </div>
+            <div style="float:left"><img height="600" width="800" src="Building Instructions [PerseveranceNASA]-images/Step61.png" /></div>
+            <div style="clear:both"></div>
+        </div>			
+        <div class="step" id="step_62">
+            <div style="float:left">
+                <div class="stepTextTop"><p><span style="font-weight:bold">Step 62 of 76</span></p></div>
+				<div class="modelParts">
+					<ul>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick64.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick61.png" /></li>
+
+					</ul>
+				</div>
+            </div>
+            <div style="float:left"><img height="600" width="800" src="Building Instructions [PerseveranceNASA]-images/Step62.png" /></div>
+            <div style="clear:both"></div>
+        </div>			
+        <div class="step" id="step_63">
+            <div style="float:left">
+                <div class="stepTextTop"><p><span style="font-weight:bold">Step 63 of 76</span></p></div>
+				<div class="modelParts">
+					<ul>
+
+					</ul>
+				</div>
+            </div>
+            <div style="float:left"><img height="600" width="800" src="Building Instructions [PerseveranceNASA]-images/Step63.png" /></div>
+            <div style="clear:both"></div>
+        </div>			
+        <div class="step" id="step_64">
+            <div style="float:left">
+                <div class="stepTextTop"><p><span style="font-weight:bold">Step 64 of 76</span></p></div>
+				<div class="modelParts">
+					<ul>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick7.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick66.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick18.png" /></li>
+
+					</ul>
+				</div>
+            </div>
+            <div style="float:left"><img height="600" width="800" src="Building Instructions [PerseveranceNASA]-images/Step64.png" /></div>
+            <div style="clear:both"></div>
+        </div>			
+        <div class="step" id="step_65">
+            <div style="float:left">
+                <div class="stepTextTop"><p><span style="font-weight:bold">Step 65 of 76</span></p></div>
+				<div class="modelParts">
+					<ul>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick7.png" /></li>
+							<li class="stepText"><p>2 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick18.png" /></li>
+
+					</ul>
+				</div>
+            </div>
+            <div style="float:left"><img height="600" width="800" src="Building Instructions [PerseveranceNASA]-images/Step65.png" /></div>
+            <div style="clear:both"></div>
+        </div>			
+        <div class="step" id="step_66">
+            <div style="float:left">
+                <div class="stepTextTop"><p><span style="font-weight:bold">Step 66 of 76</span></p></div>
+				<div class="modelParts">
+					<ul>
+							<li class="stepText"><p>4 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick67.png" /></li>
+
+					</ul>
+				</div>
+            </div>
+            <div style="float:left"><img height="600" width="800" src="Building Instructions [PerseveranceNASA]-images/Step66.png" /></div>
+            <div style="clear:both"></div>
+        </div>			
+        <div class="step" id="step_67">
+            <div style="float:left">
+                <div class="stepTextTop"><p><span style="font-weight:bold">Step 67 of 76</span></p></div>
+				<div class="modelParts">
+					<ul>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick3.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick48.png" /></li>
+							<li class="stepText"><p>2 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick55.png" /></li>
+
+					</ul>
+				</div>
+            </div>
+            <div style="float:left"><img height="600" width="800" src="Building Instructions [PerseveranceNASA]-images/Step67.png" /></div>
+            <div style="clear:both"></div>
+        </div>			
+        <div class="step" id="step_68">
+            <div style="float:left">
+                <div class="stepTextTop"><p><span style="font-weight:bold">Step 68 of 76</span></p></div>
+				<div class="modelParts">
+					<ul>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick3.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick48.png" /></li>
+							<li class="stepText"><p>2 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick68.png" /></li>
+
+					</ul>
+				</div>
+            </div>
+            <div style="float:left"><img height="600" width="800" src="Building Instructions [PerseveranceNASA]-images/Step68.png" /></div>
+            <div style="clear:both"></div>
+        </div>			
+        <div class="step" id="step_69">
+            <div style="float:left">
+                <div class="stepTextTop"><p><span style="font-weight:bold">Step 69 of 76</span></p></div>
+				<div class="modelParts">
+					<ul>
+
+					</ul>
+				</div>
+            </div>
+            <div style="float:left"><img height="600" width="800" src="Building Instructions [PerseveranceNASA]-images/Step69.png" /></div>
+            <div style="clear:both"></div>
+        </div>			
+        <div class="step" id="step_70">
+            <div style="float:left">
+                <div class="stepTextTop"><p><span style="font-weight:bold">Step 70 of 76</span></p></div>
+				<div class="modelParts">
+					<ul>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick46.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick1.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick69.png" /></li>
+
+					</ul>
+				</div>
+            </div>
+            <div style="float:left"><img height="600" width="800" src="Building Instructions [PerseveranceNASA]-images/Step70.png" /></div>
+            <div style="clear:both"></div>
+        </div>			
+        <div class="step" id="step_71">
+            <div style="float:left">
+                <div class="stepTextTop"><p><span style="font-weight:bold">Step 71 of 76</span></p></div>
+				<div class="modelParts">
+					<ul>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick46.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick53.png" /></li>
+							<li class="stepText"><p>2 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick50.png" /></li>
+
+					</ul>
+				</div>
+            </div>
+            <div style="float:left"><img height="600" width="800" src="Building Instructions [PerseveranceNASA]-images/Step71.png" /></div>
+            <div style="clear:both"></div>
+        </div>			
+        <div class="step" id="step_72">
+            <div style="float:left">
+                <div class="stepTextTop"><p><span style="font-weight:bold">Step 72 of 76</span></p></div>
+				<div class="modelParts">
+					<ul>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick53.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick70.png" /></li>
+
+					</ul>
+				</div>
+            </div>
+            <div style="float:left"><img height="600" width="800" src="Building Instructions [PerseveranceNASA]-images/Step72.png" /></div>
+            <div style="clear:both"></div>
+        </div>			
+        <div class="step" id="step_73">
+            <div style="float:left">
+                <div class="stepTextTop"><p><span style="font-weight:bold">Step 73 of 76</span></p></div>
+				<div class="modelParts">
+					<ul>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick38.png" /></li>
+							<li class="stepText"><p>2 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick71.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick70.png" /></li>
+
+					</ul>
+				</div>
+            </div>
+            <div style="float:left"><img height="600" width="800" src="Building Instructions [PerseveranceNASA]-images/Step73.png" /></div>
+            <div style="clear:both"></div>
+        </div>			
+        <div class="step" id="step_74">
+            <div style="float:left">
+                <div class="stepTextTop"><p><span style="font-weight:bold">Step 74 of 76</span></p></div>
+				<div class="modelParts">
+					<ul>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick8.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick66.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick36.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick37.png" /></li>
+
+					</ul>
+				</div>
+            </div>
+            <div style="float:left"><img height="600" width="800" src="Building Instructions [PerseveranceNASA]-images/Step74.png" /></div>
+            <div style="clear:both"></div>
+        </div>			
+        <div class="step" id="step_75">
+            <div style="float:left">
+                <div class="stepTextTop"><p><span style="font-weight:bold">Step 75 of 76</span></p></div>
+				<div class="modelParts">
+					<ul>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick28.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick29.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick36.png" /></li>
+							<li class="stepText"><p>1 x</p></li>
+							<li><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick37.png" /></li>
+
+					</ul>
+				</div>
+            </div>
+            <div style="float:left"><img height="600" width="800" src="Building Instructions [PerseveranceNASA]-images/Step75.png" /></div>
+            <div style="clear:both"></div>
+        </div>			
+        <div class="step" id="step_76">
+            <div style="float:left">
+                <div class="stepTextTop"><p><span style="font-weight:bold">Step 76 of 76</span></p></div>
+				<div class="modelParts">
+					<ul>
+
+					</ul>
+				</div>
+            </div>
+            <div style="float:left"><img height="600" width="800" src="Building Instructions [PerseveranceNASA]-images/Step76.png" /></div>
+            <div style="clear:both"></div>
+        </div>
+
+        <div class="step" id="step_elements">
+            				<div class="biElement">
+                    <table border="0">
+                        <tr style="vertical-align:middle">
+					        <td>3&nbsp;x</td>
+					        <td><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick28.png" /></td>
+					        <td>300326</td>
+					        <td>BRICK 2X2 - Black</td>
+				        </tr>
+                    </table>
+                </div>
+                
+				<div class="biElement">
+                    <table border="0">
+                        <tr style="vertical-align:middle">
+					        <td>1&nbsp;x</td>
+					        <td><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick11.png" /></td>
+					        <td>4653970</td>
+					        <td>BRICK 2X2 - Medium Azur</td>
+				        </tr>
+                    </table>
+                </div>
+                
+				<div class="biElement">
+                    <table border="0">
+                        <tr style="vertical-align:middle">
+					        <td>2&nbsp;x</td>
+					        <td><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick2.png" /></td>
+					        <td>6036238</td>
+					        <td>BRICK 1X4 - Medium Azur</td>
+				        </tr>
+                    </table>
+                </div>
+                
+				<div class="biElement">
+                    <table border="0">
+                        <tr style="vertical-align:middle">
+					        <td>4&nbsp;x</td>
+					        <td><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick7.png" /></td>
+					        <td>6100027</td>
+					        <td>BRICK 2X4 - Flame Yellowish Orange</td>
+				        </tr>
+                    </table>
+                </div>
+                
+				<div class="biElement">
+                    <table border="0">
+                        <tr style="vertical-align:middle">
+					        <td>2&nbsp;x</td>
+					        <td><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick8.png" /></td>
+					        <td>4625629</td>
+					        <td>BRICK 2X4 - Medium Azur</td>
+				        </tr>
+                    </table>
+                </div>
+                
+				<div class="biElement">
+                    <table border="0">
+                        <tr style="vertical-align:middle">
+					        <td>3&nbsp;x</td>
+					        <td><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick35.png" /></td>
+					        <td>4178398</td>
+					        <td>BRICK Ø16 W. CROSS - Tr. Light Blue</td>
+				        </tr>
+                    </table>
+                </div>
+                
+				<div class="biElement">
+                    <table border="0">
+                        <tr style="vertical-align:middle">
+					        <td>2&nbsp;x</td>
+					        <td><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick33.png" /></td>
+					        <td>4558952</td>
+					        <td>BRICK 1X1 W. 1 KNOB - White</td>
+				        </tr>
+                    </table>
+                </div>
+                
+				<div class="biElement">
+                    <table border="0">
+                        <tr style="vertical-align:middle">
+					        <td>2&nbsp;x</td>
+					        <td><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick66.png" /></td>
+					        <td>6045980</td>
+					        <td>BRICK 2X2 W. CUP FOR BALL - Tr. Light Blue</td>
+				        </tr>
+                    </table>
+                </div>
+                
+				<div class="biElement">
+                    <table border="0">
+                        <tr style="vertical-align:middle">
+					        <td>2&nbsp;x</td>
+					        <td><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick29.png" /></td>
+					        <td>4497253</td>
+					        <td>BRICK 2X2 W. BALL Ø 10.2 - Dark Stone Grey</td>
+				        </tr>
+                    </table>
+                </div>
+                
+				<div class="biElement">
+                    <table border="0">
+                        <tr style="vertical-align:middle">
+					        <td>4&nbsp;x</td>
+					        <td><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick45.png" /></td>
+					        <td>6132372</td>
+					        <td>TECHNIC BRICK 1X2, Ø4.9 - Bright Yellowish Green</td>
+				        </tr>
+                    </table>
+                </div>
+                
+				<div class="biElement">
+                    <table border="0">
+                        <tr style="vertical-align:middle">
+					        <td>4&nbsp;x</td>
+					        <td><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick46.png" /></td>
+					        <td>4210935</td>
+					        <td>BRICK 1X2 WITH CROSS HOLE - Dark Stone Grey</td>
+				        </tr>
+                    </table>
+                </div>
+                
+				<div class="biElement">
+                    <table border="0">
+                        <tr style="vertical-align:middle">
+					        <td>4&nbsp;x</td>
+					        <td><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick16.png" /></td>
+					        <td>4211364</td>
+					        <td>BRICK 1X2 W. HORIZONTAL SNAP - Medium Stone Grey</td>
+				        </tr>
+                    </table>
+                </div>
+                
+				<div class="biElement">
+                    <table border="0">
+                        <tr style="vertical-align:middle">
+					        <td>4&nbsp;x</td>
+					        <td><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick3.png" /></td>
+					        <td>6132373</td>
+					        <td>TECHNIC BRICK 1X4, Ø4,9 - Bright Yellowish Green</td>
+				        </tr>
+                    </table>
+                </div>
+                
+				<div class="biElement">
+                    <table border="0">
+                        <tr style="vertical-align:middle">
+					        <td>4&nbsp;x</td>
+					        <td><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick48.png" /></td>
+					        <td>6024286</td>
+					        <td>ROOF TILE 1 X 2 X 2/3, ABS - Flame Yellowish Orange</td>
+				        </tr>
+                    </table>
+                </div>
+                
+				<div class="biElement">
+                    <table border="0">
+                        <tr style="vertical-align:middle">
+					        <td>2&nbsp;x</td>
+					        <td><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick32.png" /></td>
+					        <td>4121966</td>
+					        <td>ROOF TILE 1X2/45° - Black</td>
+				        </tr>
+                    </table>
+                </div>
+                
+				<div class="biElement">
+                    <table border="0">
+                        <tr style="vertical-align:middle">
+					        <td>4&nbsp;x</td>
+					        <td><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick67.png" /></td>
+					        <td>4537925</td>
+					        <td>ROOF TILE 1X2/45° - Bright Yellowish Green</td>
+				        </tr>
+                    </table>
+                </div>
+                
+				<div class="biElement">
+                    <table border="0">
+                        <tr style="vertical-align:middle">
+					        <td>1&nbsp;x</td>
+					        <td><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick34.png" /></td>
+					        <td>6136455</td>
+					        <td>ROOF TILE 1X2 INV. - Flame Yellowish Orange</td>
+				        </tr>
+                    </table>
+                </div>
+                
+				<div class="biElement">
+                    <table border="0">
+                        <tr style="vertical-align:middle">
+					        <td>2&nbsp;x</td>
+					        <td><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick12.png" /></td>
+					        <td>6131583</td>
+					        <td>ROOF TILE 1X3/25° - Flame Yellowish Orange</td>
+				        </tr>
+                    </table>
+                </div>
+                
+				<div class="biElement">
+                    <table border="0">
+                        <tr style="vertical-align:middle">
+					        <td>2&nbsp;x</td>
+					        <td><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick30.png" /></td>
+					        <td>6138622</td>
+					        <td>ROOF TILE 1X3/25° INV. - Bright Yellowish Green</td>
+				        </tr>
+                    </table>
+                </div>
+                
+				<div class="biElement">
+                    <table border="0">
+                        <tr style="vertical-align:middle">
+					        <td>1&nbsp;x</td>
+					        <td><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick41.png" /></td>
+					        <td>6097093</td>
+					        <td>PLATE W. BOW 1X4X2/3 - Medium Azur</td>
+				        </tr>
+                    </table>
+                </div>
+                
+				<div class="biElement">
+                    <table border="0">
+                        <tr style="vertical-align:middle">
+					        <td>2&nbsp;x</td>
+					        <td><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick68.png" /></td>
+					        <td>4537928</td>
+					        <td>BRICK W/BOW 1/3 - Bright Yellowish Green</td>
+				        </tr>
+                    </table>
+                </div>
+                
+				<div class="biElement">
+                    <table border="0">
+                        <tr style="vertical-align:middle">
+					        <td>2&nbsp;x</td>
+					        <td><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick22.png" /></td>
+					        <td>4649741</td>
+					        <td>FLAT TILE 1X2 - Medium Azur</td>
+				        </tr>
+                    </table>
+                </div>
+                
+				<div class="biElement">
+                    <table border="0">
+                        <tr style="vertical-align:middle">
+					        <td>4&nbsp;x</td>
+					        <td><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick55.png" /></td>
+					        <td>302301</td>
+					        <td>PLATE 1X2 - White</td>
+				        </tr>
+                    </table>
+                </div>
+                
+				<div class="biElement">
+                    <table border="0">
+                        <tr style="vertical-align:middle">
+					        <td>4&nbsp;x</td>
+					        <td><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick47.png" /></td>
+					        <td>371001</td>
+					        <td>PLATE 1X4 - White</td>
+				        </tr>
+                    </table>
+                </div>
+                
+				<div class="biElement">
+                    <table border="0">
+                        <tr style="vertical-align:middle">
+					        <td>1&nbsp;x</td>
+					        <td><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick24.png" /></td>
+					        <td>4211481</td>
+					        <td>FLAT TILE 1X8 - Medium Stone Grey</td>
+				        </tr>
+                    </table>
+                </div>
+                
+				<div class="biElement">
+                    <table border="0">
+                        <tr style="vertical-align:middle">
+					        <td>2&nbsp;x</td>
+					        <td><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick17.png" /></td>
+					        <td>366601</td>
+					        <td>PLATE 1X6 - White</td>
+				        </tr>
+                    </table>
+                </div>
+                
+				<div class="biElement">
+                    <table border="0">
+                        <tr style="vertical-align:middle">
+					        <td>2&nbsp;x</td>
+					        <td><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick9.png" /></td>
+					        <td>4514842</td>
+					        <td>PLATE 1X12 - White</td>
+				        </tr>
+                    </table>
+                </div>
+                
+				<div class="biElement">
+                    <table border="0">
+                        <tr style="vertical-align:middle">
+					        <td>2&nbsp;x</td>
+					        <td><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick20.png" /></td>
+					        <td>4612621</td>
+					        <td>FRAME PLATE 4X4 - Medium Stone Grey</td>
+				        </tr>
+                    </table>
+                </div>
+                
+				<div class="biElement">
+                    <table border="0">
+                        <tr style="vertical-align:middle">
+					        <td>1&nbsp;x</td>
+					        <td><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick0.png" /></td>
+					        <td>428226</td>
+					        <td>PLATE 2X16 - Black</td>
+				        </tr>
+                    </table>
+                </div>
+                
+				<div class="biElement">
+                    <table border="0">
+                        <tr style="vertical-align:middle">
+					        <td>1&nbsp;x</td>
+					        <td><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick56.png" /></td>
+					        <td>6029156</td>
+					        <td>FLAT TILE 1X1, ROUND - White</td>
+				        </tr>
+                    </table>
+                </div>
+                
+				<div class="biElement">
+                    <table border="0">
+                        <tr style="vertical-align:middle">
+					        <td>2&nbsp;x</td>
+					        <td><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick25.png" /></td>
+					        <td>614126</td>
+					        <td>PLATE 1X1 ROUND - Black</td>
+				        </tr>
+                    </table>
+                </div>
+                
+				<div class="biElement">
+                    <table border="0">
+                        <tr style="vertical-align:middle">
+					        <td>3&nbsp;x</td>
+					        <td><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick36.png" /></td>
+					        <td>4278359</td>
+					        <td>SLIDE SHOE ROUND 2X2 - Black</td>
+				        </tr>
+                    </table>
+                </div>
+                
+				<div class="biElement">
+                    <table border="0">
+                        <tr style="vertical-align:middle">
+					        <td>2&nbsp;x</td>
+					        <td><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick26.png" /></td>
+					        <td>6138624</td>
+					        <td>PLATE 2X2 ROUND - Bright Green</td>
+				        </tr>
+                    </table>
+                </div>
+                
+				<div class="biElement">
+                    <table border="0">
+                        <tr style="vertical-align:middle">
+					        <td>1&nbsp;x</td>
+					        <td><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick52.png" /></td>
+					        <td>6055313</td>
+					        <td>FLAT TILE 2x2 ROUND W. HOLE Ø4.85 - Dark Stone Grey</td>
+				        </tr>
+                    </table>
+                </div>
+                
+				<div class="biElement">
+                    <table border="0">
+                        <tr style="vertical-align:middle">
+					        <td>2&nbsp;x</td>
+					        <td><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick1.png" /></td>
+					        <td>6102828</td>
+					        <td>PLATE 4X4 ROUND W. SNAP - Medium Azur</td>
+				        </tr>
+                    </table>
+                </div>
+                
+				<div class="biElement">
+                    <table border="0">
+                        <tr style="vertical-align:middle">
+					        <td>2&nbsp;x</td>
+					        <td><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick21.png" /></td>
+					        <td>6116514</td>
+					        <td>PLATE 4X6 26 DEGREES - Bright Yellowish Green</td>
+				        </tr>
+                    </table>
+                </div>
+                
+				<div class="biElement">
+                    <table border="0">
+                        <tr style="vertical-align:middle">
+					        <td>1&nbsp;x</td>
+					        <td><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick23.png" /></td>
+					        <td>4211419</td>
+					        <td>COUPLING PLATE 2X2 - Medium Stone Grey</td>
+				        </tr>
+                    </table>
+                </div>
+                
+				<div class="biElement">
+                    <table border="0">
+                        <tr style="vertical-align:middle">
+					        <td>4&nbsp;x</td>
+					        <td><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick37.png" /></td>
+					        <td>4144024</td>
+					        <td>T-BEAM W. PLATE 1X2 W. TUBE - Black</td>
+				        </tr>
+                    </table>
+                </div>
+                
+				<div class="biElement">
+                    <table border="0">
+                        <tr style="vertical-align:middle">
+					        <td>4&nbsp;x</td>
+					        <td><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick10.png" /></td>
+					        <td>6132408</td>
+					        <td>PLATE 2X4, 3XØ4.9 - Flame Yellowish Orange</td>
+				        </tr>
+                    </table>
+                </div>
+                
+				<div class="biElement">
+                    <table border="0">
+                        <tr style="vertical-align:middle">
+					        <td>2&nbsp;x</td>
+					        <td><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick54.png" /></td>
+					        <td>6117940</td>
+					        <td>ANGLE PLATE 1X2 / 2X2 - White</td>
+				        </tr>
+                    </table>
+                </div>
+                
+				<div class="biElement">
+                    <table border="0">
+                        <tr style="vertical-align:middle">
+					        <td>4&nbsp;x</td>
+					        <td><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick18.png" /></td>
+					        <td>6132409</td>
+					        <td>PLATE 2X6 W. HOLES - Flame Yellowish Orange</td>
+				        </tr>
+                    </table>
+                </div>
+                
+				<div class="biElement">
+                    <table border="0">
+                        <tr style="vertical-align:middle">
+					        <td>2&nbsp;x</td>
+					        <td><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick19.png" /></td>
+					        <td>6138494</td>
+					        <td>PLATE 2X8 W. HOLES - Bright Green</td>
+				        </tr>
+                    </table>
+                </div>
+                
+				<div class="biElement">
+                    <table border="0">
+                        <tr style="vertical-align:middle">
+					        <td>6&nbsp;x</td>
+					        <td><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick42.png" /></td>
+					        <td>6092256</td>
+					        <td>RIM WIDE 18x14 W. CROSS Ø4.8 - White</td>
+				        </tr>
+                    </table>
+                </div>
+                
+				<div class="biElement">
+                    <table border="0">
+                        <tr style="vertical-align:middle">
+					        <td>4&nbsp;x</td>
+					        <td><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick63.png" /></td>
+					        <td>4619323</td>
+					        <td>TYRE NORMAL WIDE Ø30,4 X 14 - Black</td>
+				        </tr>
+                    </table>
+                </div>
+                
+				<div class="biElement">
+                    <table border="0">
+                        <tr style="vertical-align:middle">
+					        <td>2&nbsp;x</td>
+					        <td><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick43.png" /></td>
+					        <td>4506553</td>
+					        <td>TYRE BALLOON WIDE Ø 37x18 - Black</td>
+				        </tr>
+                    </table>
+                </div>
+                
+				<div class="biElement">
+                    <table border="0">
+                        <tr style="vertical-align:middle">
+					        <td>2&nbsp;x</td>
+					        <td><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick13.png" /></td>
+					        <td>6127110</td>
+					        <td>LPF2.0 MEDIUM MOTOR - White,Bright Red,Black,Transparent,Medium Stone Grey</td>
+				        </tr>
+                    </table>
+                </div>
+                
+				<div class="biElement">
+                    <table border="0">
+                        <tr style="vertical-align:middle">
+					        <td>1&nbsp;x</td>
+					        <td><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick31.png" /></td>
+					        <td>6181656</td>
+					        <td>LPF2 SMART HUB 2 I/O 4X8X3 - White,Dark Green,Transparent,Medium Stone Grey</td>
+				        </tr>
+                    </table>
+                </div>
+                
+				<div class="biElement">
+                    <table border="0">
+                        <tr style="vertical-align:middle">
+					        <td>2&nbsp;x</td>
+					        <td><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick62.png" /></td>
+					        <td>6097392</td>
+					        <td>TECHNIC 7M BEAM - Bright Green</td>
+				        </tr>
+                    </table>
+                </div>
+                
+				<div class="biElement">
+                    <table border="0">
+                        <tr style="vertical-align:middle">
+					        <td>2&nbsp;x</td>
+					        <td><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick59.png" /></td>
+					        <td>6097397</td>
+					        <td>TECHNIC ANG. BEAM 3X5 90 DEG. - Bright Green</td>
+				        </tr>
+                    </table>
+                </div>
+                
+				<div class="biElement">
+                    <table border="0">
+                        <tr style="vertical-align:middle">
+					        <td>2&nbsp;x</td>
+					        <td><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick6.png" /></td>
+					        <td>4239601</td>
+					        <td>1/2 BUSH - Bright Yellow</td>
+				        </tr>
+                    </table>
+                </div>
+                
+				<div class="biElement">
+                    <table border="0">
+                        <tr style="vertical-align:middle">
+					        <td>4&nbsp;x</td>
+					        <td><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick14.png" /></td>
+					        <td>4142865</td>
+					        <td>2M CROSS AXLE W. GROOVE - Bright Red</td>
+				        </tr>
+                    </table>
+                </div>
+                
+				<div class="biElement">
+                    <table border="0">
+                        <tr style="vertical-align:middle">
+					        <td>7&nbsp;x</td>
+					        <td><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick38.png" /></td>
+					        <td>4121715</td>
+					        <td>CONNECTOR PEG W. FRICTION - Black</td>
+				        </tr>
+                    </table>
+                </div>
+                
+				<div class="biElement">
+                    <table border="0">
+                        <tr style="vertical-align:middle">
+					        <td>2&nbsp;x</td>
+					        <td><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick44.png" /></td>
+					        <td>4211815</td>
+					        <td>CROSS AXLE 3M - Medium Stone Grey</td>
+				        </tr>
+                    </table>
+                </div>
+                
+				<div class="biElement">
+                    <table border="0">
+                        <tr style="vertical-align:middle">
+					        <td>4&nbsp;x</td>
+					        <td><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick57.png" /></td>
+					        <td>4666579</td>
+					        <td>CONNECTOR PEG/CROSS AXLE - Brick Yellow</td>
+				        </tr>
+                    </table>
+                </div>
+                
+				<div class="biElement">
+                    <table border="0">
+                        <tr style="vertical-align:middle">
+					        <td>3&nbsp;x</td>
+					        <td><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick53.png" /></td>
+					        <td>4211622</td>
+					        <td>BUSH FOR CROSS AXLE - Medium Stone Grey</td>
+				        </tr>
+                    </table>
+                </div>
+                
+				<div class="biElement">
+                    <table border="0">
+                        <tr style="vertical-align:middle">
+					        <td>2&nbsp;x</td>
+					        <td><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick60.png" /></td>
+					        <td>6089119</td>
+					        <td>Cross axle 2m w. snap w. fric. - Black</td>
+				        </tr>
+                    </table>
+                </div>
+                
+				<div class="biElement">
+                    <table border="0">
+                        <tr style="vertical-align:middle">
+					        <td>2&nbsp;x</td>
+					        <td><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick64.png" /></td>
+					        <td>4512360</td>
+					        <td>CROSS AXLE, EXTENSION, 2M - Medium Stone Grey</td>
+				        </tr>
+                    </table>
+                </div>
+                
+				<div class="biElement">
+                    <table border="0">
+                        <tr style="vertical-align:middle">
+					        <td>2&nbsp;x</td>
+					        <td><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick71.png" /></td>
+					        <td>4118981</td>
+					        <td>ANGLE ELEMENT, 0 DEGREES [1] - White</td>
+				        </tr>
+                    </table>
+                </div>
+                
+				<div class="biElement">
+                    <table border="0">
+                        <tr style="vertical-align:middle">
+					        <td>2&nbsp;x</td>
+					        <td><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick49.png" /></td>
+					        <td>370626</td>
+					        <td>CROSS AXLE 6M - Black</td>
+				        </tr>
+                    </table>
+                </div>
+                
+				<div class="biElement">
+                    <table border="0">
+                        <tr style="vertical-align:middle">
+					        <td>2&nbsp;x</td>
+					        <td><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick65.png" /></td>
+					        <td>6083620</td>
+					        <td>CROSS AXLE 4M WITH END STOP - Dark Stone Grey</td>
+				        </tr>
+                    </table>
+                </div>
+                
+				<div class="biElement">
+                    <table border="0">
+                        <tr style="vertical-align:middle">
+					        <td>2&nbsp;x</td>
+					        <td><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick4.png" /></td>
+					        <td>4211805</td>
+					        <td>CROSS AXLE 7M - Medium Stone Grey</td>
+				        </tr>
+                    </table>
+                </div>
+                
+				<div class="biElement">
+                    <table border="0">
+                        <tr style="vertical-align:middle">
+					        <td>2&nbsp;x</td>
+					        <td><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick70.png" /></td>
+					        <td>373726</td>
+					        <td>CROSS AXLE 10M - Black</td>
+				        </tr>
+                    </table>
+                </div>
+                
+				<div class="biElement">
+                    <table border="0">
+                        <tr style="vertical-align:middle">
+					        <td>2&nbsp;x</td>
+					        <td><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick40.png" /></td>
+					        <td>6133917</td>
+					        <td>ANGLE ELEMENT, 157,5 DEGR. [3] - Medium Azur</td>
+				        </tr>
+                    </table>
+                </div>
+                
+				<div class="biElement">
+                    <table border="0">
+                        <tr style="vertical-align:middle">
+					        <td>2&nbsp;x</td>
+					        <td><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick39.png" /></td>
+					        <td>6097773</td>
+					        <td>ANGLE ELEMENT 135 DEG. [4] - Bright Yellowish Green</td>
+				        </tr>
+                    </table>
+                </div>
+                
+				<div class="biElement">
+                    <table border="0">
+                        <tr style="vertical-align:middle">
+					        <td>4&nbsp;x</td>
+					        <td><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick61.png" /></td>
+					        <td>6012451</td>
+					        <td>GEAR WHEEL T=8, M=1 - Dark Stone Grey</td>
+				        </tr>
+                    </table>
+                </div>
+                
+				<div class="biElement">
+                    <table border="0">
+                        <tr style="vertical-align:middle">
+					        <td>4&nbsp;x</td>
+					        <td><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick50.png" /></td>
+					        <td>4250465</td>
+					        <td>TOOTHED BAR M=1, Z=10 - White</td>
+				        </tr>
+                    </table>
+                </div>
+                
+				<div class="biElement">
+                    <table border="0">
+                        <tr style="vertical-align:middle">
+					        <td>1&nbsp;x</td>
+					        <td><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick15.png" /></td>
+					        <td>4177431</td>
+					        <td>DOUBLE CONICAL WHEEL Z12 1M - Black</td>
+				        </tr>
+                    </table>
+                </div>
+                
+				<div class="biElement">
+                    <table border="0">
+                        <tr style="vertical-align:middle">
+					        <td>1&nbsp;x</td>
+					        <td><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick5.png" /></td>
+					        <td>6031962</td>
+					        <td>BEVEL GEAR Z20 - Brick Yellow</td>
+				        </tr>
+                    </table>
+                </div>
+                
+				<div class="biElement">
+                    <table border="0">
+                        <tr style="vertical-align:middle">
+					        <td>2&nbsp;x</td>
+					        <td><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick58.png" /></td>
+					        <td>4514558</td>
+					        <td>GEAR WHEEL Z24 - Dark Stone Grey</td>
+				        </tr>
+                    </table>
+                </div>
+                
+				<div class="biElement">
+                    <table border="0">
+                        <tr style="vertical-align:middle">
+					        <td>2&nbsp;x</td>
+					        <td><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick51.png" /></td>
+					        <td>6071608</td>
+					        <td>VOODOO BALL Ø10,2 - Flame Yellowish Orange</td>
+				        </tr>
+                    </table>
+                </div>
+                
+				<div class="biElement">
+                    <table border="0">
+                        <tr style="vertical-align:middle">
+					        <td>2&nbsp;x</td>
+					        <td><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick27.png" /></td>
+					        <td>73737</td>
+					        <td>MINI ANTENNA - White,Black</td>
+				        </tr>
+                    </table>
+                </div>
+                
+				<div class="biElement">
+                    <table border="0">
+                        <tr style="vertical-align:middle">
+					        <td>1&nbsp;x</td>
+					        <td><img height="64" width="64" src="Building Instructions [PerseveranceNASA]-images/Brick69.png" /></td>
+					        <td>4517986</td>
+					        <td>BOTTOM W. TURNTABLE 4X4 - Black</td>
+				        </tr>
+                    </table>
+                </div>
+                
+
+            <div style="clear:both"></div>
+        </div>
+
+        <div id="nav"  class="nav">
+            <table style="margin:0 auto" border="0">
+                <tr>
+                    <td><a onclick="biStep(0);" href="#"><img border="0" alt="First" src="Building Instructions [PerseveranceNASA]-images/Images/Arrow_First.png" /></a></td>
+                    <td><a onclick="biStep(biCurStep-1);" href="#"><img border="0" alt="First" src="Building Instructions [PerseveranceNASA]-images/Images/Arrow_Backward.png" /></a></td>
+                    <td><input id="stepNumber" onkeydown="returnTest(window.event)" type="text" style="text-align:center;width:56px;height:28px;border:1px solid #cccccc;font-size:14px;font-weight:bold" /></td>
+                    <td><a onclick="biStep(biCurStep+1);" href="#"><img border="0" alt="First" src="Building Instructions [PerseveranceNASA]-images/Images/Arrow_Forward.png" /></a></td>
+                    <td><a onclick="biStep(76+1);" href="#"><img border="0" alt="First" src="Building Instructions [PerseveranceNASA]-images/Images/Arrow_Last.png" /></a></td>
+                    <td style="width:40px">&nbsp;</td>
+                    <td><a onclick="window.print();return false;" href="#"><img border="0" alt="Print" src="Building Instructions [PerseveranceNASA]-images/Images/PrintIcon.png" /></a></td>
+                </tr>
+            </table>
+        </div> 
+		<div style="clear:both;">&nbsp;</div>
+		<div class="footer">© 2012 The LEGO Group. All rights reserved.<br />
+Use of the LEGO Digital Designer html print tool, signifies your agreement to the terms of use.</div>
+	</body>
+</html>
