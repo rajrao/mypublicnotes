@@ -3,6 +3,7 @@ GitHub repos for Azure code
 |Repo| Url |Notes| Nuget|
 |---|---|---|---|
 | Azure-Functions  	| [Azure/Azure-Functions](https://github.com/Azure/Azure-Functions)| repository acts as a directory for the various resources for Azure Functions. Also contains documentation  	|
+| Azure Durable Functions| [Azure/Azure-Durable-Functions-Extensions](https://github.com/Azure/azure-functions-durable-extension) |
 | Azure Functions Repos | [Azure/Azure-Functions#github-repositories](https://github.com/Azure/Azure-Functions#github-repositories) | | |
 |  Azure Webjobs SDK 	|   [Azure/azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk)	| 	| [Nuget](https://www.nuget.org/packages/Microsoft.Azure.WebJobs/) 	|
 |  Azure Webjobs SDK Extensions 	| [Azure/azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions)	| binding extensions for the Azure WebJobs SDK  	| [Nuget](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions)|
