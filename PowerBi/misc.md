@@ -20,7 +20,7 @@ https://dax.tips/2021/02/15/visualise-your-power-bi-refresh/
 https://github.com/TabularEditor/BestPracticeRules
 
 
-**Make a PowerBI Matrix look like a table **
+**Make a PowerBI Matrix look like a table**
 
 * Row Headers (these are key to making it look like a table)
   * Stepped Layout: off 
