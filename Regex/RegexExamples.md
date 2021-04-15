@@ -63,3 +63,11 @@ Advanced syntax: https://www.boost.org/doc/libs/1_55_0/libs/regex/doc/html/boost
 1. Find all lines that contain the word dataflowname in the line
 
          (DataflowName.*=.*"(?<wfn>(.*))")
+
+1. Find lines like: abcd run duration 34 minute(s) 36 second(s) and convert it to "abcd 34 36" (tab separated) 
+
+         (?<e>(.*)) run duration((?<m>(.*)) minute\(s\) )?(?<s>(.*)) second\(s\)
+         
+         $+{e}\t$+{m}\t$+{s}
+         
+1. 
