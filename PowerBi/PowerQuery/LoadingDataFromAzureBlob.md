@@ -34,3 +34,19 @@ Using DFS endpoint:
             #"Promoted Headers" = Table.PromoteHeaders(#"Imported CSV", [PromoteAllScalars=true])
           in
             #"Promoted Headers"
+            
+            
+Using Parquet:
+
+            
+          let
+            FileName = "xyz.parquet",
+            FileFolder = "abc/",
+            DataLakePath = "https://myAzStorageAccount.blob.core.windows.net/container/",
+            DataLakeSource = FileFolder,
+            Source = AzureStorage.Blobs(DataLakePath),
+            #"GetFileContent" = #"Source"{[#"Folder Path"=DataLakePath,Name=FileFolder&FileName]}[Content],
+            #"Imported data" = Parquet.Document(#"GetFileContent")
+          in
+            #"Imported data"
+            
