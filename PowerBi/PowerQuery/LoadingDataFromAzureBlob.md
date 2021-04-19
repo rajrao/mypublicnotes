@@ -19,3 +19,18 @@ Notes:
           in
             #"Promoted Headers"
             
+
+Using DFS endpoint:
+
+
+          let
+            FileName = "xyz.csv",
+            FileFolder = "abc%20defg/",
+            DataLakePath = "https://myAzStorageAccount.dfs.core.windows.net/container/",
+            DataLakeSource = FileFolder,
+            Source = AzureStorage.Blobs(DataLakePath),
+            #"GetFileContent" = Source{[#"Folder Path"=DataLakePath&FileFolder,Name=FileName]}[Content],
+            #"Imported CSV" = Csv.Document(GetFileContent,[Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+            #"Promoted Headers" = Table.PromoteHeaders(#"Imported CSV", [PromoteAllScalars=true])
+          in
+            #"Promoted Headers"
