@@ -18,3 +18,4 @@ Notes:
             #"Promoted Headers" = Table.PromoteHeaders(#"Imported CSV", [PromoteAllScalars=true])
           in
             #"Promoted Headers"
+            
