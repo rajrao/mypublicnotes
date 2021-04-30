@@ -2,14 +2,16 @@ Loading data from an azure blob.
 
 Notes:
 
-1. I use blob, because using the DFS endpoint leads to all sorts of permissions issues.
-2. This line is important **Source = AzureStorage.Blobs(DLPath),** and if you have many files to load data from, then this is the best way to do it! 
+1. I use blob, because using the DFS endpoint leads to all sorts of permissions issues and with blob, you can use the key.
+2. But with DFS, you can use your Azure AD creds to authenticate.
+3. I have found no performance difference between using the blobs and the DFS.
+4. This line is important **Source = AzureStorage.Blobs(DLPath),** and if you have many files to load data from, then this is the best way to do it! 
     The reason is that authentication occurs at level of the DLPath. By keeping it consistent, you will have to authenticate just once at that level.
 
 
           let
             FileName = "xyz.csv",
-            FileFolder = "abc/",
+            FileFolder = "abc defg/",
             DataLakePath = "https://myAzStorageAccount.blob.core.windows.net/container/",
             DataLakeSource = FileFolder,
             Source = AzureStorage.Blobs(DataLakePath),
@@ -20,7 +22,7 @@ Notes:
             #"Promoted Headers"
             
 
-Using DFS endpoint:
+Using DFS endpoint: (
 
 
           let
@@ -41,7 +43,7 @@ Using Parquet:
             
           let
             FileName = "xyz.parquet",
-            FileFolder = "abc/",
+            FileFolder = "abc defg/",
             DataLakePath = "https://myAzStorageAccount.blob.core.windows.net/container/",
             DataLakeSource = FileFolder,
             Source = AzureStorage.Blobs(DataLakePath),
