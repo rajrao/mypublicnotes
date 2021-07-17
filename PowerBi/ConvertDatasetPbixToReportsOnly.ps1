@@ -6,6 +6,7 @@
 # a new file with the postfix "_reports" will be created.
 # open the new pbix file, all your visuals will show an error. Point it at the dataset
 # hosted in PowerBi.com service.
+# see: https://docs.microsoft.com/en-us/power-bi/guidance/report-separate-from-model
 ##############################################################
 
 Add-Type -AssemblyName System.IO.Compression.FileSystem
