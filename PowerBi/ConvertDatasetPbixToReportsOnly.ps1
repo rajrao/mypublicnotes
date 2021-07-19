@@ -7,6 +7,14 @@
 # open the new pbix file, all your visuals will show an error. Point it at the dataset
 # hosted in PowerBi.com service.
 # see: https://docs.microsoft.com/en-us/power-bi/guidance/report-separate-from-model
+#
+############### How it works: #########################
+# 1. Extracts the files
+# 2. Deletes the files: dataModel, connections, securityBindings
+# 3. Updates the [Content Types].xml file and removes reference to dataModel, connections and security bindings
+# 4. Adds an entry for DataMashup the [Content Types].xml file
+# 5. Saves it as a zip file (using 7zip, as Windows Zipping doesnt work for Pbix).
+# 6. Converts the zip file back to pbix and saves it as a file with postfix "_reports".
 ##############################################################
 
 Add-Type -AssemblyName System.IO.Compression.FileSystem
