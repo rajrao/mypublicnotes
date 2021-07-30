@@ -34,6 +34,10 @@ Documentation about intended use of the Date table columns available at:
 
 https://www.sqlbi.com/articles/reference-date-table-in-dax-and-power-bi/ 
 
+**Additional instructions**
+1. In the modelling view: select all the fields and under "Advanced", change "Summarized by" to "None"
+2. In the modelling view: search for fields with hidden in post-fix. Select them all and hide them
+3. 
 
 ```
 Date = 
