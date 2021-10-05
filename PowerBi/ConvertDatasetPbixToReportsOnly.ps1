@@ -1,13 +1,15 @@
 #############################################################
-# This tool can extract the report pages from a pbix file that contains
-# both the datamodel (dataset) and reports.
+# This tool will extract the report pages from a pbix file that contains
+# both the datamodel (dataset) and reports. Its used, when you want to separate your dataset from
+# the report pages and live connect your report pages to the dataset.
 # It requires 7zip to be installed on your machine.
 # When you run the file, point at your dataset pbix.
 # a new file with the postfix "_reports" will be created.
 # open the new pbix file, all your visuals will show an error. Point it at the dataset
 # hosted in PowerBi.com service.
 # see: https://docs.microsoft.com/en-us/power-bi/guidance/report-separate-from-model
-#
+# IMPORTANT: if you find the script hangs, check if you are using Sensitivity Labels. If Sensitivity Labels
+# is being used it will not allow the decryption of the pbix file. You will have to disable Sensitivity labels temporarily.
 ############### How it works: #########################
 # 1. Extracts the files
 # 2. Deletes the files: dataModel, connections, securityBindings
