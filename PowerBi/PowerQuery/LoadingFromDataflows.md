@@ -1,7 +1,8 @@
 
 ```
 let
-    DataflowName = "dataflowName",
+    DataflowName = "{enter dataflowName here}",
+    DataflowWorkspace = "{enter worspace name here}",
     Source = PowerBI.Dataflows(null),
     #"Filtered to Workspace" = Table.SelectRows(Source, each [workspaceName] = DataflowWorkspace),
     #"Removed all but Workspace Data" = Table.SelectColumns(#"Filtered to Workspace",{"Data"}),
