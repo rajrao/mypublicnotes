@@ -4,7 +4,7 @@ eg: [https://forms.office.com/Pages/ResponsePage.aspx?id=**THIS-IS-THE-FORMID**]
 
 
 **Steps:**
-1. Create a blank query and enter the following in Advanced Query Editor. This will create a function called "GetFormsData"
+1. Create a blank query and enter the code from below in Advanced Query Editor. Click done. Rename the query as **"GetFormsData"**
   ```
   // GetFormsData
   (formId,optional minId, optional maxId) =>
@@ -18,7 +18,7 @@ eg: [https://forms.office.com/Pages/ResponsePage.aspx?id=**THIS-IS-THE-FORMID**]
   in
       TableData
   ```
-2. Invoke the function GetFormsData and replace "ENTER FORM ID HERE" with the formId you retrieved at the top of this document.
+2. Create another blank query. Add the following code to that query, which will invoke the function GetFormsData. Replace "ENTER FORM ID HERE" with the formId you retrieved at the top of this document. Repeat this step for every form that you have.
   
   ```
   // Invoked Function
