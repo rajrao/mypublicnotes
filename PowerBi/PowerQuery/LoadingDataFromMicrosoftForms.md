@@ -1,10 +1,10 @@
 This shows you how to dynamically pull Form data from Microsoft Forms into PowerBi.
 For this to work you need the FormId. The easiest way to get the form id is to click share, copy the URL and extract everything after ?id=
-eg: https://forms.office.com/Pages/ResponsePage.aspx?id=**THIS-IS-THE-FORMID**
+eg: [https://forms.office.com/Pages/ResponsePage.aspx?id=**THIS-IS-THE-FORMID**]
 
 
-Steps:
-1. Create a blank query and enter the following in Advanced Query Editor
+**Steps:**
+1. Create a blank query and enter the following in Advanced Query Editor. This will create a function called "GetFormsData"
   ```
   // GetFormsData
   (formId,optional minId, optional maxId) =>
@@ -18,13 +18,15 @@ Steps:
   in
       TableData
   ```
-2. Invoke the function and replace "ENTER FORM ID HERE" with the formId.
+2. Invoke the function GetFormsData and replace "ENTER FORM ID HERE" with the formId you retrieved at the top of this document.
+  
   ```
   // Invoked Function
   let
       Source = GetFormsData("ENTER FORM ID HERE"),
-      #"Changed Type" = Table.TransformColumnTypes(Source,{{"ID", Int64.Type}, {"Start time", type datetime}, {"Completion time", type datetime}, {"Email", type text}, {"Name", type text}, {"Best Starwars movie was", type text}}),
-      #"Added Custom" = Table.AddColumn(#"Changed Type", "Custom", each DateTimeZone.ToLocal(DateTime.AddZone([Start time],0)))
+      #"StartTime Local" = Table.AddColumn(Source, "Start Time Local", each DateTimeZone.ToLocal(DateTime.AddZone([Start time],0))),
+      #"CompletionTime Local" = Table.AddColumn(#"StartTime Local", "Completion Time Local", each DateTimeZone.ToLocal(DateTime.AddZone([Completion time],0))),
+      #"Changed Type" = Table.TransformColumnTypes(#"CompletionTime Local",{{"ID", Int64.Type}, {"Start time", type datetime}, {"Completion time", type datetime}, {"Start Time Local", type datetimezone}, {"Completion Time Local", type datetimezone}})
   in
-      #"Added Custom"
+      #"Changed Type"
   ```    
