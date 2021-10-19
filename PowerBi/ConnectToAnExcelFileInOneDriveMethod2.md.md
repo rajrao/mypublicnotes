@@ -12,8 +12,8 @@
 
 
 These steps should look like this:
-Update the following values in the script to match your file's location.
-**{myOrg},{MySiteName},{SubFolder1},{SubFolder2},{fileName}**
+
+Update the following values in the script to match your file's location: **{myOrg},{MySiteName},{SubFolder1},{SubFolder2},{fileName}**
 
 ```
 let
