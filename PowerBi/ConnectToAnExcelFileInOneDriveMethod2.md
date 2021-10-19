@@ -17,6 +17,8 @@ These steps should look like this:
 
 Update the following values in the script to match your file's location: **{myOrg},{MySiteName},{SubFolder1},{SubFolder2},{fileName}**
 
+When using this code, you will need to adjust "Load Sheet 1" and the following step based on the sheet or table you are importing. 
+
 ```
 let
     siteUrl = "https://{myOrg}.sharepoint.com/sites/{MySiteName}/",
@@ -25,9 +27,8 @@ let
     Source = SharePoint.Files(siteUrl, [ApiVersion = 15]),
     #"Filtered Rows" = Table.SelectRows(Source, each ([Folder Path] = folderPath and [Name] = excelFileName)),
     #"Load Excel File Binary" = #"Filtered Rows"{[Name=excelFileName,#"Folder Path"=folderPath]}[Content],
-    #"Load Binary as Excel File" = Excel.Workbook(#"Load Excel File Binary"),
-    #"Load Sheet 1" = #"Load Binary as Excel File"{[Item="Sheet1",Kind="Sheet"]}[Data],
-    #"Promoted Headers" = Table.PromoteHeaders(#"Load Sheet 1", [PromoteAllScalars=true])
+    //After the following step, you should import the sheet or table you need. You do this by directly clicking on "Table"
+    #"Load Binary as Excel File" = Excel.Workbook(#"Load Excel File Binary")
 in
-    #"Promoted Headers"
+    #"Load Binary as Excel File"
 ```
