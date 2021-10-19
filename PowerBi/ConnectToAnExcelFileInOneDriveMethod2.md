@@ -1,3 +1,5 @@
+You can follow the steps outlined below, or alternatively, you can copy the code at the bottom of this page and update the variables and use it as is.
+
 1. Click on "Get Data" and pick the "Sharepoint Folder" option and click connect.
 2. Enter the site URL which will be of the form: "https://yourOrg.sharepoint.com/sites/YourExcelSite/" (even if your file is in a subfolder, the path you need to enter here will end at "YourExcelSite").
 3. For Sign On screen, pick "Microsoft Account" and under "Select which level to apply these settings", pick the lowest level you can.In my case, that will be "https://yourOrg.sharepoint.com/sites/YourExcelSite/"
