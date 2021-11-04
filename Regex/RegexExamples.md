@@ -1,7 +1,10 @@
 Most examples are for NotePad++.
 
 Notepad++ regex syntax: https://www.boost.org/doc/libs/1_55_0/libs/regex/doc/html/boost_regex/syntax/perl_syntax.html
+
 Advanced syntax: https://www.boost.org/doc/libs/1_55_0/libs/regex/doc/html/boost_regex/format/boost_format_syntax.html
+
+Reference: https://docs.microsoft.com/en-us/dotnet/standard/base-types/regular-expressions
 
 1. Find and remove new lines and comma separate them
    
