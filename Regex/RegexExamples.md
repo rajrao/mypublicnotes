@@ -6,6 +6,18 @@ Advanced syntax: https://www.boost.org/doc/libs/1_55_0/libs/regex/doc/html/boost
 
 Reference: https://docs.microsoft.com/en-us/dotnet/standard/base-types/regular-expressions
 
+1. Non-capturing group
+   If you dont want to capture some part of the regex
+   
+   (?:regex)
+   
+   eg: CN=xxxxxx
+   
+   if you dont want to capture CN=
+   (?:CN=)(?<name>.*)
+   
+   Name will have just xxxxxxx
+
 1. Find and remove new lines and comma separate them
    
    Demonstrates grouped capture. $1, represents first group, $2, 2nd group and $0 the full match.
