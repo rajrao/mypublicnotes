@@ -1,38 +1,14 @@
-* https://www.db-fiddle.com/
-* https://www.w3resource.com/w3r_images/sample.png
-* https://www.db-fiddle.com/
+https://www.db-fiddle.com/
 
+![ERD](https://github.com/rajrao/mypublicnotes/blob/master/SQL/ANSISql/sqlIntErd.png)
+
+**Questions**
 1. count of orders
 1. count of agents
 1. orders amounts by agents
 1. orders amounts by agents` add comission.
 1. order amounts by agent country and customer country where orders > 7500
 1. find customer without orders
-
-
-Agents.agent_code ---> Customer.agent_code
-
-Agents.agent_code ---> Orders.agent_code
-
-Customer.cust_code ---> Orders.Cust_code
-
-**Agents**
-	* Agent_Code (pk)
-	* AGENT_NAME
-	* Country
-	* Commision
-
-**Customer**
-	* Cust_code (pk)
-	* Cust_Name
-	* Cust_Country
-
-**Orders**
-	* Ord_num (pk)
-	* Order_Amount
-	* Cust_Code
-	* Agent_Code
-
 
 ```
 CREATE TABLE IF NOT EXISTS `agents` (
