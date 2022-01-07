@@ -1,3 +1,16 @@
+Latest method using Power Platform Dataflows and not the PowerBi.Dataflows
+
+```
+let
+    Source = PowerPlatform.Dataflows(null),
+    Workspaces = Source{[Id="Workspaces"]}[Data],
+    #"GlobalFinanceWorkspace" = Workspaces{[workspaceId="<GUID for Workspace"]}[Data],
+    #"DataFlow" = #"GlobalFinanceWorkspace"{[dataflowName="Data Flow Name"]}[Data],
+    #"FA Revenue Detail" = DataFlow{[entity="Entity Name"]}[Data]
+in
+    #"FA Revenue Detail"
+```
+
 
 ```
 let
@@ -17,3 +30,4 @@ in
   #"Return Dataflow Data"
   
   ```
+
