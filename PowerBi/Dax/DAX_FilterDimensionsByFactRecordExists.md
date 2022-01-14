@@ -13,3 +13,20 @@ Sales Data Count = CountRows('Sales Data')
 You would then use "Sales Data Count" as a filter on your customer slicer to show only those where "Sales Data Count" is greater than 0.
 
 Now as you filter based on other dimensions (eg: Calendar), the list of Customers in the slicer will change to show only those with data based on the current set of filters.
+
+Note:
+
+It might be tempting to add a measure called "Sales Data has data":
+```
+Sales Data has data = CountRows('Sales Data') > 0
+```
+This does not work, as the filters dont seem to pick up true/false values.
+
+In this case, what I prefer to do is:
+
+```
+Sales Data has data = if (CountRows('Sales Data') > 0,1)
+```
+
+I then setup the filter has "Sales Data has data" is not blank!
+
