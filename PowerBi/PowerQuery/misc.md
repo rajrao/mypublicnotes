@@ -1,10 +1,15 @@
-Remember PowerQuery is a functional language!!!
+**Create Date**: #date(yyyy,m,d). https://docs.microsoft.com/en-us/powerquery-m/sharpdate
 
-Null Record
+**Other sharpfunctions** are available [sharp date time](https://docs.microsoft.com/en-us/powerquery-m/sharpdatetime)
+
+
+**Remember PowerQuery is a functional language!!!**
+
+**Null Record**
 
     T = Table.FromRecords({})
 
-Using an if else
+**Using an if else**
 
     let
         Source = if Text.Lower(#"Parameter1") = "true" then 
@@ -15,7 +20,7 @@ Using an if else
         Source
 
 
-Functional feature: This code will run only source1 if Parameter1 = S1 and only Source2 if Parameter1 = S2 and both if Parameter = S3.
+**Functional feature:** This code will run only source1 if Parameter1 = S1 and only Source2 if Parameter1 = S2 and both if Parameter = S3.
 
     let
         start = DateTime.LocalNow(),
