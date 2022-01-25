@@ -48,7 +48,6 @@ Visio Tips & Tricks
       * y=330
       * z=306 
 
-![image](https://user-images.githubusercontent.com/1643325/151061301-cade1414-fa26-4a18-8fd2-b0041063a9bc.png)
-
+![image](https://user-images.githubusercontent.com/1643325/151061624-93eab81b-6ef0-4b8d-a91a-7c3758a37bdb.png)
 
 
