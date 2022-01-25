@@ -1,6 +1,9 @@
 Visio Tips & Tricks
 
 **3 D**
+![image](https://user-images.githubusercontent.com/1643325/151062795-0da5d36c-d8cb-4231-960a-f41eedd6d6c7.png)
+![image](https://user-images.githubusercontent.com/1643325/151062277-623de441-5453-4fe7-a529-84e006bacb0b.png)
+![image](https://user-images.githubusercontent.com/1643325/151062423-f43f461d-27ac-4d5d-a095-34cbe9dc474e.png)
 1. North-South
    1. Vertical
       1. Text
@@ -48,6 +51,6 @@ Visio Tips & Tricks
       * y=330
       * z=306 
 
-![image](https://user-images.githubusercontent.com/1643325/151061624-93eab81b-6ef0-4b8d-a91a-7c3758a37bdb.png)
+
 
 
