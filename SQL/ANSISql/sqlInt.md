@@ -1,3 +1,4 @@
+https://www.db-fiddle.com/f/3ACvsD35U6sNgrPRweqfXy/0
 https://www.db-fiddle.com/
 
 ![ERD](https://github.com/rajrao/mypublicnotes/blob/master/SQL/ANSISql/sqlIntErd.png)
