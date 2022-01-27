@@ -40,7 +40,7 @@ function RebindReport{
 }
 $ErrorActionPreference = "Stop"
 
-#Login-PowerBI | Out-Null
+Login-PowerBI | Out-Null
 
 #report info
 $WorkspaceObject = (Get-PowerBIWorkspace -Name $reportWorkspaceName)
