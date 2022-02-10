@@ -10,4 +10,8 @@ function ConnectToPbi
     $credential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $applicationId, $securePassword
     Connect-PowerBIServiceAccount -ServicePrincipal -Credential $credential -TenantId "TenantId-GUID"
 }
+
+ConnectToPBI
+$WorkspaceObject = (Get-PowerBIWorkspace -Name "Test Workspace Name") #make sure you add the SPN to the workspace
+$WorkspaceObject
 ```
