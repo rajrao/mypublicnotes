@@ -1,6 +1,6 @@
 This page: https://bit.ly/sqlinterview2022
 
-https://www.db-fiddle.com/f/3ACvsD35U6sNgrPRweqfXy/2
+https://www.db-fiddle.com/f/3ACvsD35U6sNgrPRweqfXy/3
 
 https://www.db-fiddle.com/
 
@@ -8,6 +8,8 @@ https://www.db-fiddle.com/
 
 
 ```
+--ERD: https://github.com/rajrao/mypublicnotes/blob/master/SQL/ANSISql/sqlIntErd.png
+
 CREATE TABLE IF NOT EXISTS `agents` (
   `AGENT_CODE` varchar(6) NOT NULL DEFAULT '',
   `AGENT_NAME` varchar(40) DEFAULT NULL,
@@ -17,26 +19,6 @@ CREATE TABLE IF NOT EXISTS `agents` (
   `COUNTRY` varchar(25) DEFAULT NULL,
   PRIMARY KEY (`AGENT_CODE`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `agents`
---
-
-INSERT INTO `agents` (`AGENT_CODE`, `AGENT_NAME`, `WORKING_AREA`, `COMMISSION`, `PHONE_NO`, `COUNTRY`) VALUES
-('A007  ', 'Ramasundar                              ', 'Bangalore                          ', '0.15', '077-25814763   ', '\r'),
-('A003  ', 'Alex                                    ', 'London                             ', '0.13', '075-12458969   ', '\r'),
-('A008  ', 'Alford                                  ', 'New York                           ', '0.12', '044-25874365   ', '\r'),
-('A011  ', 'Ravi Kumar                              ', 'Bangalore                          ', '0.15', '077-45625874   ', '\r'),
-('A010  ', 'Santakumar                              ', 'Chennai                            ', '0.14', '007-22388644   ', '\r'),
-('A012  ', 'Lucida                                  ', 'San Jose                           ', '0.12', '044-52981425   ', '\r'),
-('A005  ', 'Anderson                                ', 'Brisban                            ', '0.13', '045-21447739   ', '\r'),
-('A001  ', 'Subbarao                                ', 'Bangalore                          ', '0.14', '077-12346674   ', '\r'),
-('A002  ', 'Mukesh                                  ', 'Mumbai                             ', '0.11', '029-12358964   ', '\r'),
-('A006  ', 'McDen                                   ', 'London                             ', '0.15', '078-22255588   ', '\r'),
-('A004  ', 'Ivan                                    ', 'Torento                            ', '0.15', '008-22544166   ', '\r'),
-('A009  ', 'Benjamin                                ', 'Hampshair                          ', '0.11', '008-22536178   ', '\r');
-
--- --------------------------------------------------------
 
 --
 -- Table structure for table `customer`
@@ -58,6 +40,43 @@ CREATE TABLE IF NOT EXISTS `customer` (
   KEY `CUSTCITY` (`CUST_CITY`),
   KEY `CUSTCITY_COUNTRY` (`CUST_CITY`,`CUST_COUNTRY`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Table structure for table `orders`
+--
+
+CREATE TABLE IF NOT EXISTS `orders` (
+  `ORD_NUM` decimal(6,0) NOT NULL,
+  `ORD_AMOUNT` decimal(12,2) NOT NULL,
+  `ADVANCE_AMOUNT` decimal(12,2) NOT NULL,
+  `ORD_DATE` date NOT NULL,
+  `CUST_CODE` varchar(6) NOT NULL,
+  `AGENT_CODE` varchar(6) NOT NULL,
+  `ORD_DESCRIPTION` varchar(60) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `agents`
+--
+
+INSERT INTO `agents` (`AGENT_CODE`, `AGENT_NAME`, `WORKING_AREA`, `COMMISSION`, `PHONE_NO`, `COUNTRY`) VALUES
+('A007  ', 'Ramasundar                              ', 'Bangalore                          ', '0.15', '077-25814763   ', '\r'),
+('A003  ', 'Alex                                    ', 'London                             ', '0.13', '075-12458969   ', '\r'),
+('A008  ', 'Alford                                  ', 'New York                           ', '0.12', '044-25874365   ', '\r'),
+('A011  ', 'Ravi Kumar                              ', 'Bangalore                          ', '0.15', '077-45625874   ', '\r'),
+('A010  ', 'Santakumar                              ', 'Chennai                            ', '0.14', '007-22388644   ', '\r'),
+('A012  ', 'Lucida                                  ', 'San Jose                           ', '0.12', '044-52981425   ', '\r'),
+('A005  ', 'Anderson                                ', 'Brisban                            ', '0.13', '045-21447739   ', '\r'),
+('A001  ', 'Subbarao                                ', 'Bangalore                          ', '0.14', '077-12346674   ', '\r'),
+('A002  ', 'Mukesh                                  ', 'Mumbai                             ', '0.11', '029-12358964   ', '\r'),
+('A006  ', 'McDen                                   ', 'London                             ', '0.15', '078-22255588   ', '\r'),
+('A004  ', 'Ivan                                    ', 'Torento                            ', '0.15', '008-22544166   ', '\r'),
+('A009  ', 'Benjamin                                ', 'Hampshair                          ', '0.11', '008-22536178   ', '\r'),
+('A019  ', 'Giri                                    ', 'Denver                             ', '0.11', '1-008-225361   ', '\r');
+
+-- --------------------------------------------------------
+
+
 
 --
 -- Dumping data for table `customer`
@@ -93,19 +112,6 @@ INSERT INTO `customer` (`CUST_CODE`, `CUST_NAME`, `CUST_CITY`, `WORKING_AREA`, `
 
 -- --------------------------------------------------------
 
---
--- Table structure for table `orders`
---
-
-CREATE TABLE IF NOT EXISTS `orders` (
-  `ORD_NUM` decimal(6,0) NOT NULL,
-  `ORD_AMOUNT` decimal(12,2) NOT NULL,
-  `ADVANCE_AMOUNT` decimal(12,2) NOT NULL,
-  `ORD_DATE` date NOT NULL,
-  `CUST_CODE` varchar(6) NOT NULL,
-  `AGENT_CODE` varchar(6) NOT NULL,
-  `ORD_DESCRIPTION` varchar(60) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `orders`
@@ -148,5 +154,4 @@ INSERT INTO `orders` (`ORD_NUM`, `ORD_AMOUNT`, `ADVANCE_AMOUNT`, `ORD_DATE`, `CU
 ('200131', '900.00', '150.00', '2008-08-26', 'C00012', 'A012  ', 'SOD\r'),
 ('200133', '1200.00', '400.00', '2008-06-29', 'C00009', 'A002  ', 'SOD\r'),
 ('200132', '4000.00', '2000.00', '2008-08-15', 'C00013', 'A013  ', 'SOD\r');
-
 ```
