@@ -1,6 +1,6 @@
 This page: https://bit.ly/sqlinterview2022
 
-https://www.db-fiddle.com/f/3ACvsD35U6sNgrPRweqfXy/1 (https://bit.ly/sqlinterviewdbfiddlev1)
+https://www.db-fiddle.com/f/3ACvsD35U6sNgrPRweqfXy/2
 
 https://www.db-fiddle.com/
 
