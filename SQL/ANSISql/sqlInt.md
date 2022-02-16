@@ -1,6 +1,6 @@
 This page: https://bit.ly/sqlinterview2022
 
-https://www.db-fiddle.com/f/3ACvsD35U6sNgrPRweqfXy/3
+https://www.db-fiddle.com/f/3ACvsD35U6sNgrPRweqfXy/4
 
 https://www.db-fiddle.com/
 
@@ -8,7 +8,12 @@ https://www.db-fiddle.com/
 
 
 ```
+
 --ERD: https://github.com/rajrao/mypublicnotes/blob/master/SQL/ANSISql/sqlIntErd.png
+--tables
+--agents (AGENT_CODE)
+--customer (CUST_CODE,AGENT_CODE)
+--orders (ORD_NUM, AGENT_CODE, CUST_CODE), 
 
 CREATE TABLE IF NOT EXISTS `agents` (
   `AGENT_CODE` varchar(6) NOT NULL DEFAULT '',
@@ -154,4 +159,5 @@ INSERT INTO `orders` (`ORD_NUM`, `ORD_AMOUNT`, `ADVANCE_AMOUNT`, `ORD_DATE`, `CU
 ('200131', '900.00', '150.00', '2008-08-26', 'C00012', 'A012  ', 'SOD\r'),
 ('200133', '1200.00', '400.00', '2008-06-29', 'C00009', 'A002  ', 'SOD\r'),
 ('200132', '4000.00', '2000.00', '2008-08-15', 'C00013', 'A013  ', 'SOD\r');
+
 ```
