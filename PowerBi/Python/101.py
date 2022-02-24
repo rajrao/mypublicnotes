@@ -1,5 +1,6 @@
 # Sample code showing how to call PowerBi rest api using python.
-# Uses a file called "env.config".
+# Uses a file called "env.config", that provides credential info.
+# A very simple script that demonstrates how to use MSAL to call PBI-Rest API
 #
 # Sample env.config
 """
