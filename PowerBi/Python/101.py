@@ -43,10 +43,11 @@ datasetId = config["dataset_id"]
 if "access_token" in result:
     print("access_token retrieved!")
 
+    token = result['access_token']
     response = requests.get(
         f"https://api.powerbi.com/v1.0/myorg/groups/{groupId}/datasets/\
 {datasetId}/refreshes",
-        headers={'Authorization': 'Bearer ' + result['access_token']})
+        headers={'Authorization': f"Bearer {token}"})
     response.raise_for_status()
     jsonData = response.json()
     print(f"API call result: {json.dumps(jsonData, indent=2)}")
