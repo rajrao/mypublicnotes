@@ -1,4 +1,4 @@
-**External access to S3 buckets - AWS Account based access
+**External access to S3 buckets - AWS Account based access**
 
 In scenarios where we have to provide access to external entities to our S3 buckets, the preferred solution, especially when the external entity runs their systems in AWS is to use trust-relationships instead of IAM user with shared secret.
 
