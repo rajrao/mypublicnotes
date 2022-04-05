@@ -4,13 +4,12 @@ Important folder locations
 |-----|----------|------|
 |Installation Folder | C:\Program Files\On-premises data gateway|
 |Default Log Location| C:\Windows\ServiceProfiles\PBIEgwService\AppData\Local\Microsoft\On-premises data gateway|Used when you are running using the default local service account: PBIEgwService
-|Custom Service Account Log Location|C:\Users\{ServiceAccount}\AppData\Local\Microsoft\On-premises data gateway|Used when running as a custom service account
+|Custom Service Account Log Location|C:\Users\\{ServiceAccount}\AppData\Local\Microsoft\On-premises data gateway|Used when running as a custom service account
 
 
 **SSO Setup**
 1. You will need RSAT tools for administration.
 2. Helpful documentation: https://docs.microsoft.com/en-us/power-bi/connect-data/service-gateway-sso-kerberos
-3. 
 
 
 **Remote Server Administration Tools** 
