@@ -3,7 +3,7 @@ This is based on this answer: https://community.powerbi.com/t5/Desktop/Privacy-H
 Itutilizes the fact that PBI can perform compression and uses GZips.  GZip's last 8 bytes is the "footer". The first 4 of which is the CRC32 checksum
 https://docs.fileformat.com/compression/gz/#gz-file-footer
 
-Warning Crc32 can cause collisions! https://preshing.com/20110504/hash-collision-probabilities/
+Warning Crc32 can cause collisions! https://preshing.com/20110504/hash-collision-probabilities/. When I tried using it against Salesforce IDs, I got a clash with just 100k Ids.
 
 Create a blank query and insert the following code.
 
