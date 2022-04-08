@@ -1,6 +1,17 @@
 Useful M code to create a table with one column that contains when the refresh was last run.
 
 ```
+let
+
+Source = #table(type table[Date Last Refreshed=datetime], {{DateTime.LocalNow()}}),
+    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Date Last Refreshed", type datetime}})
+
+in
+
+#"Changed Type"
+```
+
+```
 = #table(type table[#"Last Refreshed On DateTime Utc"=datetimezone], {{DateTimeZone.FixedUtcNow()}})
 ```
 
