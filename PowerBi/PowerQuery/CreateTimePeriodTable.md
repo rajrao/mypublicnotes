@@ -2,22 +2,6 @@
 
 ```
 // Time Period 1
-/*
-let
-    Source = TeamsAnalytics.Contents(),
-    #"Teams user activity1" = Source{[Name="Teams user activity"]}[Data],
-    #"Removed Other Columns" = Table.SelectColumns(#"Teams user activity1",{"Date"}),
-    #"Removed Duplicates" = Table.Distinct(#"Removed Other Columns"),
-    #"Sorted Rows" = Table.Sort(#"Removed Duplicates",{{"Date", Order.Descending}}),
-    #"Kept First Rows" = Table.FirstN(#"Sorted Rows",7),
-    #"Added Custom" = Table.AddColumn(#"Kept First Rows", "Time Period", each "Last 7 days"),
-    #"Added Custom1" = Table.AddColumn(#"Added Custom", "Sort Order", each 1),
-    #"Appended Query" = Table.Combine({#"Added Custom1", #"Time Period (2)", #"Time Period (3)", #"Time Period (4)"}),
-    #"Sorted Rows1" = Table.Sort(#"Appended Query",{{"Sort Order", Order.Ascending}})
-in
-    #"Sorted Rows1"
-*/
-
 let
     now = DateTimeZone.UtcNow(),
     span = 7, // Days
@@ -64,22 +48,6 @@ in
     addSortOrderColumn
 
 // Time Period 3
-/*
-let
-    Source = TeamsAnalytics.Contents(),
-    #"Teams user activity1" = Source{[Name="Teams user activity"]}[Data],
-    #"Removed Other Columns" = Table.SelectColumns(#"Teams user activity1",{"Date"}),
-    #"Removed Duplicates" = Table.Distinct(#"Removed Other Columns"),
-    #"Sorted Rows" = Table.Sort(#"Removed Duplicates",{{"Date", Order.Descending}}),
-    #"Kept First Rows" = Table.FirstN(#"Sorted Rows",7),
-    #"Added Custom" = Table.AddColumn(#"Kept First Rows", "Time Period", each "Last 7 days"),
-    #"Added Custom1" = Table.AddColumn(#"Added Custom", "Sort Order", each 1),
-    #"Appended Query" = Table.Combine({#"Added Custom1", #"Time Period (2)", #"Time Period (3)", #"Time Period (4)"}),
-    #"Sorted Rows1" = Table.Sort(#"Appended Query",{{"Sort Order", Order.Ascending}})
-in
-    #"Sorted Rows1"
-*/
-
 let
     now = DateTimeZone.UtcNow(),
     span = 31, // Days
@@ -103,22 +71,6 @@ in
     addSortOrderColumn
 
 // Time Period 4
-/*
-let
-    Source = TeamsAnalytics.Contents(),
-    #"Teams user activity1" = Source{[Name="Teams user activity"]}[Data],
-    #"Removed Other Columns" = Table.SelectColumns(#"Teams user activity1",{"Date"}),
-    #"Removed Duplicates" = Table.Distinct(#"Removed Other Columns"),
-    #"Sorted Rows" = Table.Sort(#"Removed Duplicates",{{"Date", Order.Descending}}),
-    #"Kept First Rows" = Table.FirstN(#"Sorted Rows",7),
-    #"Added Custom" = Table.AddColumn(#"Kept First Rows", "Time Period", each "Last 7 days"),
-    #"Added Custom1" = Table.AddColumn(#"Added Custom", "Sort Order", each 1),
-    #"Appended Query" = Table.Combine({#"Added Custom1", #"Time Period (2)", #"Time Period (3)", #"Time Period (4)"}),
-    #"Sorted Rows1" = Table.Sort(#"Appended Query",{{"Sort Order", Order.Ascending}})
-in
-    #"Sorted Rows1"
-*/
-
 let
     now = DateTimeZone.UtcNow(),
     span = 90, // Days
