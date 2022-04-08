@@ -1,5 +1,7 @@
 The best way to capture Microsoft Forms data is by creating your form from within a Microsoft Sharepoint Site. When you do this, the form will automatically create an excel file within the site using the "Forms for Excel" functionality. This will allow you to use simple excel integration instead of any of the complicated stuff outlined below.
+
 ![image](https://user-images.githubusercontent.com/1643325/162518404-bd1857f4-ca55-4c6e-86ce-dc0316a9e24f.png).
+
 To access the above option, click on new from within a sharepoint site to which you have write permissions. Once the form is created, you will find an excel file in the sharepoint site with the same name as the form. This excel file will have the latest data from the form responses.
 
 
