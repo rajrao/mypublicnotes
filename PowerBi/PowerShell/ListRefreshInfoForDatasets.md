@@ -19,7 +19,8 @@ foreach ($dataset in $datasets)
             $response = Invoke-PowerBIRestMethod -Url $ApiUrl -Method Get
             $jsonObj = ConvertFrom-Json $response
             
-            $timeAndDateUrl = "https://www.timeanddate.com/worldclock/converter.html?iso=20220117T" + ([string]($jsonObj.times)).Replace(":","") + "00&p1=75&p2=1440&p3=176"
+            #$timeAndDateUrl = "https://www.timeanddate.com/worldclock/converter.html?iso=20220117T" + ([string]($jsonObj.times)).Replace(":","") + "00&p1=75&p2=1440&p3=176"
+            $timeAndDateUrl = "https://time.is/" + ([string]($jsonObj.times)).Replace(":","") + "_in_UTC/Denver/"
             $cnSamObj = [PSCustomObject] @{
                         "DatasetName" = $dataset.Name
                         "ReportRefreshTime" = $jsonObj.times -as [String]
