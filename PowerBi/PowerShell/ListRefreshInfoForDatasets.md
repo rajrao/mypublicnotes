@@ -24,6 +24,8 @@ foreach ($dataset in $datasets)
                         "DatasetName" = $dataset.Name
                         "ReportRefreshTime" = $jsonObj.times -as [String]
                         "TimeUrl" =  $timeAndDateUrl
+                        "Timezone" = $jsonObj.localTimeZoneId -as [String]
+                        "Days" = $jsonObj.days -as [String]
                     }
             [void]$refreshSchedules.Add($cnSamObj)
         }
