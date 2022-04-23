@@ -12,4 +12,6 @@ https://docs.aws.amazon.com/
 ## Python ##
 1. Boto3 - Athena: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/athena.html
 2. AWS Code Samples: https://docs.aws.amazon.com/athena/latest/ug/code-samples.html
-3. Working with Athena: https://hands-on.cloud/working-with-athena-in-python-using-boto3/
+3. PyAthena: https://pypi.org/project/pyathena/
+4. Working with Athena: https://hands-on.cloud/working-with-athena-in-python-using-boto3/
+5. https://medium.com/codex/connecting-to-aws-athena-databases-using-python-4a9194427638
