@@ -15,3 +15,4 @@ https://docs.aws.amazon.com/
 3. PyAthena: https://pypi.org/project/pyathena/
 4. Working with Athena: https://hands-on.cloud/working-with-athena-in-python-using-boto3/
 5. https://medium.com/codex/connecting-to-aws-athena-databases-using-python-4a9194427638
+6. Find s3 source file for record: https://aws.amazon.com/premiumsupport/knowledge-center/find-s3-source-file-athena-table-row/
