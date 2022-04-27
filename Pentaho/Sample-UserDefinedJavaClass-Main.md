@@ -1,4 +1,5 @@
 # User Defined Java Class
+https://help.hitachivantara.com/Documentation/Pentaho/9.2/Products/User_Defined_Java_Class
 
 The code snippet for Main (under common use) is broken. Below is the fixed code
 
