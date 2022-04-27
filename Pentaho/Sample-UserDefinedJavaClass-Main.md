@@ -4,7 +4,7 @@ https://help.hitachivantara.com/Documentation/Pentaho/9.2/Products/User_Defined_
 The code snippet for Main (under common use) is broken. Below is the fixed code
 
 
-```
+```java
 import java.math.*;
 import java.util.*;
 import java.util.Map.Entry;
