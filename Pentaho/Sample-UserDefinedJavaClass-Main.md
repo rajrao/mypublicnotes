@@ -207,3 +207,4 @@ public boolean processRow(StepMetaInterface smi, StepDataInterface sdi)
 }
 
 ```
+How some of the code works: https://www.online-java.com/TbE8uz0lWv
