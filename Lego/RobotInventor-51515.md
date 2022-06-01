@@ -1,4 +1,4 @@
-** Build Instructions **
+**Build Instructions **
 
 1. [Tricky](https://www.lego.com/cdn/product-assets/product.bi.additional.main.pdf/51515_Tricky.pdf)
 2. [Charlie](https://www.lego.com/cdn/product-assets/product.bi.additional.main.pdf/51515_Charlie.pdf)
