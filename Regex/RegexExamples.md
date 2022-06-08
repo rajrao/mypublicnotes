@@ -59,22 +59,6 @@ Reference: https://docs.microsoft.com/en-us/dotnet/standard/base-types/regular-e
      Non capture group (?:regex)
    
          (.*?)(?:,)
-
-1.  Find all lines that dont start with set of works
-
-     Find lines not starting with WatermarkId or Executing
-   
-         ^(?!WatermarkID|Executing).*
-         
-1.  Find all lines that dont contain set of words
-
-     Find lines not starting with WatermarkId or Executing
-   
-         ^((?!WatermarkID|Executing).)*       
-         
-1. Find all lines that dont contain the word DataflowName anywhere in the line
-         
-         ^(?!.*DataflowName).*
          
 1. Find all lines that contain the word dataflowname in the line
 
