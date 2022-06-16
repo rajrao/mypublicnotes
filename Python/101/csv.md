@@ -1,4 +1,19 @@
+**Using CSV**
 
+```python
+import pandas as pd
+
+data = []
+data.append(['a','b','c'])
+data.append([1,2,3])
+data.append([4,5,6])
+df = pd.DataFrame(data, columns=['a','b','c'])
+csv_buffer = StringIO()
+df.to_csv(csv_buffer, header=False, index=None)
+print(csv_buffer.getvalue())
+```
+
+reading csv read into a variable called data.
 ```python
 import csv
 
@@ -15,6 +30,7 @@ Read data which is in CSV format and manipulate in memory
 f_in = io.StringIO(data)
 reader = csv.reader(f_in)
 f_out = io.StringIO()
+#clean up the headers!
 header = [i.replace(' ', '_').replace('(', '').replace(')', '').lower() for i in next(reader)]
 f_out.write('\t'.join(header))
 f_out.write("\n")
