@@ -13,3 +13,9 @@ class MyBestClass:
     _logger.info("Some number or data: {}".format(data))
 
 ```
+
+```python
+logging.basicConfig(level="INFO")
+mbc = MyBestClass()
+mbc.my_method()
+```
