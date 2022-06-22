@@ -13,6 +13,14 @@ df.to_csv(csv_buffer, header=False, index=None)
 print(csv_buffer.getvalue())
 ```
 
+# JSON to CSV #
+
+```python
+json_data = json.loads(data_as_json)
+normalized_data = pandas.json_normalize(json_data)
+normalized_data.to_csv('test.csv')
+```
+
 reading csv read into a variable called data.
 ```python
 import csv
