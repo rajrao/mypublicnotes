@@ -20,3 +20,13 @@ datetime.today().isoformat()
 date.today().isoformat()
 #output '2022-06-28'
 ```
+
+**String to DateTime**
+```python
+  to_date = datetime.strptime(from_dt_string, '%Y-%m-%d')
+```
+
+DateTime to String
+```python
+  to_dt_string = datetime.strftime(from_date, '%Y-%m-%d')
+```
