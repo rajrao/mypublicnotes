@@ -86,3 +86,18 @@ with io.StringIO(IteratorBytesIO(data).read().decode("utf-8")) as f_in:
             buffer_out.write("\t")
     buffer_out.write("\n")
 ```
+
+**Another Example **
+```python
+  json_body = ''
+  csv_body = ''
+  with io.StringIO('') as writer:
+      csv_writer = csv.writer(writer)
+      csv_writer.writerow(['field1', 'field2', 'field3'])
+      for ent in entities:
+          json_body += json.dumps(ent, default = lambda x: x.__dict__) + '\r\n'
+          csv_writer.writerow([ent.field1,ent.field2,ent.field3])
+      csv_body = writer.getvalue()
+      print(json_body)
+      print(csv_body)
+```
