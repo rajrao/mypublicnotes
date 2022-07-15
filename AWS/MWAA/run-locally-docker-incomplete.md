@@ -13,12 +13,26 @@ git clone https://github.com/aws/aws-mwaa-local-runner.git
 ```
 ./mwaa-local-env build-image
 ```
-If the command fails, then run
+If the command fails, then run the following to see if the issue is because of windows new-line characters (it worked for me!)
 ```
 sed -i -e 's/\r$//' mwaa-local-env
+sed -i -e 's/\r$//' docker/script/*.*
 ```
+4. Run the image:
+```
+./mwaa-local-env start
+```
+If you get the following error: "aws-mwaa-local-runner-2.0.2" is not a valid project name, the you can fix it by editing the mwaa-local-env file and changing:
+```
+AIRFLOW_VERSION=2.0.2
+```
+To: 
+```
+AIRFLOW_VERSION=202
+```
+This part of the process might take some time to complete (15 to 20 minutes)
 
-You might also have to run
-```
-sed -i -e 's/\r$//' systemlibs.sh
-```
+
+
+
+
