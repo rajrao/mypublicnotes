@@ -33,9 +33,24 @@ To:
 ```
 AIRFLOW_VERSION=2_0_2
 ```
-This part of the process might take some time to complete (15 to 20 minutes)
+This part of the process might take some time to complete.
+
+5. Connect to the environment:
+After MWAA has started, you can access it by visiting: http://localhost:8080/
+You will need to use the following creds:
+
+Username: admin
+
+Password: test
+
+7. 
 
 
+
+
+More info:
+1. https://github.com/aws/aws-mwaa-local-runner
+2. https://docs.aws.amazon.com/mwaa/latest/userguide/tutorials-docker.html
 
 
 
