@@ -43,7 +43,8 @@ Username: admin
 
 Password: test
 
-7. 
+7. Running your DAGs
+You need to copy your code to the "Dags" folder. If you need to do this from Windows, you can get to your home dir in WSL by going to: \\wsl$\Ubuntu\home\%USERNAME%
 
 
 
