@@ -25,13 +25,13 @@ sed -i -e 's/\r$//' docker/script/*.*
 ```
 ./mwaa-local-env start
 ```
-If you get the following error: "aws-mwaa-local-runner-2.0.2" is not a valid project name, the you can fix it by editing the mwaa-local-env file and changing:
+If you get the following error: "aws-mwaa-local-runner-2.0.2" is not a valid project name, then you can fix it by editing the mwaa-local-env file and changing:
 ```
 AIRFLOW_VERSION=2.0.2
 ```
 To: 
 ```
-AIRFLOW_VERSION=202
+AIRFLOW_VERSION=2_0_2
 ```
 This part of the process might take some time to complete (15 to 20 minutes)
 
