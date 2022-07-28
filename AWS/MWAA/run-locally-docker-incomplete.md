@@ -21,14 +21,11 @@ docker-desktop-data
 git clone https://github.com/aws/aws-mwaa-local-runner.git aws-mwaa-local-runner --single-branch --branch
  v2.2.2
 ```
-5. Edit the docker/docker-compose-local.yml file
-change the line:
-- "${PWD}/db-data:/var/lib/postgresql/data"
-to
-- postgres-db-volume:/var/lib/postgresql/data
-
 6. Cd aws-mwaa-local-runner
-7. Build the image
+7. Optional: Repoint the sub-folder dags to a windows folder to allow you to easily edit and change the files for developments
+ 1. delete the dags folder using the command ```rm -fr dags```
+ 2. create a symbolink to a dags folder on your c drive ```ln /mnt/c/repos/dags/ dags -s``` (i used a folder under c:\repos called dags)
+9. Build the image
 ```
 ./mwaa-local-env build-image
 ```
@@ -37,22 +34,7 @@ to
 ./mwaa-local-env start
 ```
 * If you get the following error: "aws-mwaa-local-runner-2.2 is not a valid project name or aws-mwaa-local-runner-2.0.2" is not a valid project name, then you can fix it by going into Docker Desktop settings and under "General", Uncheck: "Use Docker Compose V2"
-* If your postgresql container does not start up with an error like this: "chmod: /var/lib/postgresql/data: Operation not permitted", then do the following:
-Change the following line in "docker\docker-compose-local.yml":
-```
-"- ${PWD}/db-data:/var/lib/postgresql/data"
-```
-to
-```
-- postgres-db-volume:/var/lib/postgresql/data
-```
-Also, at the end of the file, add the following line:
-```
-volumes:
-  postgres-db-volume:    
-```
-This uses a named volume. I believe the error occurs because I am using a linked folder on the Windows desktop and the postgresql container has a script that attempts to take ownership of that folder.
-
+* If you get an error that says something like a folder under docker-desktop-bind-mounts/Ubuntu is not empty, then restart your docker-desktop (shutdown and restart). This worked for me!
 9. The airflow instance should start up and you should have access to Airflow via:http://localhost:8080/
 You will need to use the following creds:
 
