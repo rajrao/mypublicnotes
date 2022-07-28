@@ -1,4 +1,4 @@
-Pre-requisites:
+**Pre-requisites**
 
 1. Install Windows Subsytem for Linux: https://code.visualstudio.com/blogs/2020/03/02/docker-in-wsl2#_getting-set-up
 1. Install Docker Desktop: https://docs.docker.com/desktop/windows/wsl/
@@ -13,6 +13,8 @@ Ubuntu (Default)
 docker-desktop
 docker-desktop-data
 ```
+
+**Steps**
 
 1. Open your WSL via Windows terminal and change directory to your home
 ```wsl ~```
@@ -35,19 +37,23 @@ git clone https://github.com/aws/aws-mwaa-local-runner.git aws-mwaa-local-runner
 ```
 * If you get the following error: "aws-mwaa-local-runner-2.2 is not a valid project name or aws-mwaa-local-runner-2.0.2" is not a valid project name, then you can fix it by going into Docker Desktop settings and under "General", Uncheck: "Use Docker Compose V2"
 * If you get an error that says something like a folder under docker-desktop-bind-mounts/Ubuntu is not empty, then restart your docker-desktop (shutdown and restart). This worked for me!
-9. The airflow instance should start up and you should have access to Airflow via:http://localhost:8080/
-You will need to use the following creds:
+9. The airflow instance should start up and you should have access to Airflow via: <a href="http://localhost:8080/" target="_blank">http://localhost:8080/</a>
+ 
+ **You will need to use the following creds:**
+  
+   **Username**: admin
 
-Username: admin
+   **Password**: test
 
-Password: test
+**Running your own DAGs**
+   
+   You can add more dags or edit the dags directly in your c driver. In my case the files were located at c:\repos\dags. (see step 7.2.)
 
-7. Running your own DAGs
-You can add more dags or edit the dags directly in your c driver. In my case the files were located at c:\repos\dags. (see step 7.2.)
+**Tips:**
 
-Tips:
 1. In your WSL terminal, you can type ```explorer.exe .``` and it will open a windows explorer window to that path. Its a quick way to find out where you are in your WSL container.
 
-More info:
+**More info:**
+
 1. https://github.com/aws/aws-mwaa-local-runner
 2. https://docs.aws.amazon.com/mwaa/latest/userguide/tutorials-docker.html
