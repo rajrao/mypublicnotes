@@ -1,3 +1,5 @@
+The following lists the steps I had success with to run the AWS-MWAA-LocalRunner project to get AWS Airflow running locally.
+
 **Pre-requisites**
 
 1. Install Windows Subsytem for Linux: https://code.visualstudio.com/blogs/2020/03/02/docker-in-wsl2#_getting-set-up
