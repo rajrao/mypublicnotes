@@ -2,41 +2,58 @@ Pre-requisites:
 
 1. Install Windows Subsytem for Linux: https://code.visualstudio.com/blogs/2020/03/02/docker-in-wsl2#_getting-set-up
 1. Install Docker Desktop: https://docs.docker.com/desktop/windows/wsl/
-
-**Important: dont do the following by going to your local drive (eg: mnt/c/....). This will cause a lot of problems!!!**
-
-1. Open your WSL via Windows terminal.
-2. Download the Git Repo:
+1. Make sure you have Ubuntu installed as part of WSL: https://ubuntu.com/wsl
 ```
-git clone https://github.com/aws/aws-mwaa-local-runner.git
+wsl -l
 ```
-3. Cd aws-mwaa-local-runner
-3. Build the image
+**Output**
+```
+Windows Subsystem for Linux Distributions:
+Ubuntu (Default)
+docker-desktop
+docker-desktop-data
+```
+
+1. Open your WSL via Windows terminal and change directory to your home
+```wsl ~```
+2. Download the Git Repo (v2.2.2 branch):
+```
+git clone https://github.com/aws/aws-mwaa-local-runner.git aws-mwaa-local-runner --single-branch --branch
+ v2.2.2
+```
+5. Edit the docker/docker-compose-local.yml file
+change the line:
+- "${PWD}/db-data:/var/lib/postgresql/data"
+to
+- postgres-db-volume:/var/lib/postgresql/data
+
+6. Cd aws-mwaa-local-runner
+7. Build the image
 ```
 ./mwaa-local-env build-image
 ```
-
-If the command fails with the error "Bash script and /bin/bash^M: bad interpreter: No such file or directory", then you are likely trying to run from your windows drive. Dont do it!. But if you must fix the error, then run the following to see if the issue is because of windows new-line characters (it worked for me!)
-```
-sed -i -e 's/\r$//' mwaa-local-env
-sed -i -e 's/\r$//' docker/script/*.*
-```
-4. Run the image:
+8. Run the image:
 ```
 ./mwaa-local-env start
 ```
-If you get the following error: "aws-mwaa-local-runner-2.0.2" is not a valid project name, then you can fix it by editing the mwaa-local-env file and changing:
+* If you get the following error: "aws-mwaa-local-runner-2.2 is not a valid project name or aws-mwaa-local-runner-2.0.2" is not a valid project name, then you can fix it by going into Docker Desktop settings and under "General", Uncheck: "Use Docker Compose V2"
+* If your postgresql container does not start up with an error like this: "chmod: /var/lib/postgresql/data: Operation not permitted", then do the following:
+Change the following line in "docker\docker-compose-local.yml":
 ```
-AIRFLOW_VERSION=2.0.2
+"- ${PWD}/db-data:/var/lib/postgresql/data"
 ```
-To: 
+to
 ```
-AIRFLOW_VERSION=2_0_2
+- postgres-db-volume:/var/lib/postgresql/data
 ```
-This part of the process might take some time to complete.
+Also, at the end of the file, add the following line:
+```
+volumes:
+  postgres-db-volume:    
+```
+This uses a named volume. I believe the error occurs because I am using a linked folder on the Windows desktop and the postgresql container has a script that attempts to take ownership of that folder.
 
-5. Connect to the environment:
-After MWAA has started, you can access it by visiting: http://localhost:8080/
+9. The airflow instance should start up and you should have access to Airflow via:http://localhost:8080/
 You will need to use the following creds:
 
 Username: admin
@@ -44,10 +61,11 @@ Username: admin
 Password: test
 
 7. Running your DAGs
-You need to copy your code to the "Dags" folder. If you need to do this from Windows, you can get to your home dir in WSL by going to: \\wsl$\Ubuntu\home\%USERNAME%
+You can add your dags to the Dags subfolder of aws-mwaa-local-runner.
 
-
-
+Tips:
+1. In your WSL terminal, you can type ```explorer.exe .``` and it will open a windows explorer window to that path. Its a quick way to find out where you are in your WSL container.
+2. Instead of 
 
 More info:
 1. https://github.com/aws/aws-mwaa-local-runner
