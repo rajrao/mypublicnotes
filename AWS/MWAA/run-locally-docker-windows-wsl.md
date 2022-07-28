@@ -38,19 +38,20 @@ git clone https://github.com/aws/aws-mwaa-local-runner.git aws-mwaa-local-runner
 ```
 ./mwaa-local-env start
 ```
-* If you get the following error: "aws-mwaa-local-runner-2.2 is not a valid project name or aws-mwaa-local-runner-2.0.2" is not a valid project name, then you can fix it by going into Docker Desktop settings and under "General", Uncheck: "Use Docker Compose V2"
-* If you get an error that says something like a folder under docker-desktop-bind-mounts/Ubuntu is not empty, then restart your docker-desktop (shutdown and restart). This worked for me!
+
+ * If you get the following error: "aws-mwaa-local-runner-2.2 is not a valid project name or aws-mwaa-local-runner-2.0.2" is not a valid project name, then you can fix it by going into Docker Desktop settings and under "General", Uncheck: "Use Docker Compose V2"
+ * If you get an error that says something like a folder under docker-desktop-bind-mounts/Ubuntu is not empty, then restart your docker-desktop (shutdown and restart). This worked for me!
+
 7. The airflow instance should start up and you should have access to Airflow via: <a href="http://localhost:8080/" target="_blank">http://localhost:8080/</a>
  
- **You will need to use the following creds:**
-  
-   **Username**: admin
+  **You will need to use the following creds:**
 
-   **Password**: test
+    Username: admin
+    Password: test
 
 **Running your own DAGs**
    
-   You can add more dags or edit the dags directly in your c driver. In my case the files were located at c:\repos\dags. (see step 7.2.)
+   You can add more dags or edit the dags directly in your c drive. In my case the files were located at c:\repos\dags. (see step 7.2.)
 
 **Tips:**
 
