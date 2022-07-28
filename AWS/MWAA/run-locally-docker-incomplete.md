@@ -42,16 +42,12 @@ Username: admin
 
 Password: test
 
-7. Running your DAGs
-You can add your dags to the Dags subfolder of aws-mwaa-local-runner.
+7. Running your own DAGs
+You can add more dags or edit the dags directly in your c driver. In my case the files were located at c:\repos\dags. (see step 7.2.)
 
 Tips:
 1. In your WSL terminal, you can type ```explorer.exe .``` and it will open a windows explorer window to that path. Its a quick way to find out where you are in your WSL container.
-2. Instead of 
 
 More info:
 1. https://github.com/aws/aws-mwaa-local-runner
 2. https://docs.aws.amazon.com/mwaa/latest/userguide/tutorials-docker.html
-
-
-
