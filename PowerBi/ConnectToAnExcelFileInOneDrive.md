@@ -1,6 +1,16 @@
-1. Upload the file to your organization's onedrive/sharepoint folder.
+**Overview**
 
-2. Get the link to the file in sharepoint:
+There are 4 major steps to using an excel file stored in a sharepoint folder. A big reason to use sharepoint/onedrive as your source, is that it allows you to refresh your dataset in PowerBi.com.
+1. Upload the file.
+2. Get the path to the file in sharepoint/one-drive.
+3. Reference the file as a datasource in PowerBi.
+4. Publish your dataset to PowerBi.com and set the data-source credentials.
+
+**Here are the steps in detail**
+
+1. **Upload the file** to your organization's onedrive/sharepoint folder.
+
+2. **Get the link to the file** in sharepoint:
    There are 2 ways to get the link to the file:
    
    1. **The easy way** (using Excel desktop - added 2022-09-06):
@@ -37,7 +47,7 @@
     
     * Publish your report to PBI online.
 
-4. Update your connection information in PBI online to make sure it refreshes:
+4. **Publish to PowerBi.com** and update data-source credentials:
    To do this, you use OAuth2 and your credentials.
    
    ![UpdateWebCredentials](https://user-images.githubusercontent.com/1643325/78918389-96d78a80-7a4d-11ea-8747-9fe1ca47789a.png)
