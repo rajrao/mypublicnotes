@@ -2,6 +2,7 @@
 
 2. Get the link to the file in sharepoint:
    There are 2 ways to get the link to the file:
+   
    1. **The easy way** (using Excel desktop - added 2022-09-06):
       1. Open the file from Sharepoint in Excel Desktop.
 
@@ -27,7 +28,7 @@
        Fixed up URL
        ![EditLink2](https://user-images.githubusercontent.com/1643325/78918297-6c85cd00-7a4d-11ea-9062-6a4064a50b7b.png)
   
-4. Add the file as a data-source to PowerBi desktop:
+3. **Add the file as a data-source to PowerBi desktop:**
     * Choose New Source >> Web and paste the link. When you click next, it should set it up to directly bring the data from sharepoint, instead of trying to download it your machine.
     * Remove the "?web=1" from the path if it has it.
     * Crosscheck that the source is setup like this: (the key here is that it says: Web.Contents and not File.Contents.
@@ -36,7 +37,7 @@
     
     * Publish your report to PBI online.
 
-5. Update your connection information in PBI online to make sure it refreshes:
+4. Update your connection information in PBI online to make sure it refreshes:
    To do this, you use OAuth2 and your credentials.
    
    ![UpdateWebCredentials](https://user-images.githubusercontent.com/1643325/78918389-96d78a80-7a4d-11ea-8747-9fe1ca47789a.png)
