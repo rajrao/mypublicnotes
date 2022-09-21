@@ -1,7 +1,8 @@
 Creating a layer file to satisfy a package requirement:
 
 1. Install the package to a specific folder:
-    eg (for msal): pip install --target ./package msal
+    pip install --target ./package {package}
+    **eg** (for msal): pip install --target ./package msal
 2. Zip the contents of package so that the contents are in a subfolder called "python".
     ```
     ZipFile (msal-1.16.0.zip)
@@ -19,3 +20,6 @@ Creating a layer file to satisfy a package requirement:
     * In the description include the version
     * upload the zip file
 4. Specify the layer in the lambda function
+
+
+Note 
