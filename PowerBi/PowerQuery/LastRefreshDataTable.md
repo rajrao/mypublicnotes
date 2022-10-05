@@ -28,3 +28,8 @@ TimeAndDate Link = "https://www.timeanddate.com/worldclock/converter.html?iso="
     & "&p1=1440&p2=176&p3=3818&p4=136&p5=262&p6=tz_myt&p7=248"
 
 ```
+
+**Snipper3** Insert a row into a table with columns named "table_name" and "date time"
+```
+= Table.InsertRows(Source,0,{[table_name="Dataset", date time=DateTime.LocalNow()]})
+```
