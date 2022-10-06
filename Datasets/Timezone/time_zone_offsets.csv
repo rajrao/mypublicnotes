@@ -1,0 +1,196 @@
+﻿Abbreviation,Time Zone,UTC offset
+ACDT,Australian Central Daylight Savings Time,10.50
+ACST,Australian Central Standard Time,9.50
+ACT,Acre Time,-5.00
+ACWST,Australian Central Western Standard Time,8.75
+ADT,Atlantic Daylight Time,-3.00
+AEDT,Australian Eastern Daylight Savings Time,11.00
+AEST,Australian Eastern Standard Time,10.00
+AFT,Afghanistan Time,4.50
+AKDT,Alaska Daylight Time,-8.00
+AKST,Alaska Standard Time,-9.00
+AMST,Amazon Summer Time,-3.00
+AMT,Amazon Time,-4.00
+AMT,Armenia Time,4.00
+ART,Argentina Time,-3.00
+AST,Atlantic Standard Time,-4.00
+AST,Arabia Standard Time,3.00
+AWST,Australian Western Standard Time,8.00
+AZOST,Azores Summer Time,0.00
+AZOT,Azores Standard Time,-1.00
+AZT,Azerbaijan Time,4.00
+BDT,Brunei Time,8.00
+BIT,Baker Island Time,-12.00
+BNT,Brunei Darussalam Time,8.00
+BOT,Bolivia Time,-4.00
+BRST,Brasilia Summer Time,-2.00
+BRT,Brasilia Time,-3.00
+BST,British Summer Time,1.00
+BST,Bangladesh Standard Time,6.00
+BST,Bougainville Standard Time,11.00
+BTT,Bhutan Time,6.00
+CAT,Central Africa Time,2.00
+CCT,Cocos Islands Time,6.50
+CDT,Central Daylight Time,-5.00
+CDT,Cuba Daylight Time,-4.00
+CEST,Central European Summer Time,2.00
+CET,Central European Time,1.00
+CHADT,Chatham Daylight Time,13.75
+CHAST,Chatham Standard Time,12.75
+CHOST,Choibalsan Summer Time,9.00
+CHOT,Choibalsan Standard Time,8.00
+CHST,Chamorro Standard Time,10.00
+CHUT,Chuuk Time,10.00
+CIST,Clipperton Island Standard Time,-8.00
+CIT,Central Indonesia Time,8.00
+CKT,Cook Island Time,-10.00
+CLST,Chile Summer Time,-3.00
+CLT,Chile Standard Time,-4.00
+COST,Colombia Summer Time,-4.00
+COT,Colombia Time,-5.00
+CST,Central Standard Time,-6.00
+CST,Cuba Standard Time,-5.00
+CST,China Standard Time,8.00
+CVT,Cape Verde Time,-1.00
+CWST,Central Western Standard Time,8.75
+CXT,Christmas Island Time,7.00
+DAVT,Davis Time,7.00
+DDUT,Dumont d'Urville Time,10.00
+EASST,Easter Island Summer Time,-5.00
+EAST,Easter Island Standard Time,-6.00
+EAT,East Africa Time,3.00
+ECT,Ecuador Time,-5.00
+EDT,Eastern Daylight Time,-4.00
+EEST,Eastern European Summer Time,3.00
+EET,Eastern European Time,2.00
+EGST,Eastern Greenland Summer Time,0.00
+EGT,Eastern Greenland Time,-1.00
+EIT,Eastern Indonesian Time,9.00
+EST,Eastern Standard Time,-5.00
+FET,Further-eastern European Time,3.00
+FJT,Fiji Time,12.00
+FKST,Falkland Islands Summer Time,-3.00
+FKT,Falkland Islands Time,-4.00
+FNT,Fernando de Noronha Time,-2.00
+GALT,Galapagos Time,-6.00
+GAMT,Gambier Islands,-9.00
+GET,Georgia Standard Time,4.00
+GFT,French Guiana Time,-3.00
+GILT,Gilbert Island Time,12.00
+GIT,Gambier Island Time,-9.00
+GMT,Greenwich Mean Time,0.00
+GST,Gulf Standard Time,4.00
+GST,South Georgia Time,-2.00
+GYT,Guyana Time,-4.00
+HADT,Hawaii-Aleutian Daylight Time,-9.00
+HAST,Hawaii-Aleutian Standard Time,-10.00
+HKT,Hong Kong Time,8.00
+HMT,Heard and McDonald Islands Time,5.00
+HOVST,Khovd Summer Time,8.00
+HOVT,Khovd Standard Time,7.00
+ICT,Indochina Time,7.00
+IDT,Israel Daylight Time,3.00
+IOT,Indian Chagos Time,6.00
+IRDT,Iran Daylight Time,4.50
+IRKT,Irkutsk Time,8.00
+IRST,Iran Standard Time,3.50
+IST,Indian Standard Time,5.50
+IST,Irish Standard Time,1.00
+IST,Israel Standard Time,2.00
+JST,Japan Standard Time,9.00
+KGT,Kyrgyzstan time,6.00
+KOST,Kosrae Time,11.00
+KRAT,Krasnoyarsk Time,7.00
+KST,Korea Standard Time,9.00
+LHDT,Lord Howe Daylight Time,11.00
+LHST,Lord Howe Standard Time,10.50
+LINT,Line Islands Time,14.00
+MAGT,Magadan Time,11.00
+MART,Marquesas Islands Time,-9.50
+MAWT,Mawson Station Time,5.00
+MDT,Mountain Daylight Time,-6.00
+MHT,Marshall Islands,12.00
+MIST,Macquarie Island Station Time,11.00
+MIT,Marquesas Islands Time,-9.50
+MMT,Myanmar Standard Time,6.50
+MSK,Moscow Time,3.00
+MST,Mountain Standard Time,-7.00
+MST,Malaysia Standard Time,8.00
+MUT,Mauritius Time,4.00
+MVT,Maldives Time,5.00
+MYT,Malaysia Time,8.00
+NCT,New Caledonia Time,11.00
+NDT,Newfoundland Daylight Time,-2.50
+NFT,Norfolk Time,11.00
+NPT,Nepal Time,5.75
+NRT,Nauru Time,12.00
+NST,Newfoundland Standard Time,-3.50
+NT,Newfoundland Time,-3.50
+NUT,Niue Time,-11.00
+NZDT,New Zealand Daylight Time,13.00
+NZST,New Zealand Standard Time,12.00
+OMST,Omsk Time,6.00
+ORAT,Oral Time,5.00
+PDT,Pacific Daylight Time,-7.00
+PET,Peru Time,-5.00
+PETT,Kamchatka Time,12.00
+PGT,Papua New Guinea Time,10.00
+PHOT,Phoenix Island Time,13.00
+PhST,Philippine Standard Time,8.00
+PHT,Philippine Time,8.00
+PKT,Pakistan Standard Time,5.00
+PMDT,Saint Pierre and Miquelon Daylight time,-2.00
+PMST,Saint Pierre and Miquelon Standard Time,-3.00
+PONT,Pohnpei Standard Time,11.00
+PST,Pacific Standard Time,-8.00
+PWT,Palau Time,9.00
+PYST,Paraguay Summer Time,-3.00
+PYT,Paraguay Time,-4.00
+RET,Réunion Time,4.00
+ROTT,Rothera Research Station Time,-3.00
+SAKT,Sakhalin Island time,11.00
+SAMT,Samara Time,4.00
+SAST,South African Standard Time,2.00
+SBT,Solomon Islands Time,11.00
+SCT,Seychelles Time,4.00
+SGT,Singapore Time,8.00
+SLST,Sri Lanka Standard Time,5.50
+SRET,Srednekolymsk Time,11.00
+SRT,Suriname Time,-3.00
+SST,Samoa Standard Time,-11.00
+SYOT,Showa Station Time,3.00
+TAHT,Tahiti Time,-10.00
+TFT,French Southern and Antarctic Time,5.00
+THA,Thailand Standard Time,7.00
+TJT,Tajikistan Time,5.00
+TKT,Tokelau Time,13.00
+TLT,Timor Leste Time,9.00
+TMT,Turkmenistan Time,5.00
+TOT,Tonga Time,13.00
+TRT,Turkey Time,3.00
+TVT,Tuvalu Time,12.00
+ULAST,Ulaanbaatar Summer Time,9.00
+ULAT,Ulaanbaatar Standard Time,8.00
+USZ1,Kaliningrad Time,2.00
+UTC,Coordinated Universal Time,0.00
+UYST,Uruguay Summer Time,-2.00
+UYT,Uruguay Standard Time,-3.00
+UZT,Uzbekistan Time,5.00
+VET,Venezuelan Standard Time,-4.00
+VLAT,Vladivostok Time,10.00
+VOLT,Volgograd Time,4.00
+VOST,Vostok Station Time,6.00
+VUT,Vanuatu Time,11.00
+WAKT,Wake Island Time,12.00
+WAST,West Africa Summer Time,2.00
+WAT,West Africa Time,1.00
+WEST,Western European Summer Time,1.00
+WET,Western European Time,0.00
+WFT,Wallis and Futuna Time,12.00
+WGST,West Greenland Time,-3.00
+WGST,West Greenland Summer Time,-2.00
+WIB,Western Indonesia Time,7.00
+WIT,Eastern Indonesia Time,9.00
+WST,Western Standard Time,8.00
+YAKT,Yakutsk Time,9.00
+YEKT,Yekaterinburg Time,5.00
