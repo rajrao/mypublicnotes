@@ -14,7 +14,11 @@ in
 ```
 **Snippet2**
 ```
-= #table(type table[#"Last Refreshed On DateTime Utc"=datetimezone], {{DateTimeZone.FixedUtcNow()}})
+let
+    Source = #table(type table[#"Data"=text,#"DateTime"=datetimezone], {{"Dataset Last Refreshed at (UTC)",DateTimeZone.FixedUtcNow()}}),
+    #"Added Custom" = Table.AddColumn(Source, "Convertor URL", each "https://www.timeanddate.com/worldclock/converter.html?iso=" & DateTimeZone.ToText([DateTime],"yyyymmddThhnn00") & "&p1=1440&p2=176&p3=3818&p4=136&p5=262&p6=tz_myt&p7=248")
+in
+    #"Added Custom"
 ```
 
 
