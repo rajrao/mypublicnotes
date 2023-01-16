@@ -1,3 +1,11 @@
+**Links**
+1. https://github.com/arturomoncadatorres/lego-mindstorms
+2. https://primelessons.org/en/PyLessons.html
+3. Documentation: https://onedrive.live.com/?authkey=%21AJZ35NPPkkN0Wfw&cid=CD7CB52696D0FB0B&id=CD7CB52696D0FB0B%2150788&parId=CD7CB52696D0FB0B%2150790&o=OneUp
+4. Undocumented API: https://antonsmindstorms.com/2021/01/14/advanced-undocumented-python-in-spike-prime-and-mindstorms-hubs/
+5. PyBricks - Different Python Coding Environment: https://pybricks.com/ and documentation: https://docs.pybricks.com/en/latest/
+6. 
+
 **Template**
 ```python
 from mindstorms import MSHub, Motor, MotorPair, ColorSensor, DistanceSensor, App
