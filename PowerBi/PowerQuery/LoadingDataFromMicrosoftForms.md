@@ -4,6 +4,10 @@ The best way to capture Microsoft Forms data is by creating your form from withi
 
 To access the above option, click on new from within a sharepoint site to which you have write permissions. Once the form is created, you will find an excel file in the sharepoint site with the same name as the form. This excel file will have the latest data from the form responses.
 
+Once you have located the excel file, please follow the instructions here: https://github.com/rajrao/mypublicnotes/blob/master/PowerBi/ConnectToAnExcelFileInOneDrive.md
+
+----
+**Please ignore the following instructions. They work but are harder. Instead use the one "Connect to an Excel File in One Drive" linked above.**
 
 If "Forms for Excel is not an option", then the following shows you how to dynamically pull Form data from Microsoft Forms into PowerBi.
 For this to work you need the FormId. The easiest way to get the form id is to click share, copy the URL and extract everything after ?id=
