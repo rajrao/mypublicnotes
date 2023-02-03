@@ -19,6 +19,9 @@ LOCATION
   ```
   
   
-  
-  
-
+Somethings to note about this SerDe:
+ 
+  1. Timestamps have to be in UNIX numeric TIMESTAMP values (for example, 1579059880000)
+  2. Does not support embedded line breaks (you need to escape them to be read correctly).
+ 
+See https://docs.aws.amazon.com/athena/latest/ug/csv-serde.html for more info.
