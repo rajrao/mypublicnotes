@@ -1,5 +1,5 @@
 
-```
+```python
 import boto3
 
 athena = boto3.client('athena')
