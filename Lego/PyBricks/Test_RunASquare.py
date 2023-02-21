@@ -1,3 +1,5 @@
+# ('primehub', '3.2.2', 'v3.2.2 on 2023-01-06')
+
 from pybricks.hubs import InventorHub
 from pybricks.pupdevices import Motor, ColorSensor, UltrasonicSensor
 from pybricks.parameters import Button, Color, Direction, Port, Side, Stop
