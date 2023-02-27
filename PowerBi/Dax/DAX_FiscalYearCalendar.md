@@ -39,7 +39,7 @@ VAR __Step3 =
         VAR __FiscalMonthInQuarterNumber = MOD ( __FiscalMonthNumber - 1, 3 ) + 1 + 3 * ( __MonthNumber > 12 )
         VAR __FirstDayOfFiscalYear = DATE(__FiscalYearNumber,__FirstFiscalMonth,1)
         VAR __FirstDayOfFiscalQtr = DATE(__FiscalYearNumber,(__FiscalQuarterNumber-1)*3+__FirstFiscalMonth,1)
-        VAR __WeekNum = CONVERT(((__Date - __FirstDayOfFiscalYear)/7)+1,INTEGER)
+        VAR __WeekNum = if (__MonthNumber >= __FirstFiscalMonth, (WEEKNUM(__Date,2) - Weeknum(__FirstDayOfFiscalYear,2) + 1), (Weeknum(Date(__YearNumber,12,31),2) - Weeknum(__FirstDayOfFiscalYear,2)) + WEEKNUM(__Date,2) + 1)
         VAR __CurrentYear = YEAR(__UTCTODAY)
         VAR __CurrentFiscalYear = __CurrentYear - 1 * ( __FirstFiscalMonth > 1 && MONTH ( __UTCTODAY ) < __FirstFiscalMonth )
         VAR __PreviousFiscalYear = __CurrentFiscalYear - 1 
