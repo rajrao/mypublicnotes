@@ -1,0 +1,3 @@
+```
+formatdatetime(utcNow(),'yyyyMMdd')
+```
