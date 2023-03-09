@@ -19,7 +19,7 @@ print(csv_buffer.getvalue())
 json_data = json.loads(data_as_json)
 #or pandas.read_json(json_file_name) if normalization is not needed
 normalized_data = pandas.json_normalize(json_data)
-normalized_data.to_csv('test.csv')
+normalized_data.to_csv('test.csv', index=False) #index=False will skip output of index
 ```
 
 reading csv read into a variable called data.
