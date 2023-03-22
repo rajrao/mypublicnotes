@@ -5,3 +5,10 @@
 
 
 Not working: [Python Idioms and efficiency](https://www.memonic.com/user/pneff/folder/python/id/1bufp)
+
+
+
+**IMPORTANT LIBRARIES**
+
+1. PyMySql: https://github.com/PyMySQL/mysqlclient
+2. Airflow: https://github.com/apache/airflow/
