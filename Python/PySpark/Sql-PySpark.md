@@ -15,12 +15,10 @@ from: https://www.linkedin.com/in/mrabhijitsahoo/
 **Select**
 ```sql
 SELECT column(s) FROM table
+SELECT * FROM table
 ```
 ```python
 df.select("column(s)")
-```
-```sql
-SELECT * FROM table
 ```
 ```python
 df.select("*")
