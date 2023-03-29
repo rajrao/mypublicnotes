@@ -229,6 +229,17 @@ from pyspark.sql import Window;
 from pyspark.sql.functions import rank;
 df.select("column", rank().over(Window.orderBy("column")).alias("rank"))
 ```
+**Update**
+```sql
+UPDATE users
+SET age = 30
+WHERE name = 'John';
+```
+```python
+df = df.withColumn("age", when(col("name") == "John",30).otherwise(col("age")))
+```
+---------------------
+
 **CTE**
 ```sql
 WITH cte1 AS (SELECT * FROM table1),
