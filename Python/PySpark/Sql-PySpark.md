@@ -2,14 +2,14 @@ from: https://www.linkedin.com/in/mrabhijitsahoo/
 
 |SQL DataType       |    PySpark DataType    |
 |-------------------|------------------------|
-|INT: for integer values|IntegerType: for integer values|
-|BIGINT: for large integer values|LongType: for long integer values|
-|FLOAT: for floating point values|FloatType: for floating point values|
-|DOUBLE: for double precision floating point values|DoubleType: for double precision floating point values|
-|CHAR: for fixed-length character strings|StringType: for character strings|
-|VARCHAR: for variable-length character strings|StringType: for character strings|
-|DATE: for date values|DateType: for date values|
-|TIMESTAMP: for timestamp values|TimestampType: for timestamp values|
+|INT|IntegerType|
+|BIGINT|LongType|
+|FLOAT|FloatType|
+|DOUBLE|DoubleType|
+|CHAR|StringType|
+|VARCHAR|StringType|
+|DATE|DateType|
+|TIMESTAMP|TimestampType|
 
 
 **Select**
