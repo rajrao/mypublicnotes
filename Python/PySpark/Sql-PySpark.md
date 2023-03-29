@@ -1,4 +1,4 @@
-from: https://www.linkedin.com/in/mrabhijitsahoo/
+based on: https://www.linkedin.com/posts/mrabhijitsahoo_sql-pyspark-equivalent-activity-7031479783263715328-ijVm
 
 |SQL DataType       |    PySpark DataType    |
 |-------------------|------------------------|
