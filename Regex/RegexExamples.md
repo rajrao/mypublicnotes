@@ -70,4 +70,13 @@ Reference: https://docs.microsoft.com/en-us/dotnet/standard/base-types/regular-e
          
          $+{e}\t$+{m}\t$+{s}
          
-1. 
+1. Find and replace with Capitals!
+
+         Find all words that start with an **as** and end with a , and convert them to caps:
+         
+         as (\w+),
+         
+         as "\U($1)\E",
+         
+   The \U($1)\E converts the capture group to caps!!!         
+         
