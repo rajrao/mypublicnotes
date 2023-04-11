@@ -6,6 +6,8 @@ There are 2 options for uploading your images:
 
 After you have uploaded the images to sharepoint, you just need the URL of the images to add them into your report. The URL is of the format: https://yourcompany.sharepoint.com/sites/YourSharePointSiteName/YourImageFolderName/YourSubFolderName/FileName.png
 
+You will need to get the values for yourcompany, YourSharePointSiteName, YourImageFolderName, YourSubFolderName (optional) for use later on. You can pick it by looking at the URL in your address bar.
+
 You have 2 options for the image URLs, you can hard code them into your report, or you can use the following transformation in PowerQueryEditor:
 
 1. Go into PowerQueryEditor (Transform Data)
@@ -40,4 +42,4 @@ You have 2 options for the image URLs, you can hard code them into your report, 
 
 ![image](https://user-images.githubusercontent.com/1643325/231217768-90c4795e-cf92-4464-b9a7-80b1c6f90261.png)
 
-
+Now that you have tested displaying Sharepoint images in your report, you can use the above links in your report, by connecting your image your table to your data (eg: you could upload the files with the name of employees or categories and join the data to your data-table that has employee names or categories).
