@@ -6,7 +6,7 @@ There are 2 options for uploading your images:
 
 After you have uploaded the images to sharepoint, you just need the URL of the images to add them into your report. The URL is of the format: https://yourcompany.sharepoint.com/sites/YourSharePointSiteName/YourImageFolderName/YourSubFolderName/FileName.png
 
-You will need to get the values for yourcompany, YourSharePointSiteName, YourImageFolderName, YourSubFolderName (optional) for use later on. You can pick it by looking at the URL in your address bar.
+You will need to get the values for yourcompany, YourSharePointSiteName, YourImageFolderName, YourSubFolderName (optional) for use later on. You can pick it by looking at the URL in your address bar. Once you have your URL in the above format, you can add it to your report data and if that field is marked as an "Image URL" data category, PowerBi will render it correctly in PowerBi.com (note, in PowerBi Desktop, it will look broken, and sadly, I havent found a way to work around that).
 
 You have 2 options for the image URLs, you can hard code them into your report, or you can use the following transformation in PowerQueryEditor:
 
