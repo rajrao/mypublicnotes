@@ -27,7 +27,7 @@ When making these adjustments, always adjust the wheel_diameter first, as done a
 ```python
 from pybricks.pupdevices import Motor
 from pybricks.parameters import Port, Direction
-from pybricks.robotics import DriveBase
+from pybricks.robotics import GyroDriveBase
 
 # Initialize both motors. In this example, the motor on the
 # left must turn counterclockwise to make the robot go forward.
@@ -36,7 +36,7 @@ right_motor = Motor(Port.B)
 
 # Initialize the drive base. In this example, the wheel diameter is 56mm.
 # The distance between the two wheel-ground contact points is 112mm.
-drive_base = DriveBase(left_motor, right_motor, wheel_diameter=56, axle_track=112)
+drive_base = GyroDriveBase(left_motor, right_motor, wheel_diameter=56, axle_track=112)
 
 # Drive forward by 500mm (half a meter).
 drive_base.straight(500)
@@ -48,5 +48,14 @@ drive_base.turn(180)
 drive_base.straight(500)
 
 # Turn around counterclockwise.
-drive_base.turn(-180)
+drive_base.turn(-180, then=Stop.COAST)
 ```
+
+[GyroDriveBase](https://docs.pybricks.com/en/latest/robotics.html#pybricks.robotics.GyroDriveBase)
+This class works just like the DriveBase, but it uses the hub’s built-in gyroscope to drive straight and turn more accurately.
+
+If your hub is not mounted flat in your robot, make sure to specify the top_side and front_side parameters when you initialize the PrimeHub(), InventorHub(), EssentialHub(), or TechnicHub(). This way your robot knows which rotation to measure when turning.
+
+The gyro in each hub is a bit different, which can cause it to be a few degrees off for big turns, or many small turns in the same direction. For example, you may need to use turn(357) or turn(362) on your robot to make a full turn.
+
+By default, this class tries to maintain the robot’s position after a move completes. This means the wheels will spin if you pick the robot up, in an effort to maintain its heading angle. To avoid this, you can choose then=Stop.COAST in your last straight, turn, or curve command.
