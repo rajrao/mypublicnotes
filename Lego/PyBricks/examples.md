@@ -1,3 +1,5 @@
+[Quick Reference for using PrimeHub](https://pybricks.com/projects/sets/mindstorms-robot-inventor/other-models/quick-reference/)
+
 **Drivebase Examples**
 [DriveBase](https://beta.pybricks.com/static/docs/v2.8.0/robotics.html#examples)
 [GyroDriveBase](https://beta.pybricks.com/static/docs/v2.8.0/robotics.html#examples)
