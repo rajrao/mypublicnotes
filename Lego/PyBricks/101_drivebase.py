@@ -24,3 +24,19 @@ drive_base.straight(500)
 
 # Turn around counterclockwise.
 drive_base.turn(-180)
+
+#drive with a speed of 300
+drive_base.drive(300,0)
+wait(1500)
+drive_base.drive(300,150)
+wait(1500)
+
+
+#using settings
+drive_base.settings(
+    straight_speed=500,
+    straight_acceleration=1000,
+    turn_rate=500,
+    turn_acceleration=2000
+)
+
