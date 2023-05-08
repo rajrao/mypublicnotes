@@ -20,7 +20,7 @@ Note: PrimeHub and InventorHub are the same thing you can use them interchangeab
 2. [Measuring motor position](https://beta.pybricks.com/static/docs/v2.8.0/pupdevices/motor.html#measurement-examples)
 3. [Movement examples](https://beta.pybricks.com/static/docs/v2.8.0/pupdevices/motor.html#movement-examples)
 4. [Stall examples](https://beta.pybricks.com/static/docs/v2.8.0/pupdevices/motor.html#stall-examples)
-5. [Making 2 or more motors doing things simultaneously](https://beta.pybricks.com/static/docs/v2.8.0/pupdevices/motor.html#parallel-movement-examples)
+5. [Making 2 or more motors do things simultaneously](https://beta.pybricks.com/static/docs/v2.8.0/pupdevices/motor.html#parallel-movement-examples)
 
 [**Color Sensor**](https://beta.pybricks.com/static/docs/v2.8.0/pupdevices/colorsensor.html#examples)
 
