@@ -7,3 +7,7 @@ The following code can be used in the AdvancedEditor to perform that.
 Rename all columns to have proper names
 
     = Table.TransformColumnNames(sourceTable, Text.Proper)
+    
+Combined
+
+    = Table.TransformColumnNames(#"Promoted Headers", (columnName as text) as text => Text.Proper(Text.Replace(columnName, "_", " ")))
