@@ -51,14 +51,33 @@ Reference: https://docs.microsoft.com/en-us/dotnet/standard/base-types/regular-e
    
          '$+{data}',
         
-1.  Greedy Capture
+1.  Lazy vs Greedy Capture
 
-     Search for all character before a "," and dont capture the comma:
+    Regex will normally capture greedily. With the following input text
+    
+        abcd,efghi,klmno,
+
+    The following regex:
+
+        .*,
+
+    will match the entire input text (abcd,efghi,klmno,)
+
+    If instead what you wanted is each group of text with the comma separately, you would need to make Regex behave lazily (i.e, stop at the first instance of the ,). To do this you use the ? to do a lazy match.
+
+        .*?,
+
+    The above regex will match "abcd," "efghi," and "klmno," separately.
+
+    Now if you wanted to capture just the text before the comma, you can use the lazy operator plus the non-capturing group.
+
+    Search for all character before a "," and dont capture the comma:
   
-     Greedy capture (regex?)
-     Non capture group (?:regex)
+    Greedy capture (regex?)
+
+    Non capture group (?:regex)
    
-         (.*?)(?:,)
+        (.*?)(?:,)
          
 1. Find all lines that contain the word dataflowname in the line
 
