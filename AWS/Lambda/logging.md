@@ -17,7 +17,7 @@ if (isinstance(log_level,str)):
 else:
     print(f"logging at level {log_level_str} {log_level}")
 
-#insert code for Python 3.7 here
+#in case you are using Python 3.7 or lower, see the note below and insert code for Python 3.7 here
 
 default_log_args = {
     "level": log_level,
