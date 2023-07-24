@@ -32,3 +32,13 @@ drive_base.stop()
 while not any(hub.buttons.pressed()):
     wait(10)
 ```
+
+
+
+
+
+
+**Tips**
+
+**Menu**
+Here is how you can code a menu: https://github.com/pybricks/support/issues/861#issue-1499778720
