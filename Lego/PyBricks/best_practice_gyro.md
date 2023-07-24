@@ -1,4 +1,4 @@
-https://github.com/pybricks/support/issues/989#issuecomment-1474781023
+**Best Practice 1: Use Stop** (https://github.com/pybricks/support/issues/989#issuecomment-1474781023)
 
 ```python
 hub.imu.reset_heading(0)
@@ -22,4 +22,13 @@ drive_base.stop()
 # put it back down / position it / wait for button
 
 # and so on
+```
+
+
+**Best Practice 2: How to wait for button**
+
+```python
+# wait for any button to be pressed
+while not any(hub.buttons.pressed()):
+    wait(10)
 ```
