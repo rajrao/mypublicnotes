@@ -41,4 +41,4 @@ while not any(hub.buttons.pressed()):
 **Tips**
 
 **Menu**
-Here is how you can code a menu: https://github.com/pybricks/support/issues/861#issue-1499778720
+Now available as an inbuilt option: https://github.com/pybricks/pybricks-api/issues/144. But here is how you can code a menu: https://github.com/pybricks/support/issues/861#issue-1499778720
