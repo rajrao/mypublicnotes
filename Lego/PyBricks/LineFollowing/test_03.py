@@ -1,3 +1,6 @@
+#http://www.inpharmix.com/jps/PID_Controller_For_Lego_Mindstorms_Robots.html
+#https://thecodingfun.com/2020/06/16/lego-mindstorms-ev3-pid-line-follower-code-by-using-micropython-2-0/
+
 def color_calibration():
   sensor = ColorSensor(Port.F)
   while not any(hub.buttons.pressed()):
