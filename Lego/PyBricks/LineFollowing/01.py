@@ -1,6 +1,6 @@
 # The original code came from https://github.com/orgs/pybricks/discussions/149#discussioncomment-212436
 # with Laurens Valk tips for Proportional control and COUNTERCLOCKWISE option
-# it was modified by my kid to work with Spike Prime/Robot Inventor with some notes added by her and me.
+# it was modified by my kid to work with Spike Prime/Robot Inventor with some notes added by her [https://github.com/coder-ella] and me.
 
 from pybricks.hubs import InventorHub
 from pybricks.pupdevices import Motor, ColorSensor
