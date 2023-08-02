@@ -10,7 +10,16 @@ https://github.com/pybricks/pybricks-micropython/blob/master/lib/pbio/platform/p
 #define PBDRV_CONFIG_BATTERY_ADC_CURRENT_SCALED_MAX 7300
 ```
 
+https://github.com/pybricks/pybricks-micropython/blob/master/lib/pbio/sys/battery.c
+```c
+// These values are for LEGO rechargeable battery packs
+#define LIION_FULL_MV           8300    // 4.15V per cell
+#define LIION_OK_MV             7200    // 3.6V per cell
+#define LIION_LOW_MV            6800    // 3.4V per cell
+#define LIION_CRITICAL_MV       6000    // 3.0V per cell
+
+```
+
 Measuring battery voltage is important because it allows you to determine the battery’s state of charge
 
-Battery Voltage: 7670
-Battery Current: 28
+- After full charge: Battery Voltage: 7670, Battery Current: 28
