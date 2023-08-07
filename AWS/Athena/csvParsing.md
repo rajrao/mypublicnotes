@@ -23,5 +23,23 @@ Somethings to note about this SerDe:
  
   1. Timestamps have to be in UNIX numeric TIMESTAMP values (for example, 1579059880000)
   2. Does not support embedded line breaks (you need to escape them to be read correctly).
+  3. OpenCSVSerde will read empty fields as empty strings and not as null!
  
 See https://docs.aws.amazon.com/athena/latest/ug/csv-serde.html for more info.
+
+
+**To read as Nulls**
+
+```
+CREATE EXTERNAL TABLE `table_name`(
+  `field1` bigint, 
+  `field_2` string, 
+  `field_3` string)
+ROW FORMAT DELIMITED 
+  FIELDS TERMINATED BY ',' 
+LOCATION
+   's3://bucket_name/folder_name/'
+TBLPROPERTIES (
+  'serialization.null.format'='')
+```
+If any field is stored as **,,**, then that field will be read as null.
