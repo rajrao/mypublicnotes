@@ -25,6 +25,6 @@ select distinct cte.id, cte.name,
 from CTE_UltimateParent cte
 left join account parent on cte.parentid = parent.id
 where RN = 1
--- and coalesce(cte.parentid, cte.id) = 'parent-id-for-searching'
+-- and cte.parentid = 'parent-id-for-searching' or  cte.id = 'parent-id-for-searching'
 order by level desc
 ```
