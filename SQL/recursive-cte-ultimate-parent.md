@@ -6,13 +6,13 @@ with recursive hieararchy_cte(id,parentid,level) as
     select a.id,a.parentid, 1 as level
     from account a
     union all
+    -- note the use of current_child.id, this carries the child-id forward, so that row-number will work
     select current_child.id, parent.parentid, level+1 as level
     from account parent
     join hieararchy_cte current_child on parent.id = current_child.parentid
     where level < 20    -- prevent infinite recursion
     and parent.parentid is not null -- dont want to look at ultimate parent, as its parent will be null
 )
--- select * from parent_account_cte;
 ,CTE_UltimateParent as
 (
     select cte.*, row_number() over ( partition by cte.id order by cte.level desc) RN
