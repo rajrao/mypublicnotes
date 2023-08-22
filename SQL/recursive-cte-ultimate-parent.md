@@ -7,6 +7,8 @@ with recursive hieararchy_cte(orig_id,id,parentid,level) as
     select a.id orig_id,a.id, a.parentid, 1 as level
     from account a
     union all
+    -- note the use of current_child.id, this carries the child-id forward, so that row-number will work
+    -- only needed if you need the ultimate parent
     select current_child.orig_id,parent.id, parent.parentid, level+1 as level
 	from
     account parent
