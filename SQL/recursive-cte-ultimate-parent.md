@@ -2,6 +2,8 @@ If you have a table (here called account) with columns id, parentid, where paren
 
 **Modified solution using ChatGPT help** (prompt: I have an account table with ID and ParentId. ParentId references Id.
 Can you write a query that returns the ultimate parent for all accounts in account table)
+
+This is the best solution! Cant believe I used to use a window function to do this!
 ```sql
 WITH RECURSIVE cte(id,parentid,ultimate_parent_id, level) AS (
   SELECT id, parentid, id as ultimate_parent_id, 1 as level
