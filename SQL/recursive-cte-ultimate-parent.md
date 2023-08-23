@@ -1,5 +1,20 @@
 If you have a table (here called account) with columns id, parentid, where parentid points at the id column in the same table, then here is how you can get the ultimate-parent (aka top-level parent)
 
+**Modified solution using ChatGPT help** (prompt: I have an account table with ID and ParentId. ParentId references Id.
+Can you write a query that returns the ultimate parent for all accounts in account table)
+```sql
+WITH RECURSIVE cte(id,parentid,ultimate_parent_id, level) AS (
+  SELECT id, parentid, id as ultimate_parent_id, 1 as level
+  FROM account
+  where parentid is null
+  UNION ALL
+  SELECT a.id, a.parentid, cte.ultimate_parent_id, level + 1 as level
+  FROM account a
+  JOIN cte ON cte.id = a.parentid
+)
+SELECT * FROM cte
+```
+
 **Modified Cleaner Solution**
 ```sql
 with recursive hieararchy_cte(orig_id,id,parentid,level) as
