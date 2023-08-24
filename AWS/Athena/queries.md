@@ -77,6 +77,7 @@ select * from "tablename$refs"
 select * from "tablename$manifests"
 select * from "tablename$partitions"
 select * from "tablename$files"
+select content,file_path,file_format,record_count, file_size_in_bytes from "tablename$files"
 ```
 
 vacuum
