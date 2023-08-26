@@ -30,3 +30,6 @@ Creating a layer file to satisfy a package requirement:
 
 
 Note: see https://docs.aws.amazon.com/textract/latest/dg/lambda.html for an example
+
+
+need to test this to see if it can be a cleaner solution: pip install --upgrade --only-binary=:all: --platform manylinux2014_x86_64 package -t .
