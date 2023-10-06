@@ -68,10 +68,15 @@ timetravel
 SELECT * from dbname.tablename
 FOR TIMESTAMP AS OF current_timestamp + interval '-5' minute;
 -- FOR TIMESTAMP AS OF TIMESTAMP '2023-08-24 14:31:22.868 UTC'
+;
+
+SELECT * from dbname.tablename
+FOR VERSION AS OF 2357627428223742678 -- for v.id see: "tablename$history"
+
 ```
 
 ```sql
-select * from "tablename$history"
+select * from "tablename$history" order by made_current_at desc
 select * from "tablename$snapshots"
 select * from "tablename$refs"
 select * from "tablename$manifests"
