@@ -10,7 +10,7 @@ with cte(id, value1, value2) as
     select 4,'morales','mario' union all
     select 2,'c2','d2' 
     )
-    select *, murmur3(from_base64(value1 || value2)) as hash from cte
+    select *, xxhash64(from_base64(value1 || value2)) as hash from cte
 ```
 Note 1: You can use xxhash64 instead of Murmur using the following code: xxhash64(to_utf8(value1 || value2)). Here are the other hashing functions available: https://trino.io/docs/current/functions/binary.html
 
