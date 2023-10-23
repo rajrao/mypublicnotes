@@ -18,7 +18,8 @@ with cte(id, value1, value2) as
     select *, xxhash64(from_base64(value1 || value2)) as hash from cte
 ```
 
-Note 1: You can use murmur3 instead of xxhash64 using the following code: murmur3(to_utf8(value1 || value2)). 
+Note 1: You can use murmur3 instead of xxhash64 using the following code: murmur3(to_utf8(value1 || value2)).
+
 Note 2: Here are the other hashing functions available: https://trino.io/docs/current/functions/binary.html
 
 **Setup: Create an iceberg table**
