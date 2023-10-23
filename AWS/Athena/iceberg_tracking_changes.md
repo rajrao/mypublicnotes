@@ -37,7 +37,7 @@ CREATE TABLE
   TBLPROPERTIES ( 'table_type' ='ICEBERG')
 ```
 
-**Merge statement**
+**The ##Merge## statement**
 
 Here is a merge statement that inserts new records and updates only when there are changes. The merge statement uses the CTE described above as its source data. You can manipulate the CTE to test various scenarios. The hash column is used to determine when to insert/update data.
 
