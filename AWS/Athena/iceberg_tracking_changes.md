@@ -1,6 +1,7 @@
 Many times in a datalake, you have a source, where the source doesnt provide information about which records changed. Another use case is where you have an ETL, where you have multiple tables and columns taking part in it and its traditionally difficult to track which records changed in that ETL query. This page shows you one method for being able to track those changes and insert only those records that are new or had updates. (at the end, I also show how to track deletes). The method leverages AWS Iceberg tables in Athena (Athena Engine 3) and the upsert mechanism provided via the **merge-into** statement.
 
-TL;DR; Check out the [merge](##Merge) statement used to update only those records that had changes.
+
+TL;DR; Check out the [merge](#Merge) statement used to update only those records that had changes.
 
 **Setup: A CTE for source data**
 
