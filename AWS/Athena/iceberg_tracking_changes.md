@@ -18,7 +18,8 @@ CREATE TABLE
 **A CTE for source data**
 I am using a CTE to simulate source data, you could use anything else. 
 
-note: [murmur3](https://docs.aws.amazon.com/athena/latest/ug/engine-versions-reference-0003.html#:~:text=Binary%20functions-,murmur3,-(binary)%20%E2%80%93%20Computes) is available as part of Athena Engine 3, which is also needed for merge to work. You can also try md5(to_utf8(value1 || value2))
+note: [murmur3](https://docs.aws.amazon.com/athena/latest/ug/engine-versions-reference-0003.html#:~:text=Binary%20functions-,murmur3,-(binary)%20%E2%80%93%20Computes) is available as part of Athena Engine 3, which is also needed for merge to work. You can also try md5(to_utf8(value1 || value2)).
+https://en.wikipedia.org/wiki/MurmurHash
 
 ```sql
 with cte(id, value1, value2) as
