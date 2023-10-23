@@ -82,4 +82,11 @@ where last_updated_on in (select max(last_updated_on) from test_db.hash_test)
 order by last_updated_on
 ```
 
+Reference:
+
+1. [Athena Functions](https://docs.aws.amazon.com/athena/latest/ug/functions.html)
+2. [Query Delta Lake Tables](https://docs.aws.amazon.com/athena/latest/ug/delta-lake-tables.html)https://docs.aws.amazon.com/athena/latest/ug/delta-lake-tables.html)
+3. [Using Apache Iceberg tables](https://docs.aws.amazon.com/athena/latest/ug/querying-iceberg.html)
+
+
 
