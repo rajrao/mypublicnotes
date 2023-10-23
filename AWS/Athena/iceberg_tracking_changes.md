@@ -42,7 +42,7 @@ USING (
     select 4,'morales','mario' union all
     select 2,'c2','d2' 
     )
-    select *, value1 || value2 as hash from cte
+    select *,  murmur3(from_base64(value1 || value2)) as hash from cte
 ) as src
 ON tgt.id = src.id
 WHEN MATCHED and src.hash <> tgt.hash
