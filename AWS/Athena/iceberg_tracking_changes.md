@@ -1,8 +1,8 @@
-Many times in a datalake, you have a source, where the source doesnt provide information about which records changed. Another use case is that in an ETL, you have multiple tables and columns taking part and its difficult to track which records changed in that ETL query. This page shows you one method for being able to track those changes and insert only those records that are new or had updates. (at the end, I also show how to track deletes).
+Many times in a datalake, you have a source, where the source doesnt provide information about which records changed. Another use case is where you have an ETL, where you have multiple tables and columns taking part in it and its traditionally difficult to track which records changed in that ETL query. This page shows you one method for being able to track those changes and insert only those records that are new or had updates. (at the end, I also show how to track deletes). The method leverages AWS Iceberg tables in Athena (Athena Engine 3) and the upsert mechanism provided via the **merge-into** statement.
 
-**A CTE for source data**
+**Setup: A CTE for source data**
 
-I am using a CTE to simulate source data, in practice, you would typically use another Athena table as your source, or a query that brings data together from multiple tables, etc.
+I am using a CTE to simulate source data, in practice, you would typically use another Athena table as your source, or a query that brings data together from multiple tables (aka ETL), etc.
 A key part to this method is using a hashing function that can be used to determine when a record has changes. I use [xxhas64](https://trino.io/docs/current/functions/binary.html#hashing-functions:~:text=of%20binary.-,xxhash64,-(binary))
 
 ```sql
@@ -16,12 +16,11 @@ with cte(id, value1, value2) as
 ```
 
 Note 1: You can use murmur3 instead of xxhash64 using the following code: murmur3(to_utf8(value1 || value2)). 
+Note 2: Here are the other hashing functions available: https://trino.io/docs/current/functions/binary.html
 
-Here are the other hashing functions available: https://trino.io/docs/current/functions/binary.html
+**Setup: Create an iceberg table**
 
-**Create an iceberg table**
-
-The iceberg table is your final product. Id is the primary key in this case, you can have more columns that are part of the primary key used for the update.
+The iceberg table is your final table. This will track the data that had changes. Id is the primary key in this case, you can have more columns that are part of the primary key used for the update.
 
 ```sql
 CREATE TABLE
