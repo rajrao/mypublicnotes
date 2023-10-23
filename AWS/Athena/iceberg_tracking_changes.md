@@ -1,8 +1,10 @@
 Many times in a datalake, you have a source, where the source doesnt provide information about which records changed. Another use case is that in an ETL, you have multiple tables and columns taking part and its difficult to track which records changed in that ETL query. This page shows you one method for being able to track those changes and insert only those records that are new or had updates. (at the end, I also show how to track deletes).
 
 **A CTE for source data**
+
 I am using a CTE to simulate source data, in practice, you would typically use another Athena table as your source, or a query that brings data together from multiple tables, etc.
-A key part to this method is using a hashing function that can be used to determine when a record has changes. I use [murmur3](https://docs.aws.amazon.com/athena/latest/ug/engine-versions-reference-0003.html#:~:text=Binary%20functions-,murmur3,-(binary)%20%E2%80%93%20Computes) which is available as part of Athena Engine 3. 
+A key part to this method is using a hashing function that can be used to determine when a record has changes. I use [xxhas64](https://trino.io/docs/current/functions/binary.html#hashing-functions:~:text=of%20binary.-,xxhash64,-(binary))
+
 ```sql
 with cte(id, value1, value2) as
     (
@@ -12,9 +14,13 @@ with cte(id, value1, value2) as
     )
     select *, xxhash64(from_base64(value1 || value2)) as hash from cte
 ```
-Note 1: You can use xxhash64 instead of Murmur using the following code: xxhash64(to_utf8(value1 || value2)). Here are the other hashing functions available: https://trino.io/docs/current/functions/binary.html
+
+Note 1: You can use murmur3 instead of xxhash64 using the following code: murmur3(to_utf8(value1 || value2)). 
+
+Here are the other hashing functions available: https://trino.io/docs/current/functions/binary.html
 
 **Create an iceberg table**
+
 The iceberg table is your final product. Id is the primary key in this case, you can have more columns that are part of the primary key used for the update.
 
 ```sql
@@ -30,6 +36,7 @@ CREATE TABLE
 ```
 
 **Merge statement**  
+
 Here is a merge statement that inserts new records and updates only when there are changes. The merge statement uses the CTE described above as its source data. You can manipulate the CTE to test various scenarios. The hash column is used to determine when to insert/update data.
 
 ```sql
@@ -69,6 +76,7 @@ WHEN MATCHED and src.IsDeleted = 1
 ```
 
 **Finally some examples of queries to view the data**
+
 ```sql
 -- see the history of changes
 select * from test_db."hash_test$history" order by made_current_at desc
