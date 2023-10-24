@@ -47,13 +47,13 @@ Here is a merge statement that inserts new records and updates only when there a
 ```sql
 MERGE INTO hash_test as tgt
 USING (
-    with cte(id, value1, value2) as
+    with cte(id, value1, value2, value3) as
     (
-    select 1,'a1','b' union all
-    select 4,'morales','mario' union all
-    select 2,'c2','d2' 
+    select 1,'a1','b',100 union all
+    select 4,'rao','raj',200 union all
+    select 2,'c2','d2',300 
     )
-    select *,  xxhash64(from_base64(value1 || value2)) as hash from cte
+    select *, xxhash64(to_utf8(concat_ws('::',coalesce(value1,'-'),coalesce(value2,'-'),coalesce(cast(value3 as varchar))))) as hash from cte
 ) as src
 ON tgt.id = src.id
 WHEN MATCHED and src.hash <> tgt.hash
@@ -101,5 +101,30 @@ Reference:
 2. [Query Delta Lake Tables](https://docs.aws.amazon.com/athena/latest/ug/delta-lake-tables.html)https://docs.aws.amazon.com/athena/latest/ug/delta-lake-tables.html)
 3. [Using Apache Iceberg tables](https://docs.aws.amazon.com/athena/latest/ug/querying-iceberg.html)
 
+**Testing Hashing Behavior**
 
+When hashing you need to make sure that null values are handled appropriately.
+
+Ex: null, a, null and a, null, null should be treated as changes. If they generate the same hash, then you will miss this change. Also the hash functions need string input and hence, one needs to cast the data when its not of type string. For this reason, the computation of the hash gets complicated and I have not found a simpler solution around this.
+
+```sql
+with cte(id,note, value1, value2,value3) as
+(
+    select 1,null,'a1','b',1 union all
+    select 4,null,'raj','rao',2 union all
+    select 5,'both null',null,null,null union all
+    select 6,'empty & null','',null,null union all
+    select 7,'null & empty',null,'',1 union all
+    select 8,'empty-empty','','',2 union all
+    select 9,'str-null','a',null,3 union all
+    select 10,'null-str',null,'a',4 union all
+    select 100,null,'c2','d2',5 
+)
+select *
+,concat_ws('::',coalesce(value1,'-'),coalesce(value2,'-'),coalesce(cast(value3 as varchar)))
+, murmur3(to_utf8(concat_ws('::',coalesce(value1,'-'),coalesce(value2,'-'),coalesce(cast(value3 as varchar))))) as hash1
+, xxhash64(to_utf8(concat_ws('::',coalesce(value1,'-'),coalesce(value2,'-'),coalesce(cast(value3 as varchar))))) as hash2
+from cte
+order by id
+```
 
