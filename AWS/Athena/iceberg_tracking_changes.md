@@ -14,7 +14,7 @@ A key part to this method is using a hashing function that can be used to determ
 with cte(id, value1, value2) as
     (
     select 1,'a1','b' union all
-    select 4,'morales','mario' union all
+    select 4,'raj','rao' union all
     select 2,'c2','d2' 
     )
     select *, xxhash64(from_base64(value1 || value2)) as hash from cte
