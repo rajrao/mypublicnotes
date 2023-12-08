@@ -8,8 +8,10 @@ Creating a layer file to satisfy a package requirement:
     ```pip install boto3 --target python/. ```
     
     ```pip install msal --target ./package ```
-    
-2. Zip the contents of package so that the contents are in a subfolder called "python".
+
+   **Notes**: if you get the error: **ERROR: Can not combine '--user' and '--target'**, then add the flag **--no-user**
+      
+3. Zip the contents of package so that the contents are in a subfolder called "python".
     ```
     ZipFile (msal-1.16.0.zip)
     |--python (folder)
@@ -22,11 +24,11 @@ Creating a layer file to satisfy a package requirement:
     ```
     The zip file should be named with the version of the package.
     Command: ```zip boto3-layer.zip -r python/```
-3. Create the lazer in lambda: https://us-west-2.console.aws.amazon.com/lambda/home?region=us-west-2#/layers
+4. Create the lazer in lambda: https://us-west-2.console.aws.amazon.com/lambda/home?region=us-west-2#/layers
     * Set the Runtime to Python.
     * In the description include the version
     * upload the zip file
-4. Specify the layer in the lambda function
+5. Specify the layer in the lambda function
 
 
 Note: see https://docs.aws.amazon.com/textract/latest/dg/lambda.html for an example
