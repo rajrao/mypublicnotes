@@ -4,7 +4,6 @@ from pybricks.robotics import DriveBase
 from pybricks.tools import multitask, run_task
 from pybricks.hubs import InventorHub
 from pybricks.tools import wait, StopWatch, hub_menu
-from pybricks.parameters import Button
 
 import menu
 
