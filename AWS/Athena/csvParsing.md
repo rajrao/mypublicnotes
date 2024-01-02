@@ -48,3 +48,24 @@ TblProperties can be updated using an alter statement
 ```
 alter table `table_name` set tblproperties('serialization.null.format'='')
 ```
+
+The following uses STORED AS INPUTFORMAT as part of the definition and in which case OUTPUTFORMAT has to be also defined
+
+```
+CREATE EXTERNAL TABLE `table_name`(
+  `field1` bigint, 
+  `field_2` string, 
+  `field_3` string)
+ROW FORMAT DELIMITED 
+  FIELDS TERMINATED BY ',' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.mapred.TextInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+LOCATION
+  's3://bucket_name/folder_name'
+TBLPROPERTIES (
+  'areColumnsQuoted'='false', 
+  'serialization.null.format'='', 
+  'skip.header.line.count'='1')
+```
