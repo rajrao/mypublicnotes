@@ -39,7 +39,9 @@ def print_env_vars():
 
 def print_conf_from_context_vars_callable(**kwargs):
     conf = kwargs['conf']
-    _logger.info(json.dumps(conf,indent=3))
+    conf_dict = conf.as_dict(display_source=True, display_sensitive=False, raw=False,
+            include_env=True, include_cmds=True)
+    _logger.info(json.dumps(conf_dict,indent=3))
     #pprint(vars(conf))
 
 
