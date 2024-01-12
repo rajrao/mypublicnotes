@@ -22,7 +22,17 @@ But SLAs are not triggered on manually run **Tasks**.
 **SLA misses captured for the above DAG:**
 ![image](https://github.com/rajrao/mypublicnotes/assets/1643325/806e22b9-170c-47b2-951d-e5638959c767)
 
+**Final Thoughts**
+
 Given all the info above, use SLA to capture and notify when a DAG/Task has run for an abnormally long time. So if a task runs typically for 15 minutes, dont have an SLA of 20 minutes, instead use an SLA of 30 minutes or even 45 minutes. This way, a manually run DAG will not cause SLA misses.
+
+**More Info:**
+
+[Airflow SLAS](https://airflow.apache.org/docs/apache-airflow/2.6.3/core-concepts/tasks.html#slas)
+
+SLAs not working? Check [check_slas configuration](https://airflow.apache.org/docs/apache-airflow/2.6.3/configurations-ref.html#check-slas)
+
+
 
 **Code**
 ```python
@@ -126,9 +136,4 @@ with models.DAG(
     task_start >> [py_task_1,py_task_2] >> py_task_3 >> [py_task_4,py_task_5] >> task_end
     task_start >> [py_task_6,py_task_7] >> task_end
 ```
-More Info:
-[Airflow SLAS](https://airflow.apache.org/docs/apache-airflow/2.6.3/core-concepts/tasks.html#slas)
-SLAs not working? Check [check_slas configuration](https://airflow.apache.org/docs/apache-airflow/2.6.3/configurations-ref.html#check-slas)
-
-
 
