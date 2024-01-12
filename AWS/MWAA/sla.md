@@ -32,6 +32,8 @@ Given all the info above, use SLA to capture and notify when a DAG/Task has run 
 
 SLAs not working? Check [check_slas configuration](https://airflow.apache.org/docs/apache-airflow/2.6.3/configurations-ref.html#check-slas)
 
+This discussion about SLA improvements has some very good info on the current SLA implementation: [Airflow Improvement Proposals AIP-57 Refactor SLA Feature: Problems with current state](https://cwiki.apache.org/confluence/display/AIRFLOW/AIP-57+Refactor+SLA+Feature#:~:text=Google%20Doc.-,Problems%20in%20the%20Current%20State,-Sla_miss%20is%20evaluated)
+
 
 
 **Code**
