@@ -65,7 +65,7 @@ default_args = {
     "owner": "rrao",
     "depends_on_past": False,
     "email_on_failure": True,
-    "email": "raj.rao@hitachivantara.com",
+    "email": "xxx@xxx.com",
     "email_on_retry": False,
     "sla": timedelta(minutes=30),
 }
