@@ -10,6 +10,19 @@ Separate table "**Access**" with a column called "e-mail" and a column that repr
 
 The data to be filtered is in a table "**facts**"
 
+**Best Solution** [via StackOverflow](https://stackoverflow.com/a/77813873/44815)
+```
+var userAccess = 
+  SUMMARIZE(
+    FILTER('Access', [Email] = USERPRINCIPALNAME()),
+    Access[Type], Access[Name]
+  )
+RETURN
+  COUNTROWS(FILTER(userAccess, [Type] = "Country" && [Name] = 'Facts'[Country])) > 0
+  ||
+  COUNTROWS(FILTER(userAccess, [Type] = "State" && [Name] = 'Facts'[State])) > 0 
+```
+
 ```
 VAR upn = USERPRINCIPALNAME() //xxx@ab.com
 VAR security_tbl_country = CALCULATETABLE(
