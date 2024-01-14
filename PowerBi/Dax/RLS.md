@@ -9,6 +9,7 @@ Separate table "**Access**" with a column called "e-mail" and a column that repr
 |ab@yy.com|State|Colorado|
 
 The data to be filtered is in a table "**facts**"
+
 ```
 VAR upn = USERPRINCIPALNAME() //xxx@ab.com
 VAR security_tbl_country = CALCULATETABLE(
@@ -27,4 +28,47 @@ VAR security_tbl_state = CALCULATETABLE(
 )
 RETURN
   'Facts'[Country] IN security_tbl_country || 'Facts'[State] IN security_tbl_state
+```
+
+The above query can be simplified as
+```
+VAR upn = USERPRINCIPALNAME() //xxx@ab.com
+VAR security_tbl = CALCULATETABLE(
+  SELECTCOLUMNS('Access',[Name], [Type]),
+  FILTER(
+    'Access',
+    [E-mail] = upn
+  )
+)
+RETURN
+  'Facts'[Country] IN SELECTCOLUMNS(FILTER(security_tbl,[Type] = "Country"),[Name]) 
+   || 'Facts'[State] IN SELECTCOLUMNS(FILTER(security_tbl,[Type] = "State"),[Name])
+```
+
+**Finally, here is how you can test it via DAX editor**
+
+```
+EVALUATE
+	
+	VAR tbl = CALCULATETABLE(
+		'Facts',	// << table you wish to filter using RLS
+		FILTER(
+			'Facts', // << table you wish to filter using RLS
+			//--------------Test your RLS filter below ----------------
+			VAR upn = USERPRINCIPALNAME() //xxx@ab.com
+			VAR security_tbl = CALCULATETABLE(
+			SELECTCOLUMNS('Access',[Name], [Type]),
+			FILTER(
+				'Access',
+				[E-mail] = upn
+			)
+			)
+			RETURN
+			'Facts'[Country] IN SELECTCOLUMNS(FILTER(security_tbl,[Type] = "Country"),[Name]) 
+			|| 'Facts'[State] IN SELECTCOLUMNS(FILTER(security_tbl,[Type] = "State"),[Name])
+		//---------------------------------------------
+		)
+	)
+	RETURN
+		tbl
 ```
