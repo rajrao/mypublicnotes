@@ -56,3 +56,100 @@ Below is what is available within kwargs/context passed to a python operator:
  'yesterday_ds_nodash': <Proxy at 0x7f0632781b80 with factory functools.partial(<function lazy_mapping_from_context.<locals>._deprecated_proxy_factory at 0x7f06328fbd00>, 'yesterday_ds_nodash', '20240211')>}
 
 ```
+
+
+Code
+```python
+"""
+### Tutorial Documentation
+Documentation that goes along with the Airflow tutorial located
+[here](https://airflow.apache.org/tutorial.html)
+"""
+import pprint
+from datetime import datetime, timedelta
+from textwrap import dedent
+import logging
+
+from airflow import DAG
+
+from airflow.operators.python import PythonOperator
+
+_logger = logging.getLogger(__name__)
+_logger.setLevel(logging.INFO)
+
+default_args = {
+    'owner': 'airflow',
+    'depends_on_past': False,
+    'email': ['airflow@example.com'],
+    'email_on_failure': False,
+    'email_on_retry': False,
+    'retries': 1,
+    'retry_delay': timedelta(minutes=5),
+    # 'queue': 'bash_queue',
+    # 'pool': 'backfill',
+    # 'priority_weight': 10,
+    # 'end_date': datetime(2016, 1, 1),
+    # 'wait_for_downstream': False,
+    # 'dag': dag,
+    # 'sla': timedelta(hours=2),
+    # 'execution_timeout': timedelta(seconds=300),
+    # 'on_failure_callback': some_function,
+    # 'on_success_callback': some_other_function,
+    # 'on_retry_callback': another_function,
+    # 'sla_miss_callback': yet_another_function,
+    # 'trigger_rule': 'all_success'
+}
+
+
+def python_test_operator(**kwargs):
+    _logger.info("--------------------------")
+    _logger.info(pprint.pformat(kwargs["custom_data"]))
+    _logger.info("--------------------------")
+    ds = "{{ ds }}"
+    _logger.info("This does not work: ", ds)
+    _logger.info("This works: ds: ", kwargs['ds'])
+    _logger.info("This works: ds_nodash: ", kwargs['ds_nodash'])
+    _logger.info("----------kwargs content----------------")
+    _logger.info(pprint.pformat(kwargs))
+
+    _logger.info(f"type of ds: {type(kwargs['ds'])}")
+
+    _logger.info(f"dr.start_date: {type(kwargs['dag_run'].start_date)} "
+                 f"{kwargs['dag_run'].start_date}")
+    _logger.info(f"ti.start_date: {type(kwargs['task_instance'].start_date)} "
+                 f"{kwargs['task_instance'].start_date}")
+
+
+with DAG(
+    'tutorial_af_2_2_2',
+    default_args=default_args,
+    description='A simple tutorial DAG',
+    schedule_interval=None,
+    start_date=datetime(2021, 1, 1),
+    catchup=False,
+    tags=['example'],
+) as dag:
+    _op_kwargs = {"custom_data": {
+        "data_interval_start": "{{ data_interval_start }}",
+        "data_interval_end": "{{ data_interval_end }}",
+        "ds": "{{ ds }}",
+        "ds_nodash": "{{ ds_nodash }}",
+        "ts": "{{ ts }}",
+        "ts_nodash_with_tz": "{{ ts_nodash_with_tz }}",
+        "ts_nodash": "{{ ts_nodash }}",
+        "prev_data_interval_start_success": "{{ prev_data_interval_start_success }}",
+        "prev_data_interval_end_success": "{{ prev_data_interval_end_success }}",
+        "prev_start_date_success": "{{ prev_start_date_success }}",
+        "run_id": "{{ run_id }}",
+        "macros.datetime.utcnow()": "{{ macros.datetime.utcnow() }}",
+    }}
+
+    t4_python_op = PythonOperator(
+            task_id=f"python_operator",
+            python_callable=python_test_operator,
+            op_kwargs=_op_kwargs,
+        )
+
+    t1 >> t4_python_op
+
+```
