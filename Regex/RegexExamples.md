@@ -19,6 +19,10 @@ Reference: https://docs.microsoft.com/en-us/dotnet/standard/base-types/regular-e
    
    Name will have just xxxxxxx
 
+   This is a better regex and $1 will have just the name.
+   
+       ^(?:CN=)(.*?),(.*)$
+
 1. Find and remove new lines and comma separate them
    
    Demonstrates grouped capture. $1, represents first group, $2, 2nd group and $0 the full match.
