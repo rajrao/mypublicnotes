@@ -21,9 +21,10 @@ LOCATION
   
 Somethings to note about this SerDe:
  
-  1. Timestamps have to be in UNIX numeric TIMESTAMP values (for example, 1579059880000)
-  2. Does not support embedded line breaks (you need to escape them to be read correctly).
-  3. OpenCSVSerde will read empty fields as empty strings and not as null!
+  1. Timestamps have to be in UNIX numeric TIMESTAMP values (for example, 1579059880000).
+  2. If timestamps are stored as "2023-11-01T19:28:40Z", then use a view with the function: from_iso8601_timestamp to convert it on the fly.
+  3. Does not support embedded line breaks (you need to escape them to be read correctly).
+  4. OpenCSVSerde will read empty fields as empty strings and not as null!
  
 See https://docs.aws.amazon.com/athena/latest/ug/csv-serde.html for more info.
 
