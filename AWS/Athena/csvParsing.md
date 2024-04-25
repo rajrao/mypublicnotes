@@ -1,4 +1,49 @@
-The glue crawler will use RAW FORM DELIMITED when it encounters a CSV file. But this input format will not support quoted fields. To support quoted fields you can use the OpenCSVSerde format.
+The glue crawler will use ROW FORMAT DELIMITED when it encounters a CSV file (this uses the LazySimpleSerDe)
+
+Handling Date and Timestamp with LazySimpleSerDe
+
+Date and Timestamp have to be formated as yyyy-MM-dd or yyyy-MM-dd HH:mm:ss or yyyy-MM-dd HH:mm:ss.SSS
+
+Example LazySimpleSerDe based table for date and timestamps
+```
+CREATE EXTERNAL TABLE `test_datettime`(t1 date,  t2 timestamp,  t3 timestamp)
+ROW FORMAT DELIMITED 
+  FIELDS TERMINATED BY '\t' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.mapred.TextInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+LOCATION
+  's3://bucket/folder'
+TBLPROPERTIES (
+  'areColumnsQuoted'='false', 
+  'classification'='csv', 
+  'columnsOrdered'='true', 
+  'delimiter'='\t', 
+  'serialization.null.format'='', 
+  'skip.header.line.count'='1', 
+  'typeOfData'='file'
+  )
+```
+Example file
+```
+t1	t2 t3
+2024-04-25	2024-04-25 13:23:55.123	2024-03-21 15:32:00
+```
+
+The LazySimpleSerDe also supports specifying the timestamp format as shown below (done in TBLPROPERTIES)
+  
+```
+'timestamp.formats'='yyyy-MM-dd HH:mm:ss.SSS'
+```
+
+In python this would be coded as:
+
+```python
+dt.strftime("%Y-%m-%d %H:%M:%S.%f")
+```
+
+**LazySimpleSerDe format will not support quoted fields**. To support quoted fields you can use the OpenCSVSerde format.
 
 Here is an example:
 ```
