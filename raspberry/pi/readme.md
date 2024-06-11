@@ -5,13 +5,16 @@
 5. ssh (ssh admin@raspberrypi2.local) [where admin is the username you picked]
 6. sudo raspi-config [allows you to update the pi]
 
+Model:  
+cat /sys/firmware/devicetree/base/model;echo
+
+
+
 
 Speedtest [https://pimylifeup.com/raspberry-pi-internet-speed-monitor/]  
-1. sudo apt install curl
-2. curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.deb.sh | sudo bash
-3. sudo apt install speedtest-cli
+1. sudo apt install speedtest-cli
 
-1. sudo apt-get update
-2. sudo apt-get upgrade
-3. sudo apt install apt-transport-https gnupg1 dirmngr lsb-release
-4. 4
+Lan info: 
+1. ifconfig
+2. mii-tool
+
