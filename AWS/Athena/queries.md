@@ -9,6 +9,16 @@ https://docs.aws.amazon.com/athena/latest/ug/alter-table-set-location.html
 ALTER TABLE tablename SET LOCATION 's3://bucketname/xyz/'
 ```
 
+Getting the location of a table  
+There doesnt seem to be a query to get location. $path gives you the location of a record. I am using it as a hack to get the location in the following query.
+(note, this works for a single partition table, you may have to modify for it to work for yours)
+```sql
+select substring("$path", 1, length("$path") - position('/' in REVERSE("$path"))+1) location
+from table_name
+limit 1
+```
+
+
 Alter Table add partition
 ```sql
 ALTER TABLE dbname.tablename ADD PARTITION (partition_date='2022-09-22') location 's3://bucket/pathx/2022/09/22/'
