@@ -116,3 +116,6 @@ TBLPROPERTIES (
   'serialization.null.format'='', 
   'skip.header.line.count'='1')
 ```
+
+**Useful Infromation**  
+https://stackoverflow.com/questions/50723963/how-to-read-quoted-csv-with-null-values-into-amazon-athena: Summary: use OpenCsvSerDe. Bring all fields as strings and cast using try_cast.
