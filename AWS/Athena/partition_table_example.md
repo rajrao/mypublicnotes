@@ -23,6 +23,8 @@ TBLPROPERTIES (
   'projection.dt.format'='yyyy-MM-dd', 
   'projection.dt.range'='NOW-3YEARS,NOW+1YEARS', 
   'projection.dt.type'='date', 
-  'projection.enabled'='true')
+  'projection.enabled'='true',
+  'serialization.null.format'='')
 ```
 The above table reads csv files located in folders named dt=2024-04-01, dt=2023-04-01, etc.
+Empty fields should be quoted (eg: '')
