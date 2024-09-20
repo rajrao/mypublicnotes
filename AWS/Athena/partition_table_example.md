@@ -1,3 +1,6 @@
+**Hive style folders**
+
+In hive style folders the path has key value pairs  (eg: s3://bucket-name/folder1/folder2/year=2024/month=08/day=13/xxxx.csv)
 
 ```sql
 CREATE EXTERNAL TABLE `my_table`(
@@ -26,5 +29,28 @@ TBLPROPERTIES (
   'projection.enabled'='true',
   'serialization.null.format'='')
 ```
-The above table reads csv files located in folders named dt=2024-04-01, dt=2023-04-01, etc.
+The above table reads csv files located in folders named dt=2024-04-01, dt=2023-04-01, etc.  
 Empty fields should be quoted (eg: '')
+
+**Non hive style folders**  
+
+eg: s3://bucket-name/folder1/folder2/2024/08/13/xxxx.parquet
+```sql
+CREATE EXTERNAL TABLE `my_table2`(
+  `id` string, 
+  `col1` string, 
+  `col2` string, 
+  `col3` string)
+PARTITIONED BY ( 
+  `year` string, 
+  `month` string, 
+  `day` string)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION
+  's3://bucket-name/folder1/folder2/'
+```
