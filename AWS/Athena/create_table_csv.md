@@ -1,3 +1,8 @@
+OpenCSVSerde supports:
+1. Gz or Gzip. No additional properties needed.
+2. Quoted strings
+   
+
 ```sql
 CREATE EXTERNAL TABLE `tbl_name`(
   `col1` string,
