@@ -9,7 +9,7 @@ https://docs.aws.amazon.com/athena/latest/ug/alter-table-set-location.html
 ALTER TABLE tablename SET LOCATION 's3://bucketname/xyz/'
 ```
 
-Getting the location of a table  
+**Getting the location of a table  **  
 There doesnt seem to be a query to get location. $path gives you the location of a record. I am using it as a hack to get the location in the following query.
 (note, this works for a single partition table, you may have to modify for it to work for yours)
 ```sql
@@ -19,17 +19,17 @@ limit 1
 ```
 
 
-Alter Table add partition
+**Alter Table add partition**  
 ```sql
 ALTER TABLE dbname.tablename ADD PARTITION (partition_date='2022-09-22') location 's3://bucket/pathx/2022/09/22/'
 ```
 
-show create sql
+**show create sql**  
 ```sql
 SHOW CREATE TABLE table_name
 ```
 
-query data from a certain folder
+**query data from a certain folder**  
 ```sql
 select * from account
 where regexp_like("$path",'s3://bucket/pathx/pathy/2023/08/10/');
@@ -41,7 +41,7 @@ Usefult glue-catalog tables that can be used to query athena table metadata: htt
 
 **ICEBERG**
 
-Create table
+**Create table**  
 ```sql
 CREATE TABLE dbname.tablename
 WITH (table_type='ICEBERG',
@@ -54,7 +54,7 @@ FROM dbname.tablename
 ;
 ```
 
-Merge
+**Merge**  
 ```sql
 MERGE INTO dbname.tablename t USING (
 SELECT column1, column2,....
@@ -73,7 +73,7 @@ VALUES
 (s.column1,s.column2,current_timestamp)
 ```
 
-timetravel
+**timetravel**  
 ```sql
 SELECT * from dbname.tablename
 FOR TIMESTAMP AS OF current_timestamp + interval '-5' minute;
@@ -95,7 +95,7 @@ select * from "tablename$files"
 select content,file_path,file_format,record_count, file_size_in_bytes from "tablename$files"
 ```
 
-vacuum
+**vacuum**  
 ```sql
 ALTER TABLE dbname.tablename SET TBLPROPERTIES (
 'vacuum_min_snapshots_to_keep'='1',
