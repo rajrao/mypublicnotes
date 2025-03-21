@@ -80,9 +80,10 @@ or zone_name = 'America/Denver'
 order by utc_sample, zone_name
 ```
 
-#	zone_name	utc_sample	utc_sample_to_local	offset_hours	abbreviation	dst
-1	America/Denver	2025-02-28 13:00:00.000	2025-02-28 06:00:00.000	-7.0	MST	0
-2	America/Los_Angeles	2025-02-28 13:00:00.000	2025-02-28 05:00:00.000	-8.0	PST	0
-3	America/Denver	2025-03-21 16:00:00.000	2025-03-21 10:00:00.000	-6.0	MDT	1
-4	America/Los_Angeles	2025-03-21 16:00:00.000	2025-03-21 09:00:00.000	-7.0	PDT	1
+|zone_name|utc_sample|utc_sample_to_local|offset_hours|abbreviation|dst|
+|--|--|--|--|--|--|
+|America/Denver|2025-02-28 13:00:00.000|2025-02-28 06:00:00.000|-7.0|MST|0
+|America/Los_Angeles|2025-02-28 13:00:00.000|2025-02-28 05:00:00.000|-8.0|PST|0
+|America/Denver|2025-03-21 16:00:00.000|2025-03-21 10:00:00.000|-6.0|MDT|1
+|America/Los_Angeles|2025-03-21 16:00:00.000|2025-03-21 09:00:00.000|-7.0|PDT|1
 
