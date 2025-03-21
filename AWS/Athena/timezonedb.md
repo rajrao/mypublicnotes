@@ -72,7 +72,7 @@ with timezone as(
     union all
     select cast('2025-02-28 13:00:00.000' as timestamp) utc
 )
-select zone_name, utc_sample, date_add('second',gmt_offset, utc_sample) utc_sample_to_local, gmt_offset/3600.0 offset_hours, abbreviation, dst 
+select zone_name, utc_sample, date_add('second',gmt_offset, utc_sample) utc_sample_to_zone, gmt_offset/3600.0 offset_hours, abbreviation, dst 
 from sample_times
 join timezone on utc_sample between timestart and timeend
 where zone_name = 'America/Los_Angeles'
@@ -80,7 +80,7 @@ or zone_name = 'America/Denver'
 order by utc_sample, zone_name
 ```
 
-|zone_name|utc_sample|utc_sample_to_local|offset_hours|abbreviation|dst|
+|zone_name|utc_sample|utc_sample_to_zone|offset_hours|abbreviation|dst|
 |--|--|--|--|--|--|
 |America/Denver|2025-02-28 13:00:00.000|2025-02-28 06:00:00.000|-7.0|MST|0
 |America/Los_Angeles|2025-02-28 13:00:00.000|2025-02-28 05:00:00.000|-8.0|PST|0
