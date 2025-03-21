@@ -18,15 +18,16 @@ OUTPUTFORMAT
   'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
 LOCATION
   's3://xxxx/ent/timezonedb/country/'
-  
-  
+```
+
+```sql  
  CREATE EXTERNAL TABLE `timezone`(
   `zone_name` string,
   `country_code` string,
   `abbreviation` string,
-  `time_start` int,
+  `time_start` bigint,
   `gmt_offset` int,
-  `dst` boolean
+  `dst` int
   )
 ROW FORMAT SERDE 
   'org.apache.hadoop.hive.serde2.OpenCSVSerde' 
