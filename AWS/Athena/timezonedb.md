@@ -2,7 +2,7 @@
 https://timezonedb.com/download
 
 ```sql
-CREATE EXTERNAL TABLE `timezone`(
+CREATE EXTERNAL TABLE `country`(
   `country_code` string,
   `country_name` string)
 ROW FORMAT SERDE 
