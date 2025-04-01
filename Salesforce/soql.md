@@ -1,5 +1,7 @@
 **Useful queries**
 
+https://gist.github.com/sholloway/47cb0d9c641a32a3393f5ec8b6e73bcd
+
 **Search for entities**
 ```
 SELECT Label, QualifiedApiName,  KeyPrefix, NamespacePrefix  from EntityDefinition 
