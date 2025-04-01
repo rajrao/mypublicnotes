@@ -1,9 +1,11 @@
-zCalendar Table Internal = 
+```
+Calendar Table = 
 --  
---     Configuration - implemented by RRao - 2022-08-22
+--     Configuration - implemented by Raj
 --  
 VAR __FirstYear = 2001 //YEAR(MIN('Fact Table'[Date_Column])) or YEAR(MIN(MIN('Fact Table'[Date_Column]),MIN('Different Fact Table'[Date_Column])))
 VAR __LastYear =  2100 //YEAR(MAX('Fact Table'[Date_Column])) or YEAR(MAX(MAX('Fact Table'[Date_Column]),MAX('Different Fact Table'[Date_Column])))
+VAR __FirstFiscalMonth = 4
 ----------------------------------------
 VAR __Calendar = 
     CALENDAR (
@@ -66,7 +68,6 @@ VAR __Step3 =
             "Fiscal Quarter", FORMAT( __FiscalQuarterNumber, "\F\Q0" ),
             "Fiscal Week Number", __WeekNum,
             "Fiscal Week ", "FY" & RIGHT(FORMAT(__FiscalYearNumber, "0000"),2) & "-" & FORMAT ( __WeekNum, "00" ),
-            "DateWithTransactions", __Date <= __LastTransactionDate,
             "Fiscal Year Type", switch(true(),__FiscalYearNumber = __CurrentFiscalYear, "Current Year", __FiscalYearNumber = __PreviousFiscalYear, "Prev Year", "Other"),
             "Fiscal Quarter Type", switch(true(),__FiscalYearQuarterNumber = __CurrentFiscalYearQuarterNumber, "Current Qtr", __FiscalYearQuarterNumber = __PrevFiscalYearQuarterNumber, "Prev  Qtr", "Other"),
             "Fiscal Month Type", switch(true(),__FiscalYearNumber = __CurrentFiscalYear && __FiscalMonthNumber = __CurrentFiscalMonthNumber, "Current Month", __FiscalYearNumber = __CurrentFiscalYear && __FiscalMonthNumber = __PrevFiscalMonthNumber, "Prev Month", "Other"),
@@ -76,3 +77,4 @@ VAR __Step3 =
     )
 RETURN
     __Step3
+```
