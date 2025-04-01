@@ -1,6 +1,6 @@
 ```sql
 CREATE EXTERNAL TABLE `fiscal_calendar`(
-  `dt` date , 
+ `dt` date , 
   `date` string , 
   `year` int , 
   `year_quarter_number` int , 
@@ -14,6 +14,7 @@ CREATE EXTERNAL TABLE `fiscal_calendar`(
   `day_of_week` string , 
   `fiscal_year` string , 
   `fiscal_year_number` int , 
+  `fiscal_quarter_number` int , 
   `fiscal_quarter_year` string , 
   `fiscal_year_quarter` string , 
   `fiscal_year_quarter_number` int , 
@@ -26,7 +27,8 @@ CREATE EXTERNAL TABLE `fiscal_calendar`(
   `fiscal_month_year` string , 
   `quarter_year` string , 
   `last_day_of_month` boolean , 
-  `last_day_of_quarter` boolean )
+  `last_day_of_quarter` boolean
+)
 ROW FORMAT SERDE 
   'org.apache.hadoop.hive.serde2.OpenCSVSerde' 
 WITH SERDEPROPERTIES ( 
