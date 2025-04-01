@@ -1,3 +1,4 @@
+```sql
 CREATE EXTERNAL TABLE `fiscal_calendar`(
   `dt` date , 
   `date` string , 
@@ -47,3 +48,4 @@ TBLPROPERTIES (
   'objectCount'='1', 
   'skip.header.line.count'='1', 
   'typeOfData'='file')
+```
