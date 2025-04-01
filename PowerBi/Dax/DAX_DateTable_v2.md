@@ -1,7 +1,7 @@
 ```
 Calendar Table = 
 --  
---     Configuration - implemented by Raj
+--     Configuration - implemented by RRao - 2025-04-01
 --  
 VAR __FirstYear = 2001 //YEAR(MIN('Fact Table'[Date_Column])) or YEAR(MIN(MIN('Fact Table'[Date_Column]),MIN('Different Fact Table'[Date_Column])))
 VAR __LastYear =  2100 //YEAR(MAX('Fact Table'[Date_Column])) or YEAR(MAX(MAX('Fact Table'[Date_Column]),MAX('Different Fact Table'[Date_Column])))
@@ -49,30 +49,43 @@ VAR __Step3 =
         RETURN ROW ( 
             "Year", __YearNumber,
             "Year Quarter Number", __YearQuarterNumber,
-            "Year Quarter", FORMAT ( __QuarterNumber, "\Q0" ) & "-" & FORMAT ( __YearNumber, "0000" ),
             "Quarter", FORMAT( __QuarterNumber, "\Q0" ),
+            "Quarter Year", FORMAT ( __QuarterNumber, "\Q0" ) & "-" & FORMAT ( __YearNumber, "0000" ),
+            "Year Quarter", FORMAT ( __YearNumber, "0000" ) & "-" & FORMAT ( __QuarterNumber, "\Q0" ),
+            
             "Year Month", FORMAT ( __Date, "mmm yyyy" ),
             "Year Month Number", __YearNumber * 12 + __MonthNumber - 1,
             "Month", FORMAT ( __Date, "mmm" ),
             "Month Number", __MonthNumber,
             "Day of Week Number", __WeekDayNumber,
             "Day of Week", __WeekDay,
-            "Fiscal Year", FORMAT ( __FiscalYearNumber, "\F\Y 0000" ),
+            
             "Fiscal Year Number", __FiscalYearNumber,
+            "Fiscal Year", FORMAT ( __FiscalYearNumber, "\F\Y 0000" ),
+            "Fiscal Year Quarter Number", __FiscalYearQuarterNumber,
             "Fiscal Quarter Year", FORMAT ( __FiscalQuarterNumber, "\F\Q0" ) & "-" & FORMAT ( __FiscalYearNumber, "0000" ),
             "Fiscal Year Quarter", FORMAT ( __FiscalYearNumber, "0000" ) & "-" & FORMAT ( __FiscalQuarterNumber, "\F\Q0" ),
-            "Fiscal Year Quarter Number", __FiscalYearQuarterNumber,
+            
             "Fiscal Month Number", __FiscalMonthNumber,
-            "Fiscal Year Month", FORMAT ( __Date, "mmm" ) & " " & FORMAT ( __FiscalYearNumber, "\F\Y 0000" ),
+            "Fiscal Month Year", FORMAT ( __Date, "mmm" ) & " " & FORMAT ( __FiscalYearNumber, "\F\Y 0000" ),
             "Fiscal Month In Quarter Number", __FiscalMonthInQuarterNumber,
-            "Fiscal Quarter", FORMAT( __FiscalQuarterNumber, "\F\Q0" ),
+            
             "Fiscal Week Number", __WeekNum,
             "Fiscal Week ", "FY" & RIGHT(FORMAT(__FiscalYearNumber, "0000"),2) & "-" & FORMAT ( __WeekNum, "00" ),
+
+            "Day of Fiscal Year Number", INT(__Date - __FirstDayOfFiscalYear) + 1,
+            "Day of Fiscal Quarter Number",INT(__Date - __FirstDayOfFiscalQtr) + 1,
+
+            "Last Day of Month", EOMONTH(__Date,0) == __Date ,
+            "Last Day of Quarter", __Date == EOMONTH(DATE(__FiscalYearNumber,(__FiscalQuarterNumber-1)*3+__FirstFiscalMonth+2,15),0),
+
+            //only for dax
+            "Fiscal Year Month", FORMAT ( __FiscalYearNumber, "\F\Y 0000" ) & "-" & FORMAT ( __Date, "mmm" ) ,
+            "Fiscal Quarter", FORMAT( __FiscalQuarterNumber, "\F\Q0" ),
             "Fiscal Year Type", switch(true(),__FiscalYearNumber = __CurrentFiscalYear, "Current Year", __FiscalYearNumber = __PreviousFiscalYear, "Prev Year", "Other"),
             "Fiscal Quarter Type", switch(true(),__FiscalYearQuarterNumber = __CurrentFiscalYearQuarterNumber, "Current Qtr", __FiscalYearQuarterNumber = __PrevFiscalYearQuarterNumber, "Prev  Qtr", "Other"),
-            "Fiscal Month Type", switch(true(),__FiscalYearNumber = __CurrentFiscalYear && __FiscalMonthNumber = __CurrentFiscalMonthNumber, "Current Month", __FiscalYearNumber = __CurrentFiscalYear && __FiscalMonthNumber = __PrevFiscalMonthNumber, "Prev Month", "Other"),
-            "Day of Fiscal Year Number", INT(__Date - __FirstDayOfFiscalYear) + 1,
-            "Day of Fiscal Quarter Number",INT(__Date - __FirstDayOfFiscalQtr) + 1
+            "Fiscal Month Type", switch(true(),__FiscalYearNumber = __CurrentFiscalYear && __FiscalMonthNumber = __CurrentFiscalMonthNumber, "Current Month", __FiscalYearNumber = __CurrentFiscalYear && __FiscalMonthNumber = __PrevFiscalMonthNumber, "Prev Month", "Other")
+            
         )
     )
 RETURN
