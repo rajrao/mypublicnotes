@@ -28,8 +28,8 @@ Here is some Dax code to connect it to a time convertor:
 
 ```
 TimeAndDate Link = "https://www.timeanddate.com/worldclock/converter.html?iso="
-    & FORMAT('Last Refresh Info'[Last Refreshed On DateTime Utc],"yyyymmddThhnn00")
-    & "&p1=1440&p2=176&p3=3818&p4=136&p5=262&p6=tz_myt&p7=248"
+    & FORMAT('Last Refresh Info'[Last Refreshed On DateTime Utc],"yyyyMMddTHHmm00")
+    & "&p1=1440&p2=tz_pt&p3=tz_mt&p4=136&p5=262&p6=tz_ist&p7=tz_myt&p8=248"
 
 ```
 
