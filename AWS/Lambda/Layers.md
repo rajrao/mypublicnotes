@@ -2,7 +2,7 @@
 
 1. **Install package** to folder python  
 replace package and version  
-```pip install {package}=={version} --platform manylinux2014_x86_64 --only-binary=:all: -t python/ --no-user```
+```pip install {package}=={version} --platform manylinux2014_x86_64 --only-binary=:all: -t python/ --no-user```  
 eg:  
 ```pip install paramiko==3.5.1 --platform manylinux2014_x86_64 --only-binary=:all: -t python/ --no-user```
 
