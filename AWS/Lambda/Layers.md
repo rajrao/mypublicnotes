@@ -1,3 +1,24 @@
+**Updated 2025-06-02**
+
+1. Install package to folder python  
+replace package and version
+```pip install {package}=={version} --platform manylinux2014_x86_64 --only-binary=:all: -t python/ --no-user```
+eg:  
+```pip install paramiko==3.5.1 --platform manylinux2014_x86_64 --only-binary=:all: -t python/ --no-user```
+
+2. Zip the folder so that the zip contains a folder called python. On windows, you will get this if you zip the python folder by right clicking on it and choosing the "Compress to" option.  
+eg:  
+```
+paramkip-3.5.1.zip
+|--python (folder)  
+       |-- xxxxx
+       |-- yyyyy
+```
+
+
+
+-----
+
 Creating a layer file to satisfy a package requirement:
 
 1. Install the package to a specific folder:
