@@ -5,8 +5,8 @@ Creating a layer file to satisfy a package requirement:
     
     **examples**: 
     
-    ```pip install boto3 --target python/. ```
-   or 
+    ```pip install boto3 --target python/. ```  
+   or  
     ```pip install msal --target ./package ```
    
 
