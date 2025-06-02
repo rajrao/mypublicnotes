@@ -1,12 +1,18 @@
 **Updated 2025-06-02**
 
-1. Install package to folder python  
-replace package and version
+1. **Install package** to folder python  
+replace package and version  
 ```pip install {package}=={version} --platform manylinux2014_x86_64 --only-binary=:all: -t python/ --no-user```
 eg:  
 ```pip install paramiko==3.5.1 --platform manylinux2014_x86_64 --only-binary=:all: -t python/ --no-user```
 
-2. Zip the folder so that the zip contains a folder called python. On windows, you will get this if you zip the python folder by right clicking on it and choosing the "Compress to" option.  
+* --platform manylinux2014_x86_64:  
+&emsp;Developing on a non-Linux OS (e.g., Windows or macOS) but deploying to Linux (e.g., AWS Lambda, Docker containers): If you pip install a package with compiled extensions on your local machine, it will compile for your local OS. If you then deploy that package to a Linux environment, it will likely fail. By using --platform manylinux2014_x86_64, you tell pip to download the pre-compiled Linux-compatible wheel instead.
+
+* --only-binary=:all:  
+&emsp;This additional flag is frequently used with --platform to tell pip only to download binary wheels and not attempt to compile from source if a pre-built wheel isn't found for the specified platform. This helps avoid compilation issues and ensures you get the desired manylinux package.
+
+2. **Zip** the folder so that the zip contains a folder called python. On windows, you will get this if you zip the python folder by right clicking on it and choosing the "Compress to" option.  
 eg:  
 ```
 paramkip-3.5.1.zip
