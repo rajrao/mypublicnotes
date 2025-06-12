@@ -22,7 +22,7 @@ in
 ```
 
 
-Please note, that even though the data is stored in DateTimeZone format, there is no way to show this value in the local time zone to the report viewer. Not simply at least. Because PBI.com does not have the functionality to show DTZ in local tz, one needs to keep a table with the userPrincipalName and use it to shift the time. Not ideal at all.
+Please note, that even though the data is stored in DateTimeZone format, there is no way to show this value in the local time zone to the report viewer. Not simply at least. Because PBI.com does not have the functionality to show DTZ in local tz, one needs to keep a table with the userPrincipalName and use it to shift the time. Not ideal at all. But if you want to change it to a single timezone that you know before hand (eg: MST), you can use this code: DateTimeZone.SwitchZone(DateTimeZone.FixedUtcNow(),-6)
 
 Here is some Dax code to connect it to a time convertor:
 
