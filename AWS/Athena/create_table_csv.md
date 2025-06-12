@@ -24,11 +24,15 @@ LOCATION
 
 ```
 
+
+for dates, they have to be formatted yyyy-mm-dd (2024-10-01)
 ```
 CREATE EXTERNAL TABLE `xyx_csv`(
     col_a string,
     col_b string,
-    col_c string
+    col_c string,
+    col_d double,
+    col_e date
   )
   PARTITIONED BY ( 
   `y` string,
