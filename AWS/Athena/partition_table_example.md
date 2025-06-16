@@ -61,10 +61,10 @@ TBLPROPERTIES (
   'projection.enabled'='true')
 ```
 
-In the following example the partition needs to be provided as part of where clause (because its type is set as injected)  
+In the following example the **partition needs to be provided** as part of where clause (because its type is set as injected)  
+eg: ```select * from my_table3 where year = '2024' and month = '08' and 'day' = 13``
 
 s3://bucket-name/folder1/folder2/2024/08/13/USA/xxxx.parquet
-
 ```sql
 CREATE EXTERNAL TABLE `my_table3`(
   `id` string, 
