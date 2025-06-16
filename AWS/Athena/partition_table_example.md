@@ -1,6 +1,7 @@
 **Hive style folders**
 
-In hive style folders the path has key value pairs  (eg: s3://bucket-name/folder1/folder2/year=2024/month=08/day=13/xxxx.csv)
+In hive style folders the path has key value pairs  (eg: s3://bucket-name/folder1/folder2/year=2024/month=08/day=13/xxxx.csv)  
+In the following 2 cases, the projection partitions do not have to be provided as part of the query and the data is automatically read.
 
 ```sql
 CREATE EXTERNAL TABLE `my_table`(
@@ -103,6 +104,37 @@ TBLPROPERTIES (
   'projection.enabled'='true', 
   'storage.location.template'='s3://bucket/folder1/folder2/${day}/'
 )
+```
+
+```sql
+CREATE EXTERNAL TABLE `table1`(
+  `id` string, 
+  `recordtype` bigint, 
+  `creationtime` string
+)
+PARTITIONED BY ( 
+  `year` string, 
+  `month` string, 
+  `day` string)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION
+  's3://bucket/powerbi_activity_history'
+TBLPROPERTIES (
+  'projection.day.digits'='2', 
+  'projection.day.range'='1,31', 
+  'projection.day.type'='integer', 
+  'projection.enabled'='TRUE', 
+  'projection.month.digits'='2', 
+  'projection.month.range'='1,12', 
+  'projection.month.type'='integer', 
+  'projection.year.digits'='4', 
+  'projection.year.range'='2020,2030', 
+  'projection.year.type'='integer')
 ```
 
 **Fire Hose**
