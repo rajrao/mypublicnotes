@@ -123,7 +123,7 @@ STORED AS INPUTFORMAT
 OUTPUTFORMAT 
   'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
 LOCATION
-  's3://bucket/powerbi_activity_history'
+  's3://bucket/powerbi_activity_history/'
 TBLPROPERTIES (
   'projection.day.digits'='2', 
   'projection.day.range'='1,31', 
@@ -179,7 +179,7 @@ STORED AS INPUTFORMAT
 OUTPUTFORMAT 
   'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
 LOCATION
-  's3://bucket/amazonconnect'
+  's3://bucket/amazonconnect/'
 TBLPROPERTIES (
   'projection.datehour.format'='yyyy/MM/dd/HH', 
   'projection.datehour.interval'='1', 
