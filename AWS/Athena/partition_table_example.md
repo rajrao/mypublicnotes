@@ -1,7 +1,7 @@
 **Hive style folders**
 
 In hive style folders the path has key value pairs  (eg: s3://bucket-name/folder1/folder2/year=2024/month=08/day=13/xxxx.csv)  
-In the following 2 cases, the projection partitions do not have to be provided as part of the query and the data is automatically read.
+In the following 2 cases, the projection partitions **do not have to be provided as part of the query** and the data is automatically read.
 
 ```sql
 CREATE EXTERNAL TABLE `my_table`(
@@ -37,7 +37,7 @@ Empty fields should be quoted (eg: '')
 
 eg: s3://bucket-name/folder1/folder2/2024/08/13/xxxx.parquet
 
-In this case, partitions are automatically picked up!  
+In this case, **partitions are automatically picked up**!  
 ```sql
 CREATE EXTERNAL TABLE `my_table2`(
   `id` string, 
