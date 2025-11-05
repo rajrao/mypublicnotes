@@ -1,0 +1,177 @@
+[
+    {
+        "loan_id": "LN-7890",
+        "mls_id": "MLS-5678",
+        "borrower_name": "Lauryn Flowers",
+        "date_of_birth": "9/23/1928",
+        "social_security_number": "656-38-5280",
+        "address": "43 Brentwood Parkway",
+        "phone_number": "575-370-9843",
+        "email": "lflowers0@skyrock.com",
+        "income": 487337.29,
+        "employment_info": {
+            "employer": "Jast-Swaniawski",
+            "years_on_job": 15
+        },
+        "assets": 123588.54,
+        "liabilities": 687430.2,
+        "credit_history": "Poor",
+        "loan_amount": 386235.79,
+        "down_payment_amount": 147381.35,
+        "driver_license": {
+            "number": "X12345678",
+            "state": "CA",
+            "expiry": "9/21/2004"
+        },
+        "w2": {
+            "employer": "Baumbach, Abshire and Windler",
+            "wages": 67147.01,
+            "year": 1964
+        },
+        "pay_stubs": {
+            "date": "2/14/2023",
+            "amount": 11033.45,
+            "YTD": 61547.62
+        }
+    },
+    {
+        "loan_id": "LN-5678",
+        "mls_id": "MLS-3456",
+        "borrower_name": "Silvano Couper",
+        "date_of_birth": "8/12/2013",
+        "social_security_number": "129-56-7826",
+        "address": "1 Kennedy Point",
+        "phone_number": "967-517-7963",
+        "email": "scouper1@mac.com",
+        "income": 668348.71,
+        "employment_info": {
+            "employer": "Mann-Metz",
+            "years_on_job": 33
+        },
+        "assets": 227992.95,
+        "liabilities": 843072.69,
+        "credit_history": "Fair",
+        "loan_amount": 208848.72,
+        "down_payment_amount": 181973.41,
+        "driver_license": {
+            "number": "X12345678",
+            "state": "CA",
+            "expiry": "6/6/2010"
+        },
+        "w2": {
+            "employer": "Koch, Schowalter and Paucek",
+            "wages": 94004.07,
+            "year": 1995
+        },
+        "pay_stubs": {
+            "date": "2/8/2023",
+            "amount": 32636.27,
+            "YTD": 59270.78
+        }
+    },
+    {
+        "loan_id": "LN-0123",
+        "mls_id": "MLS-8901",
+        "borrower_name": "Marlo Lghan",
+        "date_of_birth": "10/17/1979",
+        "social_security_number": "754-84-1887",
+        "address": "587 Sage Pass",
+        "phone_number": "521-847-6146",
+        "email": "mlghan2@weibo.com",
+        "income": 620951.66,
+        "employment_info": {
+            "employer": "Swaniawski-Skiles",
+            "years_on_job": 41
+        },
+        "assets": 847702.63,
+        "liabilities": 105637.45,
+        "credit_history": "Poor",
+        "loan_amount": 910101.03,
+        "down_payment_amount": 708196.77,
+        "driver_license": {
+            "number": "X12345678",
+            "state": "CA",
+            "expiry": "3/14/1993"
+        },
+        "w2": {
+            "employer": "Buckridge LLC",
+            "wages": 113833.5,
+            "year": 1994
+        },
+        "pay_stubs": {
+            "date": "1/23/2023",
+            "amount": 9322.05,
+            "YTD": 49874.45
+        }
+    },
+    {
+        "loan_id": "LN-2345",
+        "mls_id": "MLS-9012",
+        "borrower_name": "Blanch Crampton",
+        "date_of_birth": "3/20/1921",
+        "social_security_number": "347-05-1073",
+        "address": "60 Artisan Court",
+        "phone_number": "920-524-0795",
+        "email": "bcrampton3@java.com",
+        "income": 661320.23,
+        "employment_info": {
+            "employer": "Shanahan, Halvorson and Cormier",
+            "years_on_job": 35
+        },
+        "assets": 199397.9,
+        "liabilities": 634585.32,
+        "credit_history": "Good",
+        "loan_amount": 316492.9,
+        "down_payment_amount": 715749.06,
+        "driver_license": {
+            "number": "X12345678",
+            "state": "CA",
+            "expiry": "8/14/1955"
+        },
+        "w2": {
+            "employer": "Wilkinson and Sons",
+            "wages": 128038.93,
+            "year": 2004
+        },
+        "pay_stubs": {
+            "date": "2/10/2023",
+            "amount": 24610.06,
+            "YTD": 53827.07
+        }
+    },
+    {
+        "loan_id": "LN-3456",
+        "mls_id": "MLS-4567",
+        "borrower_name": "Godiva Backshill",
+        "date_of_birth": "5/16/1915",
+        "social_security_number": "425-33-7780",
+        "address": "77 Ohio Center",
+        "phone_number": "181-168-1146",
+        "email": "gbackshill4@geocities.jp",
+        "income": 733734.87,
+        "employment_info": {
+            "employer": "Dooley, Hauck and Howell",
+            "years_on_job": 36
+        },
+        "assets": 23397.9,
+        "liabilities": 274199.32,
+        "credit_history": "Poor",
+        "loan_amount": 774167.63,
+        "down_payment_amount": 347318.37,
+        "driver_license": {
+            "number": "X12345678",
+            "state": "CA",
+            "expiry": "6/2/1959"
+        },
+        "w2": {
+            "employer": "Hodkiewicz LLC",
+            "wages": 347367.94,
+            "year": 2003
+        },
+        "pay_stubs": {
+            "date": "1/27/2023",
+            "amount": 17822.41,
+            "YTD": 49891.71
+        }
+    }
+]

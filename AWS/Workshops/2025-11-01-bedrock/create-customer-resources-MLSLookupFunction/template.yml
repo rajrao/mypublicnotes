@@ -1,0 +1,64 @@
+# This AWS SAM template has been generated from your function's configuration. If
+# your function has one or more triggers, note that the AWS resources associated
+# with these triggers aren't fully specified in this template and include
+# placeholder values. Open this template in AWS Infrastructure Composer or your
+# favorite IDE and modify it to specify a serverless application with other AWS
+# resources.
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: An AWS Serverless Application Model template describing your function.
+Resources:
+  createcustomerresourcesMLSLookupFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: ./src
+      Description: Bedrock  agent MLS Lookup function
+      MemorySize: 512
+      Timeout: 30
+      Handler: mls_lookup.lambda_handler
+      Runtime: python3.12
+      Architectures:
+        - arm64
+      EphemeralStorage:
+        Size: 512
+      Environment:
+        Variables:
+          PROPERTY_TABLE_NAME: create-customer-resources-Property-Listing
+      EventInvokeConfig:
+        MaximumEventAgeInSeconds: 21600
+        MaximumRetryAttempts: 2
+      PackageType: Zip
+      Policies:
+        - Statement:
+            - Action:
+                - dynamodb:BatchGetItem
+                - dynamodb:BatchWriteItem
+                - dynamodb:ConditionCheckItem
+                - dynamodb:DeleteItem
+                - dynamodb:DescribeTable
+                - dynamodb:GetItem
+                - dynamodb:GetRecords
+                - dynamodb:GetShardIterator
+                - dynamodb:PutItem
+                - dynamodb:Query
+                - dynamodb:Scan
+                - dynamodb:UpdateItem
+                - lambda:Get*
+                - lambda:InvokeFunction
+                - bedrock:InvokeModel
+                - s3:GetObject
+                - s3:PutObject
+              Resource:
+                - !GetAtt createcustomerresourcesMLSLookupFunction.Arn
+              Effect: Allow
+            - Effect: Allow
+              Action:
+                - logs:CreateLogGroup
+                - logs:CreateLogStream
+                - logs:PutLogEvents
+              Resource: '*'
+      RecursiveLoop: Terminate
+      SnapStart:
+        ApplyOn: None
+      RuntimeManagementConfig:
+        UpdateRuntimeOn: Auto

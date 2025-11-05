@@ -1,0 +1,30 @@
+{"openapi": "3.0.0",
+    "info": {
+        "title": "MLS LookUP API",
+        "version": "1.0.0",
+        "description": "APIs for looking up information regarding a specific MLS Listing"
+    },
+    "paths": {
+        "/mls/{mlsId}/get-property": {
+            "get": {
+                "summary": "Look up an MLS listing by the listing ID",
+                "description": "Look up an MLS listing by the listing ID",
+                "operationId": "getPropertyById",
+                "parameters": [{
+                    "name": "mlsId",
+                    "in": "path",
+                    "description": "Unique ID of the property listed in MLS",
+                    "required": true,
+                    "schema": {
+                      "type": "string"
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "description": "Gets the property listed with the specified MLS Id"
+                    }
+                }
+            }
+        }
+    }
+}

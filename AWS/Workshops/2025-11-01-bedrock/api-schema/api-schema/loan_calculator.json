@@ -1,0 +1,78 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Loan Affordability Calculator",
+        "description": "API for a loan affordability calculator",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/loan-affordability-calculator": {
+            "post": {
+                "summary": "Calculate maximum affordable loan amount",
+                "description": "Calculate the maximum affordable loan amount given the borrower's monthly income, minthly expenses, down payment and loan term. Return the calculate loan amount in text.",
+                "operationId": "calculateLoanAffordability",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "required": [
+                                    "monthlyIncome",
+                                    "monthlyExpenses",
+                                    "downPayment",
+                                    "loanTerm"
+                                ],
+                                "properties": {
+                                    "monthlyIncome": {
+                                        "type": "number",
+                                        "description": "The monthly gross income",
+                                        "example": 5000
+                                    },
+                                    "monthlyExpenses": {
+                                        "type": "number",
+                                        "description": "The total monthly expenses, including all incumburences like debt payment, utility bill and other expenses",
+                                        "example": 2000
+                                    },
+                                    "downPayment": {
+                                        "type": "number",
+                                        "description": "The down payment amount",
+                                        "example": 10000
+                                    },
+                                    "loanTerm": {
+                                        "type": "integer",
+                                        "description": "The loan term in years",
+                                        "example": 5
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success response with maximum affordable loan amount",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "max_loan_affordable": {
+                                            "type": "number",
+                                            "description": "The maximum affordable loan amount in text",
+                                            "example": 200000
+                                        },
+                                        "description": {
+                                            "type": "string",
+                                            "description": "A description of how the the maximum affordable loan amount was calculated",
+                                            "example": "The maximum affordable loan amount is 200,000"                                            
+                                        }
+                                    }                                    
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
