@@ -1,7 +1,11 @@
-**Hive style folders**
+**Hive style folders** :  In hive style folders the path has key value pairs  (eg: s3://bucket-name/folder1/folder2/year=2024/month=08/day=13/xxxx.csv)  
 
-In hive style folders the path has key value pairs  (eg: s3://bucket-name/folder1/folder2/year=2024/month=08/day=13/xxxx.csv)  
-In the following 2 cases, the projection partitions **do not have to be provided as part of the query** and the data is automatically read.
+In the following case, the projection partitions **do not have to be provided as part of the query** and the data is automatically read.
+
+The below table reads csv files located in folders named dt=2024-04-01, dt=2023-04-01, etc.  
+  s3://bucket-name/folder1/folder2/dt=2024-04-01/xxxx.csv  
+  s3://bucket-name/folder1/folder2/dt=2023-04-01/xxxx.csv  
+Empty fields should be quoted (eg: '')  
 
 ```sql
 CREATE EXTERNAL TABLE `my_table`(
@@ -30,14 +34,12 @@ TBLPROPERTIES (
   'projection.enabled'='true',
   'serialization.null.format'='')
 ```
-The above table reads csv files located in folders named dt=2024-04-01, dt=2023-04-01, etc.  
-Empty fields should be quoted (eg: '')
 
-**Non hive style folders**  
 
-eg: s3://bucket-name/folder1/folder2/2024/08/13/xxxx.parquet
+**Non hive style folders**  : these folders dont have the key name as part of the path.  
+eg: s3://bucket-name/folder1/folder2/2024/08/13/xxxx.parquet  
 
-In this case, **partitions are automatically picked up**!  
+In this case also, **partitions are automatically picked up**!  
 ```sql
 CREATE EXTERNAL TABLE `my_table2`(
   `id` string, 
@@ -60,19 +62,20 @@ TBLPROPERTIES (
   'classification'='parquet', 
   'projection.enabled'='true')
 ```
-
+------
 In the following example the **partition needs to be provided** as part of where clause (because its type is set as injected)  
 eg: ```select * from my_table3 where year = '2024' and month = '08' and 'day' = 13``
 
 s3://bucket-name/folder1/folder2/2024/08/13/USA/xxxx.parquet
 ```sql
 CREATE EXTERNAL TABLE `my_table3`(
-  `id` string, 
-  `country` string)
+  `id` string)
 PARTITIONED BY ( 
   `year` string, 
   `month` string, 
-  `day` string)
+  `day` string,
+  `country` string
+)
 ROW FORMAT SERDE 
   'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe' 
 STORED AS INPUTFORMAT 
