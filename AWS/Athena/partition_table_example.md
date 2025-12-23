@@ -35,6 +35,44 @@ TBLPROPERTIES (
   'serialization.null.format'='')
 ```
 
+**Hive style 2**  
+  s3://bucket/folder/year=2025/month=12/day=23  
+  s3://bucket/folder/year=2026/month=01/day=03
+
+```sql
+CREATE EXTERNAL TABLE `deployed_lambda_op_proj2`(
+  `title` string, 
+  `id` string, 
+  `column1` string, 
+  `column2` array<struct<key:string,label:string,values:array<string>>> COMMENT 'for a json complex object'
+  )
+PARTITIONED BY ( 
+  `year` int,
+  `month` int,
+  `day` int
+  )
+ROW FORMAT SERDE 
+  'org.openx.data.jsonserde.JsonSerDe' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.mapred.TextInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+LOCATION
+  's3://bucket/folder/'
+TBLPROPERTIES (
+  'projection.enabled' = 'true',
+  'projection.year.type'  = 'integer',
+  'projection.year.range' = '2020,2030',
+  'projection.month.type'  = 'integer',
+  'projection.month.range' = '1,12',
+  'projection.month.digits' = '2',
+  'projection.day.type'  = 'integer',
+  'projection.day.range' = '1,31',
+  'projection.day.digits' = '2',
+  'storage.location.template' = 's3://bucket/folder/year=${year}/month=${month}/day=${day}/'
+)
+```
+
 
 **Non hive style folders**  : these folders dont have the key name as part of the path.  
 eg: s3://bucket-name/folder1/folder2/2024/08/13/xxxx.parquet  
@@ -62,6 +100,9 @@ TBLPROPERTIES (
   'classification'='parquet', 
   'projection.enabled'='true')
 ```
+
+
+
 ------
 In the following example the **partition needs to be provided** as part of where clause (because its type is set as injected)  
 eg: ```select * from my_table3 where year = '2024' and month = '08' and 'day' = 13``
