@@ -101,9 +101,35 @@ TBLPROPERTIES (
   'projection.enabled'='true')
 ```
 
+Data stored in: s3://bucket/folder1/folder2/  
+under folders named as execution_id=20251201/, execution_id=20251229/,.....
 
+CREATE EXTERNAL TABLE `another_table`(
+  `record_number` int, 
+  `download_date` string, 
+  `total_downloads` int)
+PARTITIONED BY ( 
+  `execution_id` string)
+ROW FORMAT DELIMITED 
+  FIELDS TERMINATED BY ',' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.mapred.TextInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+LOCATION
+  's3://bucket/folder1/folder2'
+TBLPROPERTIES (
+  'columnsOrdered'='true', 
+  'projection.enabled'='true', 
+  'projection.execution_id.type'='date', 
+  'projection.execution_id.format'='yyyyMMdd', 
+  'projection.execution_id.range'='NOW-3YEARS,NOW+1YEARS', 
+  'skip.header.line.count'='1')
 
 ------
+
+**Injected Partitions**
+
 In the following example the **partition needs to be provided** as part of where clause (because its type is set as injected)  
 eg: ```select * from my_table3 where year = '2024' and month = '08' and 'day' = 13``
 
@@ -234,6 +260,9 @@ TBLPROPERTIES (
   'storage.location.template'='s3://bucket/amazonconnect/${datehour}/'
 )
 ```
+
+-------
+
   
 
 
