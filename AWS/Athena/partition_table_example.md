@@ -161,6 +161,8 @@ TBLPROPERTIES (
 The data would be pulled by using a query like
 ```select * from my_table3 where country='USA'```
 
+------
+
 **More Examples**
 
 ```sql
@@ -193,7 +195,7 @@ STORED AS INPUTFORMAT
 OUTPUTFORMAT 
   'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
 LOCATION
-  's3://bucket/powerbi_activity_history/'
+  's3://bucket/folder1/'
 TBLPROPERTIES (
   'projection.day.digits'='2', 
   'projection.day.range'='1,31', 
