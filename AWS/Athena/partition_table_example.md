@@ -101,9 +101,9 @@ TBLPROPERTIES (
   'projection.enabled'='true')
 ```
 
-Data stored in: s3://bucket/folder1/folder2/  
-under folders named as execution_id=20251201/, execution_id=20251229/,.....
+Data stored in folders like: s3://bucket/folder1/folder2/execution_id=20251229/
 
+```sql
 CREATE EXTERNAL TABLE `another_table`(
   `record_number` int, 
   `download_date` string, 
@@ -125,6 +125,7 @@ TBLPROPERTIES (
   'projection.execution_id.format'='yyyyMMdd', 
   'projection.execution_id.range'='NOW-3YEARS,NOW+1YEARS', 
   'skip.header.line.count'='1')
+```
 
 ------
 
