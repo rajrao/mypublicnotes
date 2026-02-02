@@ -1,10 +1,16 @@
 LazySimpleSerDe is the default serde in Athena and used if a SERDE is not specified. The glue crawler uses this as its serde for CSV files and you will typically see these tables defined without a SERDE but just "ROW FORMAT DELIMITED".
 
-Handling Date and Timestamp with LazySimpleSerDe
+**LazySimpleSerDe format does not support quoted fields. To support quoted fields you can use the OpenCSVSerde format.**  
 
-Date and Timestamp have to be formated as yyyy-MM-dd or yyyy-MM-dd HH:mm:ss or yyyy-MM-dd HH:mm:ss.SSS
+**Recommendation**:  
+Use OpenCsvSerde and bring it in as an internal table (eg: _my_table). Expose to end users as a view with cast/try_cast for data-types (eg: my_table).
+OpenCsvSerde only supports timestamps (1579059880000) where as LazySimpleSerDe supports customizable formats.
 
-Example LazySimpleSerDe based table for date and timestamps
+
+Handling Date and Timestamp with LazySimpleSerDe  
+Date and Timestamp have to be formated as yyyy-MM-dd or yyyy-MM-dd HH:mm:ss or yyyy-MM-dd HH:mm:ss.SSS  
+
+**Example LazySimpleSerDe based table for date and timestamps**
 ```
 CREATE EXTERNAL TABLE `test_datettime`(t1 date,  t2 timestamp,  t3 timestamp)
 ROW FORMAT DELIMITED 
@@ -25,7 +31,8 @@ TBLPROPERTIES (
   'typeOfData'='file'
   )
 ```
-Example file
+
+**Example file**
 ```
 t1	t2 t3
 2024-04-25	2024-04-25 13:23:55.123	2024-03-21 15:32:00
@@ -42,8 +49,6 @@ In python this would be coded as:
 ```python
 dt.strftime("%Y-%m-%d %H:%M:%S.%f")
 ```
-
-**LazySimpleSerDe format will not support quoted fields**. To support quoted fields you can use the OpenCSVSerde format.
 
 Here is an example:
 ```
@@ -64,7 +69,7 @@ LOCATION
   ```
   
   
-Somethings to note about this SerDe:
+Somethings to note about OpenCSVSerde SerDe:
  
   1. Timestamps have to be in UNIX numeric TIMESTAMP values (for example, 1579059880000).
   2. If timestamps are stored as "2023-11-01T19:28:40Z", then use a view with the function: **from_iso8601_timestamp** to convert it on the fly.
@@ -75,7 +80,7 @@ Somethings to note about this SerDe:
 See https://docs.aws.amazon.com/athena/latest/ug/csv-serde.html for more info.
 
 
-**To read as Nulls**
+**To read as Nulls**  (uses LazySimpleSerDe)  
 
 ```
 CREATE EXTERNAL TABLE `table_name`(
