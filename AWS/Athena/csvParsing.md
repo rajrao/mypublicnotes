@@ -1,4 +1,4 @@
-The glue crawler will use ROW FORMAT DELIMITED when it encounters a CSV file (this uses the LazySimpleSerDe)
+LazySimpleSerDe is the default serde in Athena and used if a SERDE is not specified. The glue crawler uses this as its serde for CSV files and you will typically see these tables defined without a SERDE but just "ROW FORMAT DELIMITED".
 
 Handling Date and Timestamp with LazySimpleSerDe
 
