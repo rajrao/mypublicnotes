@@ -32,6 +32,25 @@ TBLPROPERTIES (
   )
 ```
 
+The above could also be represented as  
+```
+CREATE EXTERNAL TABLE `test_datettime`(t1 date,  t2 timestamp,  t3 timestamp)
+ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe'
+WITH SERDEPROPERTIES (
+  'field.delim' = ',',
+  'escape.delim' = '\\',
+  'line.delim' = '\n'
+)
+LOCATION
+  's3://bucket/folder'
+TBLPROPERTIES (
+  'areColumnsQuoted'='false', 
+  'classification'='csv', 
+  'columnsOrdered'='true', 
+  'skip.header.line.count'='1'
+)
+```
+
 **Example file**
 ```
 t1	t2 t3
