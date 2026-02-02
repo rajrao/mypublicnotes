@@ -3,11 +3,52 @@ LazySimpleSerDe is the default serde in Athena and used if a SERDE is not specif
 **LazySimpleSerDe format does not support quoted fields. To support quoted fields you can use the OpenCSVSerde format.**  
 
 **Recommendation**:  
-Use OpenCsvSerde and bring it in as an internal table (eg: _my_table). Expose to end users as a view with cast/try_cast for data-types (eg: my_table).
-OpenCsvSerde only supports timestamps (1579059880000) where as LazySimpleSerDe supports customizable formats.
+If you have quoted strings, or if you dont know if you will have quoted strings, then use OpenCsvSerde and bring it in as an internal table (eg: _my_table). Expose to end users as a view with cast/try_cast for data-types (eg: my_table). Otherwise use **LazySimpleSerDe**.  
 
+**LazySimpleSerDe**:  
 
-Handling Date and Timestamp with LazySimpleSerDe  
+**Basic Example**
+
+```
+CREATE EXTERNAL TABLE `table_name`(
+  `field1` bigint, 
+  `field_2` string, 
+  `field_3` string)
+ROW FORMAT DELIMITED 
+  FIELDS TERMINATED BY ',' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.mapred.TextInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+LOCATION
+  's3://bucket_name/folder_name'
+TBLPROPERTIES (
+  'areColumnsQuoted'='false', 
+  'serialization.null.format'='', 
+  'skip.header.line.count'='1')
+```
+
+The above could also be represented as  
+```
+CREATE EXTERNAL TABLE `table_name`(
+  `field1` bigint, 
+  `field_2` string, 
+  `field_3` string)
+ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe'
+WITH SERDEPROPERTIES (
+  'field.delim' = ',',
+  'escape.delim' = '\\',
+  'line.delim' = '\n'
+)
+LOCATION
+  's3://bucket/folder'
+TBLPROPERTIES (
+  'areColumnsQuoted'='false', 
+  'serialization.null.format'='', 
+  'skip.header.line.count'='1')
+```
+
+**Handling Date and Timestamp with LazySimpleSerDe  **
 Date and Timestamp have to be formated as yyyy-MM-dd or yyyy-MM-dd HH:mm:ss or yyyy-MM-dd HH:mm:ss.SSS  
 
 **Example LazySimpleSerDe based table for date and timestamps**
@@ -32,24 +73,6 @@ TBLPROPERTIES (
   )
 ```
 
-The above could also be represented as  
-```
-CREATE EXTERNAL TABLE `test_datettime`(t1 date,  t2 timestamp,  t3 timestamp)
-ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe'
-WITH SERDEPROPERTIES (
-  'field.delim' = ',',
-  'escape.delim' = '\\',
-  'line.delim' = '\n'
-)
-LOCATION
-  's3://bucket/folder'
-TBLPROPERTIES (
-  'areColumnsQuoted'='false', 
-  'classification'='csv', 
-  'columnsOrdered'='true', 
-  'skip.header.line.count'='1'
-)
-```
 
 **Example file**
 ```
@@ -86,18 +109,6 @@ LOCATION
   's3://bucket_name/folder_name/'
   
   ```
-  
-  
-Somethings to note about OpenCSVSerde SerDe:
- 
-  1. Timestamps have to be in UNIX numeric TIMESTAMP values (for example, 1579059880000).
-  2. If timestamps are stored as "2023-11-01T19:28:40Z", then use a view with the function: **from_iso8601_timestamp** to convert it on the fly.
-     if you need to use it in a view then use: cast(from_iso8601_timestamp(column_name) as timestamp) as otherwise you will get an unsupported data type error
-  4. Does not support embedded line breaks (you need to escape them to be read correctly).
-  5. OpenCSVSerde will read empty fields as empty strings and not as null!
- 
-See https://docs.aws.amazon.com/athena/latest/ug/csv-serde.html for more info.
-
 
 **To read as Nulls**  (uses LazySimpleSerDe)  
 
@@ -115,30 +126,27 @@ TBLPROPERTIES (
 ```
 If any field is stored as **,,**, then that field will be read as null. See [AWS](https://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_EXTERNAL_TABLE.html#:~:text=%27serialization.null.format%27%3D%27%20%27)
 
+-------
+
+**OpenCSVSerde**  
+Somethings to note about **OpenCSVSerde** SerDe:
+ 
+  1. Timestamps have to be in UNIX numeric TIMESTAMP values (for example, 1579059880000).
+  2. If timestamps are stored as "2023-11-01T19:28:40Z", then use a view with the function: **from_iso8601_timestamp** to convert it on the fly.
+     if you need to use it in a view then use: cast(from_iso8601_timestamp(column_name) as timestamp) as otherwise you will get an unsupported data type error
+  4. Does not support embedded line breaks (you need to escape them to be read correctly).
+  5. OpenCSVSerde will read empty fields as empty strings and not as null!
+ 
+See https://docs.aws.amazon.com/athena/latest/ug/csv-serde.html for more info.
+
+
+-----------
+
+**Other Notes:**
+
 TblProperties can be updated using an alter statement
 ```
 alter table `table_name` set tblproperties('serialization.null.format'='')
-```
-
-The following uses STORED AS INPUTFORMAT as part of the definition and in which case OUTPUTFORMAT has to be also defined
-
-```
-CREATE EXTERNAL TABLE `table_name`(
-  `field1` bigint, 
-  `field_2` string, 
-  `field_3` string)
-ROW FORMAT DELIMITED 
-  FIELDS TERMINATED BY ',' 
-STORED AS INPUTFORMAT 
-  'org.apache.hadoop.mapred.TextInputFormat' 
-OUTPUTFORMAT 
-  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
-LOCATION
-  's3://bucket_name/folder_name'
-TBLPROPERTIES (
-  'areColumnsQuoted'='false', 
-  'serialization.null.format'='', 
-  'skip.header.line.count'='1')
 ```
 
 **Useful Infromation**  
