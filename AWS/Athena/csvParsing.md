@@ -150,4 +150,5 @@ alter table `table_name` set tblproperties('serialization.null.format'='')
 ```
 
 **Useful Infromation**  
-https://stackoverflow.com/questions/50723963/how-to-read-quoted-csv-with-null-values-into-amazon-athena: Summary: use OpenCsvSerDe. Bring all fields as strings and cast using try_cast.
+https://stackoverflow.com/questions/50723963/how-to-read-quoted-csv-with-null-values-into-amazon-athena: **Summary**: use OpenCsvSerDe. Bring all fields as strings and cast using try_cast.  
+https://athena.guide/articles/working-with-csv
