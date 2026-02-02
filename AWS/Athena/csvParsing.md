@@ -3,7 +3,10 @@ LazySimpleSerDe is the default serde in Athena and used if a SERDE is not specif
 **LazySimpleSerDe format does not support quoted fields. To support quoted fields you can use the OpenCSVSerde format.**  
 
 **Recommendation**:  
-If you have quoted strings, or if you dont know if you will have quoted strings, then use OpenCsvSerde and bring it in as an internal table (eg: _my_table). Expose to end users as a view with cast/try_cast for data-types (eg: my_table). Otherwise use **LazySimpleSerDe**.  
+from: https://docs.aws.amazon.com/athena/latest/ug/serde-csv-choices.html  
+If your data contains values enclosed in double quotes ("), you can use the **OpenCSVSerDe** library to deserialize the values in Athena. If your data does not contain values enclosed in double quotes ("), you can omit specifying any SerDe. In this case, Athena uses the default **LazySimpleSerDe**.
+
+If your data has UNIX numeric TIMESTAMP values (for example, 1579059880000), use the Open CSV SerDe. If your data uses the java.sql.Timestamp format, use the Lazy Simple SerDe.
 
 **LazySimpleSerDe**:  
 
@@ -150,5 +153,7 @@ alter table `table_name` set tblproperties('serialization.null.format'='')
 ```
 
 **Useful Infromation**  
-https://stackoverflow.com/questions/50723963/how-to-read-quoted-csv-with-null-values-into-amazon-athena: **Summary**: use OpenCsvSerDe. Bring all fields as strings and cast using try_cast.  
-https://athena.guide/articles/working-with-csv
+1. https://stackoverflow.com/questions/50723963/how-to-read-quoted-csv-with-null-values-into-amazon-athena: **Summary**: use OpenCsvSerDe. Bring all fields as strings and cast using try_cast.  
+2. https://athena.guide/articles/working-with-csv
+3. https://docs.aws.amazon.com/athena/latest/ug/lazy-simple-serde.html
+4. https://docs.aws.amazon.com/athena/latest/ug/csv-serde.html
