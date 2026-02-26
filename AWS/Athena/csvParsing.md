@@ -113,7 +113,11 @@ LOCATION
   
   ```
 
-**To read as Nulls**  (uses LazySimpleSerDe)  
+
+
+**To read as Nulls**  
+
+**LazySimpleSerDe**:
 
 ```
 CREATE EXTERNAL TABLE `table_name`(
@@ -128,6 +132,21 @@ TBLPROPERTIES (
   'serialization.null.format'='')
 ```
 If any field is stored as **,,**, then that field will be read as null. See [AWS](https://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_EXTERNAL_TABLE.html#:~:text=%27serialization.null.format%27%3D%27%20%27)
+
+
+**OpenCSVSerde**
+
+If you add 'use.null.for.invalid.data' = 'true' to the SERDEPROPERTIES, empty values will be read as null.
+
+```
+WITH SERDEPROPERTIES (
+  'separatorChar' = ',',
+  'quoteChar' = '"',
+  'escapeChar' = '\\',
+  'skip.header.line.count' = '1',
+  'use.null.for.invalid.data' = 'true'
+)
+```
 
 -------
 
