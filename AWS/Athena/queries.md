@@ -17,28 +17,28 @@ select substring("$path", 1, length("$path") - position('/' in REVERSE("$path"))
 from table_name
 limit 1
 ```
-
+---
 
 **Alter Table add partition**  
 ```sql
 ALTER TABLE dbname.tablename ADD PARTITION (partition_date='2022-09-22') location 's3://bucket/pathx/2022/09/22/'
 ```
-
+---
 **show create sql**  
 ```sql
 SHOW CREATE TABLE table_name
 ```
-
+---
 **query data from a certain folder**  
 ```sql
 select * from account
 where regexp_like("$path",'s3://bucket/pathx/pathy/2023/08/10/');
 ```
-
+---
 
 Usefult glue-catalog tables that can be used to query athena table metadata: https://docs.aws.amazon.com/athena/latest/ug/querying-glue-catalog.html
 
-
+---
 **ICEBERG**
 
 **Create table**  
@@ -53,7 +53,7 @@ column1, column2, ....
 FROM dbname.tablename
 ;
 ```
-
+---
 **Merge**  
 ```sql
 MERGE INTO dbname.tablename t USING (
@@ -72,7 +72,7 @@ INSERT (column1,column2,audit_time_stamp)
 VALUES
 (s.column1,s.column2,current_timestamp)
 ```
-
+---
 **timetravel**  
 ```sql
 SELECT * from dbname.tablename
@@ -84,7 +84,7 @@ SELECT * from dbname.tablename
 FOR VERSION AS OF 2357627428223742678 -- for v.id see: "tablename$history"
 
 ```
-
+---
 ```sql
 select * from "tablename$history" order by made_current_at desc
 select * from "tablename$snapshots"
@@ -94,7 +94,7 @@ select * from "tablename$partitions"
 select * from "tablename$files"
 select content,file_path,file_format,record_count, file_size_in_bytes from "tablename$files"
 ```
-
+---
 **vacuum**  
 ```sql
 ALTER TABLE dbname.tablename SET TBLPROPERTIES (
@@ -102,6 +102,9 @@ ALTER TABLE dbname.tablename SET TBLPROPERTIES (
 'vacuum_max_snapshot_age_seconds'='1'
 )
 
+VACUUM dbname.tablename;
+```
+---
 **return SubQueries as Arrays**
 ```sql
 select t.id, t.title, t.url, count(st.topic_id) topic_cnt,
@@ -114,7 +117,4 @@ CAST(
 from topic t
 join sub_topic st on st.topicid = t.id
 group by t.id, t.title, t.url
-```
-
-VACUUM dbname.tablename;
 ```
