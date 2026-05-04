@@ -102,5 +102,19 @@ ALTER TABLE dbname.tablename SET TBLPROPERTIES (
 'vacuum_max_snapshot_age_seconds'='1'
 )
 
+**return SubQueries as Arrays**
+```sql
+select t.id, t.title, t.url, count(st.topic_id) topic_cnt,
+array_agg(
+CAST(
+            ROW(st.topic_id, st.content)
+            AS ROW(topic_id varchar, content VARCHAR)
+     )
+)topics
+from topic t
+join sub_topic st on st.topicid = t.id
+group by t.id, t.title, t.url
+```
+
 VACUUM dbname.tablename;
 ```
