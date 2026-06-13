@@ -265,9 +265,66 @@ TBLPROPERTIES (
 ```
 
 -------
+**AWS Kiro User_Report logs**  
+works for path like: **s3://kiro/user_report**/us-east-1/2026/06/11/00/ 
 
+also see [Kiro User activity](https://kiro.dev/docs/cli/enterprise/monitor-and-track/user-activity/) and [AWS Sample](https://github.com/aws-samples/sample-kiro-user-analytics-dashboard)
+
+```
+CREATE EXTERNAL TABLE `user_report_v2`(
+  `date` string, 
+  `userid` string, 
+  `client_type` string, 
+  `chat_conversations` bigint, 
+  `credits_used` double, 
+  `overage_cap` double, 
+  `overage_credits_used` double, 
+  `overage_enabled` boolean, 
+  `profileid` string, 
+  `subscription_tier` string, 
+  `total_messages` bigint, 
+  `new_user` boolean, 
+  `user_email` string, 
+  `claude_sonnet_4.6_messages` bigint, 
+  `claude_opus_4.8_messages` bigint, 
+  `auto_messages` bigint, 
+  `claude_opus_4.7_messages` bigint, 
+  `claude_sonnet_4.5_messages` bigint)
+PARTITIONED BY ( 
+  `partition_1` string, 
+  `partition_2` string, 
+  `partition_3` string)
+ROW FORMAT DELIMITED 
+  FIELDS TERMINATED BY ',' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.mapred.TextInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+LOCATION
+  's3://hvbidev-kiro/user_report'
+TBLPROPERTIES (
+  'areColumnsQuoted'='false', 
+  'classification'='csv', 
+  'columnsOrdered'='true', 
+  'compressionType'='none', 
+  'delimiter'=',', 
+  'partition_filtering.enabled'='true', 
+  'projection.enabled'='true', 
+  'projection.partition_1.range'='2026,2027', 
+  'projection.partition_1.type'='integer', 
+  'projection.partition_2.digits'='2', 
+  'projection.partition_2.range'='1,12', 
+  'projection.partition_2.type'='integer', 
+  'projection.partition_3.digits'='2', 
+  'projection.partition_3.range'='1,31', 
+  'projection.partition_3.type'='integer', 
+  'skip.header.line.count'='1', 
+  'storage.location.template'='s3://hvbidev-kiro/user_report/us-east-1/${partition_1}/${partition_2}/${partition_3}/00/', 
+  'typeOfData'='file')
+```
   
+----
 
-
+------
 For more info:  
 https://docs.aws.amazon.com/athena/latest/ug/partition-projection.html
