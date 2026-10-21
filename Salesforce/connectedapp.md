@@ -1,3 +1,5 @@
+Installation on Windows at the end!
+
 You will need a private and public key
 
 1. openssl genrsa -out keypair.pem 2048
@@ -152,3 +154,13 @@ except requests.HTTPError as e:
     print(e)
     print(e.response.text)
 ```
+
+
+
+
+On windows (install openssl) using:  
+```
+winget search openssl
+# pick one of the options. below i used FireDaemon
+winget install --id=FireDaemon.OpenSSL -e
+```  
