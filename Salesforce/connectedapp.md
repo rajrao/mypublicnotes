@@ -163,4 +163,12 @@ On windows (install openssl) using:
 winget search openssl
 # pick one of the options. below i used FireDaemon
 winget install --id=FireDaemon.OpenSSL -e
+# add to env
+$Env:PATH += ";C:\Program Files\FireDaemon OpenSSL 4\bin"
+
+#or run from install location:
+'C:\Program Files\FireDaemon OpenSSL 4\bin\openssl.exe'
 ```  
+
+
+
