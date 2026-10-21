@@ -18,7 +18,7 @@
 2. The generated "privatekey.pem" file contains both your private key and your public key. You will need the private key to authenticate access to the service account. Keep this file, and
 secure it from unauthorized access. Do not share this file outside your organization.  
 3. Extract only the the public key:  
-```openssl rsa -in privatekey.pem -pubout -out publickey.pem``  
+```openssl rsa -in privatekey.pem -pubout -out publickey.pem```
 4. The "publickey.pem" file contains the PEM formatted public key needed by PROS Home. This file can be shared with other parties, if necessary.
 
 ---  
